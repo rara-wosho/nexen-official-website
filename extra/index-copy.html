@@ -1,0 +1,503 @@
+<?php
+require_once 'db_connect.php';
+
+// Function to fetch content from the database
+<?php
+function getContent($section_name, $content_key) {
+    global $connection;
+    $query = "SELECT content FROM content WHERE section_name = $1 AND content_key = $2";
+    $result = pg_query_params($connection, $query, [$section_name, $content_key]);
+    if ($result && pg_num_rows($result) > 0) {
+        $row = pg_fetch_assoc($result);
+        return $row['content'];
+    }
+    return ''; // Return empty string if no content is found
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>NEXEN Innovantion Technologies Inc.</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo.jpg" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Siimple
+  * Template URL: https://bootstrapmade.com/free-bootstrap-landing-page/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/d
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo-nexen-removebg-preview.png" alt="nexen-logo">  <!-- DO NOT TOUCH, TAGUON NAKO NI -->
+        <!-- <h1 class="sitename">NEXEN</h1> -->
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about" class="active">About</a></li>
+          <li><a href="#why-us" class="active">Why Us</a></li>
+          <li><a href="#services" class="active">Services</a></li>
+          <li><a href="#projects" class="active">Projects</a></li>
+          <li><a href="#blog" class="blog">Blog</a></li>
+          <li><a href="#contact" class="active">Contact</a></li>
+        </ul>
+        <a href="login.php" class="login bi-person-circle"> Login</a> <!-- changed admin/login.php to login.php -->
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      <video src="assets/video/animated-theme.mp4" autoplay muted loop></video>
+
+      <div class="container text-center" data-aos="zoom-out" data-aos-delay="150">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2><?php echo getContent('hero', 'hero_title'); ?></h2>
+            <p><?php echo getContent('hero', 'hero_subtitle'); ?></p>
+            <a href="#about" class="btn-get-started">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Hero Section -->
+    
+    <!-- About Section-->
+    <section id="about" class="about section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About Us</h2>
+        <div class="vert-line"></div>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <!-- <img src="assets/img/nexen1.jpeg" class="img-fluid" alt=""> -->
+             <video src="assets/video/nexen2.mp4" type="video/mp4" width="100%" height="300" class="video" autoplay muted controls></video>
+          </div>
+          <div class="col-lg-6 content">
+            <h3>Innovating for a Smarter Future</h3>
+              <p class="fst-italic">
+                At Nexen Innovation Technologies Inc., we are dedicated to providing cutting-edge IT solutions that streamline human resource transactions and enterprise operations.
+              </p>
+              <ul>
+                <li><i class="bi bi-check2-all"></i> <span>Expert IT services tailored to enhance business efficiency.</span></li>
+                <li><i class="bi bi-check2-all"></i> <span>Innovative software solutions for seamless HR management.</span></li>
+                <li><i class="bi bi-check2-all"></i> <span>Reliable and secure automation to drive digital transformation.</span></li>
+              </ul>
+              <p>
+                Established in 2010, our mission is to empower businesses with technology that simplifies processes, improves productivity, and ensures long-term success.
+              </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+    
+
+        <!-- Why Us Section -->
+    <section id="why-us" class="why-us section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Why Us</h2>
+        <div class="vert-line"></div>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4" data-aos="fade-right" data-aos-delay="100">
+
+          <div class="col-md-6">
+            <div class="card">
+              <div class="img">
+                <img src="assets/img/nexen1.jpeg" alt="" class="img-fluid">
+                <div class="icon"><i class="bi bi-hdd-stack"></i></div>
+              </div>
+              <h2 class="title"><a href="#" class="stretched-link">Our Mission</a></h2>
+              <p>
+                Bring technological systems innovation to every partner institution to help them reach their full potential.
+              </p>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="card">
+              <div class="img">
+                <img src="assets/img/nexen2.jpg" alt="" class="img-fluid">
+                <div class="icon"><i class="bi bi-brightness-high"></i></div>
+              </div>
+              <h2 class="title"><a href="#" class="stretched-link">Our Vision</a></h2>
+              <p>
+                To become the leading provider of innovative business engine solutions.  
+              </p>
+            </div>
+          </div><!-- End Card Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Why Us Section -->
+
+
+    <!-- Services Section -->
+    <section id="services" class="services section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <div class="vert-line"></div>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-down-right" data-aos-delay="100">
+            <div class="service-item  position-relative">
+              <div class="icon">
+                <i class="bi bi-server"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Software Development</h3>
+              </a>
+              <p>Custom-built software solutions tailored to meet business needs, from enterprise applications to web platforms and desktop software.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-distribute-horizontal"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Payroll Outsourcing</h3>
+              </a>
+              <p>Efficient and secure payroll processing services to streamline salary computations and compliance.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-down-left" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-window-fullscreen"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Website Development</h3>
+              </a>
+              <p>Professional website design and development to enhance online presence and user engagement.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up-right" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-chat-dots-fill"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Technical Support Outsourcing</h3>
+              </a>
+              <p>Reliable IT support services to assist customers with troubleshooting and system maintenance.</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-cloud-check-fill"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Security and Network Services</h3>
+              </a>
+              <p>Robust cybersecurity and networking solutions to protect businesses from threats and ensure seamless connectivity.</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up-left" data-aos-delay="600">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-lightbulb-fill"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Solar Solutions</h3>
+              </a>
+              <p>Sustainable and cost-effective solar energy systems for residential and commercial use.</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    
+    <!-- Projects Section / Carousel -->
+    <section id="projects" class="projects section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Projects</h2>
+        <div class="vert-line-projects"></div>
+      </div><!-- End Section Title -->
+
+      <div class="container mt-5" data-aos="zoom-in">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+    
+            <!-- Carousel Items -->
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="3000">
+                  <div class="carousel-img-wrapper">
+                      <img src="assets/img/hrmax.jpg" class="d-block" alt="Slide 1">
+                  </div>
+                  <div class="carousel-caption d-none d-md-block">
+                      <h4>HRMAX</h4>
+                      <p>A comprehensive Human Capital Operations System</p>
+                  </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="3000">
+                  <div class="carousel-img-wrapper">
+                      <img src="assets/img/medipro.jpg" class="d-block" alt="Slide 2">
+                  </div>
+                  <div class="carousel-caption d-none d-md-block">
+                      <h4>MEDIPRO</h4>
+                      <p>A software solution tailored for medical professionals</p>
+                  </div>
+              </div>
+          </div>
+          
+    
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- Blog/Events Section -->
+    <section  id="blog" class="blog section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Blog</h2>
+        <div class="vert-line"></div>
+      </div><!--End of section title-->  
+        <div class="container mt-4">
+          <div class="row">
+              <!-- Sidebar Blogs -->
+              <div class="col-md-4 blog-sidebar" data-aos="fade-right">
+                  <div class="mb-4 article-item">
+                    <img src="assets/img/nscc.jpg" alt="Blog 3">
+                    <p style="font-size: 12px;" class="event-date"><i class="bi bi-calendar2-event"></i><em> January 31, 2024</em></p>
+                    <h5><a href="https://www.facebook.com/Nexen.ph/posts/pfbid0ij5LmrPVWTHxkLrFXVLYjoZ1pnqF6hNx399daWERG5LBo28nBtaPaXipP6YZwcojl">NSCC Cooperative Partnership</a></h5>
+                    <p>Newly closed deal HRMAX partner NSCC Cooperative...</p>
+                    <a href="https://www.facebook.com/Nexen.ph/posts/pfbid0ij5LmrPVWTHxkLrFXVLYjoZ1pnqF6hNx399daWERG5LBo28nBtaPaXipP6YZwcojl">Read More ></a>
+                    
+                </div>
+                  <div class="mb-4 article-item">
+                      <img src="assets/img/tam-an.jpg" alt="Blog 2">
+                      <p style="font-size: 12px;" class="event-date"><i class="bi bi-calendar2-event"></i><em> April 24, 2024</em></p>
+                      <h5><a href="https://www.facebook.com/Nexen.ph/posts/pfbid0LgszzbLA2r4359ZVv3eauGw1AzMs5V3cRNfHta3CKNsRV1oU39sgRekdTg4Qgod8l">Tam-an BMPC Partnership</a></h5>
+                      <p>Tam-an BMPC has signed a strategic partnership with Nexen Innovation Technologies, Inc... </p>
+                      <a href="https://www.facebook.com/Nexen.ph/posts/pfbid0LgszzbLA2r4359ZVv3eauGw1AzMs5V3cRNfHta3CKNsRV1oU39sgRekdTg4Qgod8l">Read More ></a>
+                  </div>
+                  <!-- <div class="mb-4 article-item">
+                    <img src="assets/img/anniversary.jpg" alt="Blog 1">
+                    <p style="font-size: 12px;" class="event-date"><i class="bi bi-calendar2-event"></i><em> May 17, 2024</em></p>
+                    <h5><a href="https://www.facebook.com/share/p/12GLkdSMobU/">14th Anniversary</a></h5>
+                    <p>A week long celebration of NEXEN 14th years of continuous success... </p>
+                    <a href="https://www.facebook.com/share/p/12GLkdSMobU/">Read More ></a>
+                  </div> -->
+
+              </div>
+              
+              <!-- Main Blog -->
+              <div class="col-md-8 blog-main" data-aos="fade-left">
+                  <img src="assets/img/anniversary.jpg" alt="Main Blog Image">
+                  <p style="font-size: 12px;" class="event-date"><i class="bi bi-calendar2-event"></i><em> May 17, 2024</em></p>
+                  <h2><a href="https://www.facebook.com/share/p/12GLkdSMobU/">14th Anniversary</a></h2>
+                  <p>A week long celebration of NEXEN 14th years of continuous success... </p>
+                  <p><a href="https://www.facebook.com/share/p/12GLkdSMobU/">Read More ></a></p>
+
+              </div>
+              
+          </div> <!--content ends here-->
+      
+
+      </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact Us</h2>
+        <div class="vert-line"></div>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="zoom-in" data-aos-delay="100">
+
+        <div class="row gy-4" data-aos="zoom-in" data-aos-delay="200">
+
+          <div class="col-lg-4">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center text-center">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>
+              <p>Nexen Bldg., 68 McKinley St., National Highway, Purok-1, Talic, Oroquieta City, Misamis Occidental, Philppines, 7207</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-4">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center info-item-borders">
+              <i class="bi bi-telephone"></i>
+              <h3>Call Us</h3>
+              <p>0997-609-3356</p>
+              <p>(088) 521 - 0774</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-4">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center">
+              <i class="bi bi-envelope"></i>
+              <h3>Email Us</h3>
+              <p>info@nexen.com.ph</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          
+
+        </div>
+
+        <!-- <form action="forms/contact.php" method="post" class="php-email-form" data-aos="flip-up" data-aos-delay="300"> -->
+          <!-- <div class="row gy-4">
+
+            <div class="col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+            </div>
+
+            <div class="col-md-6 ">
+              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+            </div>
+
+            <div class="col-md-12">
+              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+
+              <button type="submit">Send Message</button>
+            </div>
+
+          </div> -->
+        <!-- </form> End Contact Form -->
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <h3 class="sitename">NEXEN</h3>
+      <p>Your NEXT Business ENGINE.</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.nexen.com.ph/"><i class="bi bi-globe-asia-australia"></i></a>
+        <a href="https://www.facebook.com/Nexen.ph"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/nexen.ph/"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/@nexenph"><i class="bi bi-youtube"></i></a>
+        <a href="https://ph.linkedin.com/company/nexen-innovation-technologies-inc"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">NEXEN</strong> <span>All Rights Reserved</span>
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you've purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+          <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

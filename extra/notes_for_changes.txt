@@ -1,0 +1,144 @@
+---------- index.html (probably incorrect: Blackbox) --------------------------
+
+// Handle form submission for content updates
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['section']) && isset($_POST['content'])) {
+    $section = $_POST['section'];
+    $content = $_POST['content'];
+
+    // Define the path to the index.html file
+    $indexFilePath = 'index.html';
+
+    // Load the contents of the index.html file
+    $indexFileContent = file_get_contents($indexFilePath);
+
+    // Define the section markers in the index.html file
+    $sectionMarkers = [
+        'hero' => ['<!-- HERO SECTION START -->', '<!-- HERO SECTION END -->'],
+        'about' => ['<!-- ABOUT SECTION START -->', '<!-- ABOUT SECTION END -->'],
+        'whyus' => ['<!-- WHY US SECTION START -->', '<!-- WHY US SECTION END -->'],
+        'services' => ['<!-- SERVICES SECTION START -->', '<!-- SERVICES SECTION END -->'],
+        'projects' => ['<!-- PROJECTS SECTION START -->', '<!-- PROJECTS SECTION END -->'],
+        'contact' => ['<!-- CONTACT SECTION START -->', '<!-- CONTACT SECTION END -->'],
+    ];
+
+    // Get the section markers for the current section
+    $sectionStartMarker = $sectionMarkers[$section][0];
+    $sectionEndMarker = $sectionMarkers[$section][1];
+
+    // Find the section in the index.html file
+    $sectionStartIndex = strpos($indexFileContent, $sectionStartMarker);
+    $sectionEndIndex = strpos($indexFileContent, $sectionEndMarker);
+
+    // Extract the section content from the index.html file
+    $sectionContent = substr($indexFileContent, $sectionStartIndex + strlen($sectionStartMarker), $sectionEndIndex - $sectionStartIndex - strlen($sectionStartMarker));
+
+    // Update the section content with the new content
+    $updatedSectionContent = $content;
+
+    // Replace the old section content with the new content in the index.html file
+    $updatedIndexFileContent = str_replace($sectionContent, $updatedSectionContent, $indexFileContent);
+
+    // Write the updated content to the index.html file
+    file_put_contents($indexFilePath, $updatedIndexFileContent);
+
+    // Set a success message to display after updating the content
+    $success_message = "Content for $sections[$section] has been updated!";
+}
+
+--------------------------------------------------------------------------------------
+
+Section Markers in Index.html
+
+To make this work, you'll need to add section markers to your index.html file.
+ These markers will help the PHP script identify the sections and update the content accordingly.
+ Here's an example of what the section markers might look like:
+
+ <!-- HERO SECTION START -->
+<!-- Your hero section content here -->
+<!-- HERO SECTION END -->
+
+<!-- ABOUT SECTION START -->
+<!-- Your about section content here -->
+<!-- ABOUT SECTION END -->
+
+<!-- WHY US SECTION START -->
+<!-- Your why us section content here -->
+<!-- WHY US SECTION END -->
+
+<!-- SERVICES SECTION START -->
+<!-- Your services section content here -->
+<!-- SERVICES SECTION END -->
+
+<!-- PROJECTS SECTION START -->
+<!-- Your projects section content here -->
+<!-- PROJECTS SECTION END -->
+
+<!-- CONTACT SECTION START -->
+<!-- Your contact section content here -->
+<!-- CONTACT SECTION END -->
+
+Note: Make sure to update the section markers in the PHP script to match the section markers in your index.html file.
+
+With these changes, the PHP script should now save the changes to the index.html 
+file when you submit the form.
+
+========================================================================================
+
+========================================================================================
+------------- option 2 -------------------
+// Step 1: Connect to the database (already done in connect_db.php)
+
+// Step 2: Fetch data from the database
+$id = $_GET['id']; // Assuming you're passing an ID to fetch specific data
+$sql = "SELECT * FROM your_table WHERE id = $1";
+$result = pg_query_params($conn, $sql, array($id));
+
+if (!$result) {
+    die("Error in SQL query: " . pg_last_error());
+}
+
+$data = pg_fetch_assoc($result);
+
+// Step 3: Display data in HTML form
+?>
+<form method="POST" action="admin_editor.php?id=<?php echo $id; ?>">
+    <input type="text" name="field_name" value="<?php echo htmlspecialchars($data['field_name']); ?>">
+    <input type="submit" value="Save Changes">
+</form>
+
+<?php
+// Step 4: Save changes to database
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $new_value = $_POST['field_name'];
+    
+    $update_sql = "UPDATE your_table SET field_name = $1 WHERE id = $2";
+    $update_result = pg_query_params($conn, $update_sql, array($new_value, $id));
+    
+    if ($update_result) {
+        // Redirect to index.html after successful update
+        header("Location: index.html");
+        exit();
+    } else {
+        echo "Error updating record: " . pg_last_error();
+    }
+}
+
+// Close the connection
+pg_close($conn);
+
+================================================
+
+3/20/25
+
+CREATE TABLE website_content (
+    id SERIAL PRIMARY KEY,
+    section_name VARCHAR(50) UNIQUE NOT NULL,
+    content TEXT NOT NULL
+);
+
+-- Insert initial content for each section
+INSERT INTO website_content (section_name, content) VALUES
+('hero_title', 'WELCOME TO NEXEN'),
+('hero_subtitle', 'Your Next Business Engine Solutions'),
+('about_title', 'About Us'),
+('about_description', 'At Nexen Innovation Technologies Inc., we are dedicated to providing cutting-edge IT solutions that streamline human resource transactions and enterprise operations.');

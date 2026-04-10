@@ -1,0 +1,38 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Node dependencies
+node_modules/
+
+# PHP / environment
+.env
+.env.local
+.env.*.local
+vendor/
+
+# Uploads and generated files
+uploads/
+*.log
+
+# Temporary and backup files
+*.tmp
+*.temp
+*.swp
+*~
+*.bak
+*.orig
+
+# Composer cache / lock files (optional)
+# composer.lock
+
+# Ignore build output directories if added later
+/dist/
+/build/
+/public/
