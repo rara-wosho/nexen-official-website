@@ -1,0 +1,256 @@
+
+    <!-- ══ ABOUT ════════════════════════════════════════════ -->
+    <section id="about" class="nx-section bg-surface">
+      <div class="container">
+
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-eyebrow">Who We Are</span>
+          <h2 class="section-heading">About Us</h2>
+          <span class="section-rule"></span>
+        </div>
+
+        <div class="row gy-4 align-items-center">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <div class="about-video-wrap">
+              <video src="<?php echo getContent('about', 'video'); ?>" width="100%" height="340" autoplay muted controls></video>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="about-content">
+              <h3><?php echo getContent('about', 'title'); ?></h3>
+              <p class="lead-text"><?php echo getContent('about', 'description'); ?></p>
+              <ul class="about-checklist">
+                <li>
+                  <span class="check-icon"><i class="bi bi-check2"></i></span>
+                  <span><?php echo getContent('about', 'list'); ?></span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="bi bi-check2"></i></span>
+                  <span><?php echo getContent('about', 'list1'); ?></span>
+                </li>
+                <li>
+                  <span class="check-icon"><i class="bi bi-check2"></i></span>
+                  <span><?php echo getContent('about', 'list2'); ?></span>
+                </li>
+              </ul>
+              <p class="about-footer-text"><?php echo getContent('about', 'footer'); ?></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ WHY US ════════════════════════════════════════════ -->
+    <section id="why-us" class="nx-section bg-white">
+      <div class="container">
+
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-eyebrow">Our Advantage</span>
+          <h2 class="section-heading">Why Choose NEXEN</h2>
+          <span class="section-rule"></span>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
+            <div class="why-card">
+              <div class="why-card-img">
+                <img src="<?php echo getContent('why-us', 'card_img'); ?>" alt="">
+                <div class="why-card-icon"><i class="bi bi-pin-angle"></i></div>
+              </div>
+              <div class="why-card-body">
+                <h3><a href="#"><?php echo getContent('why-us', 'card_title'); ?></a></h3>
+                <p><?php echo getContent('why-us', 'card_description'); ?></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="why-card">
+              <div class="why-card-img">
+                <img src="<?php echo getContent('why-us', 'card_img1'); ?>" alt="">
+                <div class="why-card-icon"><i class="bi bi-brightness-high"></i></div>
+              </div>
+              <div class="why-card-body">
+                <h3><a href="#"><?php echo getContent('why-us', 'card_title1'); ?></a></h3>
+                <p><?php echo getContent('why-us', 'card_description1'); ?></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══ PROJECTS ══════════════════════════════════════════ -->
+    <section id="projects" class="nx-section bg-navy">
+      <div class="container">
+
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-eyebrow" style="color:rgba(255,255,255,0.5);">Our Work</span>
+          <h2 class="section-heading light">Projects</h2>
+          <span class="section-rule"></span>
+        </div>
+
+        <div class="projects-wrap" data-aos="zoom-in" data-aos-delay="100">
+          <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="3000">
+                <div class="carousel-img-wrapper">
+                  <img src="<?php echo getContent('projects', 'img'); ?>" class="d-block" alt="Slide 1">
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="3000">
+                <div class="carousel-img-wrapper">
+                  <img src="assets/img/medipro.jpg" class="d-block" alt="Slide 2">
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ BLOG ══════════════════════════════════════════════ -->
+    <section id="blog" class="nx-section bg-surface">
+      <div class="container">
+
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-eyebrow">Latest Updates</span>
+          <h2 class="section-heading">Blog &amp; Events</h2>
+          <span class="section-rule"></span>
+        </div>
+
+        <div class="row gy-4">
+
+          <!-- Sidebar Blogs -->
+          <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
+            <div class="d-flex flex-column gap-4 h-100">
+
+              <div class="blog-card">
+                <div class="blog-card-img">
+                  <img src="<?php echo getContent('blog', 'img'); ?>" alt="Blog 1">
+                </div>
+                <div class="blog-card-body">
+                  <p class="blog-date"><i class="bi bi-calendar2-event"></i><?php echo getContent('blog', 'date'); ?></p>
+                  <h5><a href="https://www.facebook.com/Nexen.ph/posts/pfbid0ij5LmrPVWTHxkLrFXVLYjoZ1pnqF6hNx399daWERG5LBo28nBtaPaXipP6YZwcojl" target="_blank"><?php echo getContent('blog', 'title'); ?></a></h5>
+                  <p><?php echo getContent('blog', 'description'); ?></p>
+                  <a href="https://www.facebook.com/Nexen.ph/posts/pfbid0ij5LmrPVWTHxkLrFXVLYjoZ1pnqF6hNx399daWERG5LBo28nBtaPaXipP6YZwcojl" target="_blank" class="read-more-link">Read More <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+
+              <div class="blog-card">
+                <div class="blog-card-img">
+                  <img src="<?php echo getContent('blog', 'img1'); ?>" alt="Blog 2">
+                </div>
+                <div class="blog-card-body">
+                  <p class="blog-date"><i class="bi bi-calendar2-event"></i><?php echo getContent('blog', 'date1'); ?></p>
+                  <h5><a href="https://www.facebook.com/Nexen.ph/posts/pfbid0LgszzbLA2r4359ZVv3eauGw1AzMs5V3cRNfHta3CKNsRV1oU39sgRekdTg4Qgod8l"><?php echo getContent('blog', 'title1'); ?></a></h5>
+                  <p><?php echo getContent('blog', 'description1'); ?></p>
+                  <a href="https://www.facebook.com/Nexen.ph/posts/pfbid0LgszzbLA2r4359ZVv3eauGw1AzMs5V3cRNfHta3CKNsRV1oU39sgRekdTg4Qgod8l" class="read-more-link">Read More <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Main Blog -->
+          <div class="col-lg-8" data-aos="fade-left" data-aos-delay="200">
+            <div class="blog-main-card">
+              <div class="blog-main-img">
+                <img src="<?php echo getContent('blog', 'img2'); ?>" alt="Main Blog">
+              </div>
+              <div class="blog-main-body">
+                <p class="blog-date"><i class="bi bi-calendar2-event"></i><?php echo getContent('blog', 'date2'); ?></p>
+                <h2><a href="https://www.facebook.com/share/p/12GLkdSMobU/"><?php echo getContent('blog', 'title2'); ?></a></h2>
+                <p><?php echo getContent('blog', 'description2'); ?></p>
+                <div style="margin-top: 20px;">
+                  <a href="https://www.facebook.com/share/p/12GLkdSMobU/" class="read-more-link" style="font-size:14px;">
+                    Read Full Article <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT ════════════════════════════════════════════ -->
+    <section id="contact" class="nx-section bg-white">
+      <div class="container">
+
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-eyebrow">Get In Touch</span>
+          <h2 class="section-heading">Contact Us</h2>
+          <span class="section-rule"></span>
+        </div>
+
+        <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-4">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
+              <h3><?php echo getContent('contact', 'title'); ?></h3>
+              <p><?php echo getContent('contact', 'description'); ?></p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="bi bi-telephone"></i></div>
+              <h3><?php echo getContent('contact', 'title1'); ?></h3>
+              <p><?php echo getContent('contact', 'description1'); ?></p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="bi bi-envelope"></i></div>
+              <h3><?php echo getContent('contact', 'title2'); ?></h3>
+              <p><?php echo getContent('contact', 'description2'); ?></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">NEXEN</div>
+        <p class="footer-tagline">"Your NEXT Business ENGINE"</p>
+        <div class="footer-socials">
+          <a href="https://www.nexen.com.ph/" title="Website"><i class="bi bi-globe-asia-australia"></i></a>
+          <a href="https://www.facebook.com/Nexen.ph" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/nexen.ph/" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.youtube.com/@nexenph" title="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="https://ph.linkedin.com/company/nexen-innovation-technologies-inc" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+        <div class="footer-divider"></div>
+        <p class="footer-copy">
+          Copyright &copy; <strong>NEXEN Innovation Technologies Inc.</strong> All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+
+  
+  

@@ -11,7 +11,7 @@
     --blue-light: #e8eeff;
     --red: #d92b3a;
     --red-dark: #b71010;
-    --ink: #0b0f1a;
+    --ink: rgba(240, 240, 240, 1);
     --ink-mid: #374060;
     --ink-muted: #7a82a0;
     --surface: #f5f7fc;
@@ -48,8 +48,12 @@ body {
     color: var(--ink);
     background: var(--bg-background);
     overflow-x: hidden;
-    width: 100vw;
+    width: 100%;
     position: relative;
+}
+
+.max-w-wrapper {
+    max-width: 1320px;
 }
 
 img {
@@ -61,6 +65,9 @@ a {
     text-decoration: none;
 }
 
+.border-border {
+    border: 1px solid rgba(100, 100, 100, 0.4);
+}
 /* Utility fonts  */
 .montserrat {
     font-family: "Montserrat", sans-serif;
@@ -68,6 +75,10 @@ a {
 
 .inter {
     font-family: "Inter", sans-serif;
+}
+
+.urbanist {
+    font-family: "Urbanist", sans-serif;
 }
 
 /* ═══════════════════════════════════════════════
@@ -184,20 +195,10 @@ a {
     height: var(--nav-h);
     z-index: 900;
     background-color: transparent;
-}
-
-#header.scrolled {
-    background-color: red;
-}
-
-#header .container-fluid {
-    max-width: 1320px;
-    margin: 0 auto;
-    /* padding: 0 32px; */
-    height: 100%;
+    transition-property: all;
+    transition-duration: 0.4s;
     display: flex;
     align-items: center;
-    gap: 24px;
 }
 
 /* Logo */
@@ -208,6 +209,13 @@ a {
 
 .bg-background {
     background-color: var(--bg-background);
+}
+
+.bg-card {
+    background: #1e1e1e;
+}
+.bg-white {
+    background-color: rgb(230, 230, 230);
 }
 
 .text-secondary-foreground {
@@ -378,7 +386,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    /* overflow: hidden; */
     background: var(--bg-background);
     padding-top: var(--nav-h);
 }
@@ -486,7 +494,7 @@ a {
     color: var(--red-dark) !important;
 }
 .outliner {
-    border: 2px solid red;
+    border: 1px solid blue;
 }
 .hero-title {
     display: flex;
@@ -513,6 +521,31 @@ a {
     /* Standard property (for future compatibility) */
     background-clip: text;
     color: transparent;
+}
+
+.text-red-gradient {
+    background: rgba(194, 18, 21, 1);
+    background: linear-gradient(
+        90deg,
+        rgba(194, 18, 21, 1) 0%,
+        rgb(88, 2, 2) 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Standard property (for future compatibility) */
+    background-clip: text;
+    color: transparent;
+}
+
+.bg-gradient-red {
+    background: rgba(194, 18, 21, 1);
+    background: linear-gradient(
+        90deg,
+        rgba(194, 18, 21, 1) 0%,
+        rgb(88, 2, 2) 100%
+    );
 }
 
 .hero-title span {
@@ -618,6 +651,19 @@ a {
     background: linear-gradient(to bottom, rgb(227, 23, 26), rgb(65, 10, 12));
 }
 
+.modern-input {
+    background: rgba(31, 31, 31, 1);
+    border: 1px solid rgba(86, 86, 86, 0.5);
+    border-radius: 10px;
+    padding-block: 10px;
+    padding-inline: 14px;
+    color: rgb(240, 240, 240);
+    font-size: 14px;
+}
+
+.fs-7 {
+    font-size: 14px;
+}
 .btn-ghost-hero {
     display: inline-flex;
     align-items: center;
@@ -1088,12 +1134,12 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background-color: #c0271d;
+    /* background-color: #c0271d; */
     color: #ffffff;
     font-size: 15px;
     font-weight: 600;
     padding: 10px 28px;
-    border-radius: 6px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     text-decoration: none;
@@ -1122,6 +1168,35 @@ a {
     line-height: 1;
 }
 
+/* BOOK A DEMO  */
+.book-a-demo {
+    padding-block: 5rem;
+    position: relative;
+}
+
+.book-a-demo::before {
+    position: absolute;
+    content: "";
+    width: 700px;
+    aspect-ratio: 5/5;
+    bottom: -300px;
+    left: -200px;
+    background: radial-gradient(
+        circle,
+        rgba(122, 12, 12, 0.3) 0%,
+        rgba(255, 0, 0, 0) 75%
+    );
+}
+
+.get-in-touch {
+    margin-bottom: 8rem;
+}
+
+/* GET IN TOUCH  */
+.get-in-touch-upper-wrapper {
+    margin-top: 7rem;
+    background: linear-gradient(to right, rgba(20, 20, 20, 0.5), transparent);
+}
 /* ═══════════════════════════════════════════════
        PROJECTS / CAROUSEL
     ═══════════════════════════════════════════════ */
@@ -1366,78 +1441,41 @@ a {
     line-height: 1.6;
 }
 
-/* ═══════════════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════════════ */
-#footer {
-    background: linear-gradient(
-        160deg,
-        var(--red-dark) 0%,
-        var(--navy-deep) 55%
+/* NEW MODERN FOOTER  */
+footer {
+    background: rgba(26, 26, 26, 0.3);
+    backdrop-filter: blur(30px);
+    position: relative;
+}
+.glow-4 {
+    position: absolute;
+    top: -500px;
+    right: -400px;
+    width: 650px;
+    height: 650px;
+    background: #7a0c0c;
+    background: radial-gradient(
+        circle,
+        rgba(122, 12, 12, 0.4) 0%,
+        rgba(255, 0, 0, 0) 75%
     );
-    padding: 64px 0 36px;
-    color: rgba(255, 255, 255, 0.8);
 }
 
-.footer-inner {
-    text-align: center;
+.upper-footer {
+    padding-block: 5rem;
+}
+.lower-footer {
+    background: rgba(26, 26, 26, 1);
 }
 
-.footer-logo {
-    font-size: 36px;
-    color: var(--white);
-    margin-bottom: 8px;
-}
-
-.footer-tagline {
-    font-size: 14px;
-    font-style: italic;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 32px;
-}
-
-.footer-socials {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 36px;
-}
-
-.footer-socials a {
+.inner-lower-footer .footer-icon-wrapper {
+    border-radius: 100%;
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.7);
-    transition: all var(--transition);
-}
-
-.footer-socials a:hover {
-    background: var(--blue);
-    border-color: var(--blue);
-    color: var(--white);
-    transform: translateY(-2px);
-}
-
-.footer-divider {
-    width: 100%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.1);
-    margin-bottom: 24px;
-}
-
-.footer-copy {
-    font-size: 12.5px;
-    color: rgba(255, 255, 255, 0.35);
-}
-
-.footer-copy strong {
-    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(0, 0, 0, 0.35);
 }
 
 /* ═══════════════════════════════════════════════
