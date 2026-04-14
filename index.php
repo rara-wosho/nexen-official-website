@@ -65,9 +65,9 @@ $title
 
 <body class="index-page">
   <!-- ══ HEADER ══════════════════════════════════════════ -->
-  <header id="header" class="outliner">
-    <div class="max-w-wrapper outliner w-100 d-flex align-items-center mx-auto">
-      <a href="#" class="logo outliner">
+  <header id="header" class="">
+    <div class="max-w-wrapper  w-100 d-flex align-items-center mx-auto">
+      <a href="#" class="logo ">
         <img src="assets/png/nexen-logo.png" alt="nexen-logo"> <!-- DO NOT TOUCH, TAGUON NAKO NI -->
       </a>
 
@@ -115,7 +115,7 @@ $title
           </div>
         </div>
         <div class="talk-to-us ms-auto">
-          <button onclick="window.location.href='talk-to-us.php'">Contact Us</button>
+          <button onclick="window.location.href='contact'">Contact Us</button>
         </div>
       </div>
 
@@ -128,7 +128,7 @@ $title
           <li><a href="#services">Services</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#blog">Blog</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="contact">Contact Us</a></li>
         </ul>
         <a href="login.php" class="login bi-person-circle"> Login</a>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -201,10 +201,10 @@ $title
     </div>
 
     <!-- ══ SERVICES ══════════════════════════════════════════ -->
-    <section id="services" class="bg-background outliner">
+    <section id="services" class="bg-background ">
       <div class="services-glow"></div>
       <img src="./assets/png/prism.png" alt="" class="prisms">
-      <div class="max-w-wrapper mx-auto outliner">
+      <div class="max-w-wrapper mx-auto ">
         <div class="section-header" data-aos="fade-up">
           <h2 class="montserrat fs-1 text-secondary-foreground">Services We <span class="text-primary">Offer</span></h2>
 
@@ -296,22 +296,54 @@ $title
 
     <!-- PEOPLE WE ARE WORKING WITH  -->
     <section id="working-with" class="py-5">
+      <div class="gradient-01"></div>
+      <div class="gradient-02"></div>
       <p class="text-center fs-5 fw-semibold text-secondary-foreground"><span class="text-primary">Meet</span> the People We are Working With</p>
 
       <div class="d-flex align-items-center justify-content-center gap-4">
-        <div class="p-4 border rounded-circle"></div>
-        <div class="p-4 border rounded-circle"></div>
-        <div class="p-4 border rounded-circle"></div>
-        <div class="p-4 border rounded-circle"></div>
-        <div class="p-4 border rounded-circle"></div>
-        <div class="p-4 border rounded-circle"></div>
+        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+        </div>
+        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+        </div>
+        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+        </div>
+        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+        </div>
+        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+        </div>
+        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+        </div>
+        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+        </div>
+        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+        </div>
+        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+        </div>
+        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+        </div>
+        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+        </div>
+        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+        </div>
       </div>
     </section>
 
     <!-- BOOK A DEMO SECTION  -->
-    <section id="book-a-demo" class="book-a-demo outliner">
-      <div class="row outliner max-w-wrapper mx-auto">
-        <div class="col-12 col-md-5 outliner">
+    <section id="book-a-demo" class="book-a-demo ">
+      <div class="row  max-w-wrapper mx-auto">
+        <div class="col-12 col-md-5 ">
           <p class="text-muted-foreground">Get in Touch</p>
           <h2 class="urbanist mb-3"><span>Let’s Explore the</span> <br>
             <span class="text-red-gradient">Nexen System Demo</span>
@@ -327,7 +359,7 @@ $title
             <li class="fw-thin mb-2 text-muted-foreground urbanist d-flex gap-3"><i class="bi bi-check-circle-fill text-danger"></i><span> Reliable Technical Support</span></li>
           </ul>
         </div>
-        <div class="col-12 col-md-7 outliner p-4">
+        <div class="col-12 col-md-7  p-4">
           <div class="row mb-4 px-1 no-gutter">
             <div class="col-12 col-md-6 d-flex flex-column px-2">
               <label for="org" class="text-muted-foreground fs-7 mb-2">
@@ -504,13 +536,15 @@ $title
       const header = document.getElementById('header');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 400) {
-          header.style.background = 'rgba(10, 10, 10, 0.9)';
-          header.style.borderBottom = '1px solid rgba(240,240,240,0.1)';
-          header.style.backdropFilter = "blur(10px)";
+          header.classList.add("scrolled")
+          // header.style.background = 'rgba(10, 10, 10, 0.9)';
+          // header.style.backdropFilter = "blur(10px)";
+          // header.style.borderBottom = '1px solid rgba(240,240,240,0.1)';
         } else {
-          header.style.background = 'transparent';
-          header.style.backdropFilter = "blur(0)";
-          header.style.borderBottom = '1px solid transparent';
+          header.classList.remove("scrolled")
+          // header.style.background = 'transparent';
+          // header.style.backdropFilter = "blur(0)";
+          // header.style.borderBottom = '1px solid transparent';//
         }
       });
     </script>

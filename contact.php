@@ -241,13 +241,15 @@
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 200) {
-            header.style.background = 'rgba(10, 10, 10, 0.9)';
-            header.style.borderBottom = '1px solid rgba(240,240,240,0.1)';
-            header.style.backdropFilter = "blur(10px)";
+            // header.style.background = 'rgba(10, 10, 10, 0.9)';
+            // header.style.borderBottom = '1px solid rgba(240,240,240,0.1)';
+            // header.style.backdropFilter = "blur(10px)";
+            header.classList.add("scrolled")
         } else {
-            header.style.background = 'transparent';
-            header.style.backdropFilter = "blur(0)";
-            header.style.borderBottom = '1px solid transparent';
+            header.classList.remove("scrolled")
+            // header.style.background = 'transparent';
+            // header.style.backdropFilter = "blur(0)";
+            // header.style.borderBottom = '1px solid transparent';
         }
     });
 
