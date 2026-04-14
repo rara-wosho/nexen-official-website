@@ -1164,6 +1164,7 @@ a {
 /* BOOK A DEMO  */
 .book-a-demo {
     padding-block: 5rem;
+    margin-top: 2rem;
     position: relative;
 }
 

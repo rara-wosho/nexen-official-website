@@ -24,11 +24,8 @@ function getContent($section_name, $content_key)
   return '';
 }
 
-
 $heroTitle = getContent("hero", "title");
 $herroTitleArr = explode(" ", $heroTitle);
-
-$title
 
 ?>
 <!DOCTYPE html>
@@ -163,7 +160,7 @@ $title
               <path d="M3 8h10M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
-          <a href="#services" class="btn-ghost-hero">
+          <a href="book-a-demo" class="btn-ghost-hero">
             Book a Demo
           </a>
         </div>
@@ -187,11 +184,11 @@ $title
       <div class="wrapper row py-4 w-100">
         <div class="hero-lower-tab col-8 col-md-4 py-3">
           <p class="text-primary text-center">Clients</p>
-          <h3 class="text-secondary-foreground text-center fw-bold">30+</h3>
+          <h3 class="text-secondary-foreground text-center fw-bold"><?= getContent('ratings_clients', 'value_clients'); ?></h3>
         </div>
         <div class="hero-lower-tab col-8 col-md-4 py-3">
           <p class="text-primary text-center">Projects</p>
-          <h3 class="text-secondary-foreground text-center fw-bold">30+</h3>
+          <h3 class="text-secondary-foreground text-center fw-bold"><?= getContent('ratings_clients', 'value_projects'); ?></h3>
         </div>
         <div class="hero-lower-tab col-8 col-md-4 py-3">
           <p class="text-primary text-center">5-Star Reviews</p>
@@ -340,80 +337,6 @@ $title
       </div>
     </section>
 
-    <!-- BOOK A DEMO SECTION  -->
-    <section id="book-a-demo" class="book-a-demo ">
-      <div class="row  max-w-wrapper mx-auto">
-        <div class="col-12 col-md-5 ">
-          <p class="text-muted-foreground">Get in Touch</p>
-          <h2 class="urbanist mb-3"><span>Let’s Explore the</span> <br>
-            <span class="text-red-gradient">Nexen System Demo</span>
-          </h2>
-
-          <p class="urbanist text-muted-foreground">Experience how Nexen streamlines workflows, boosts productivity,
-            and delivers efficient digital solutions- built to support your business
-            and turn ideas into reality.</p>
-          <ul class="mt-4 list-unstyled">
-            <li class="fw-thin mb-2 text-muted-foreground urbanist d-flex gap-3"><i class="bi bi-check-circle-fill text-danger"></i><span> User-Friendly Interface</span></li>
-            <li class="fw-thin mb-2 text-muted-foreground urbanist d-flex gap-3"><i class="bi bi-check-circle-fill text-danger"></i><span> Smart System Features</span></li>
-            <li class="fw-thin mb-2 text-muted-foreground urbanist d-flex gap-3"><i class="bi bi-check-circle-fill text-danger"></i><span> Custom Web Solutions</span></li>
-            <li class="fw-thin mb-2 text-muted-foreground urbanist d-flex gap-3"><i class="bi bi-check-circle-fill text-danger"></i><span> Reliable Technical Support</span></li>
-          </ul>
-        </div>
-        <div class="col-12 col-md-7  p-4">
-          <div class="row mb-4 px-1 no-gutter">
-            <div class="col-12 col-md-6 d-flex flex-column px-2">
-              <label for="org" class="text-muted-foreground fs-7 mb-2">
-                Organization
-              </label>
-              <input type="text" placeholder="Enter your company or organization name" class="modern-input" id="org">
-            </div>
-            <div class="col-12 col-md-6 d-flex flex-column px-2">
-              <label for="org" class="text-muted-foreground fs-7 mb-2">
-                Number of employees</label>
-              <input type="text" placeholder="Enter number of employees" class="modern-input" id="org">
-            </div>
-          </div>
-          <div class="row mb-4 px-1 no-gutter">
-            <div class="col-12 col-md-6 d-flex flex-column px-2">
-              <label for="org" class="text-muted-foreground fs-7 mb-2">
-                Organization
-              </label>
-              <input type="text" placeholder="Enter your company or organization name" class="modern-input" id="org">
-            </div>
-            <div class="col-12 col-md-6 d-flex flex-column px-2">
-              <label for="org" class="text-muted-foreground fs-7 mb-2">
-                Number of employees</label>
-              <input type="text" placeholder="Enter number of employees" class="modern-input" id="org">
-            </div>
-          </div>
-          <div class="row mb-4 px-1 no-gutter">
-            <div class="col-12 col-md-6 d-flex flex-column px-2">
-              <label for="org" class="text-muted-foreground fs-7 mb-2">
-                Organization
-              </label>
-              <input type="text" placeholder="Enter your company or organization name" class="modern-input" id="org">
-            </div>
-            <div class="col-12 col-md-6 d-flex flex-column px-2">
-              <label for="org" class="text-muted-foreground fs-7 mb-2">
-                Number of employees</label>
-              <input type="text" placeholder="Enter number of employees" class="modern-input" id="org">
-            </div>
-          </div>
-
-          <div class="row mb-4 px-1">
-            <div class="col d-flex flex-column px-2">
-              <label for="org" class="text-muted-foreground fs-7 mb-2">
-                Number of employees</label>
-              <input type="text" placeholder="Enter number of employees" class="modern-input" id="org">
-            </div>
-          </div>
-
-          <button class="bg-gradient-red rounded-3 outline-0 border-0 px-5 text-secondary-foreground urbanist py-2">Book Demo</button>
-
-
-        </div>
-      </div>
-    </section>
 
     <!-- LOWER CTA BANNER  -->
     <section id="cta-banner-section" data-aos="fade-up">
