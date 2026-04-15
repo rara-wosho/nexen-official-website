@@ -1,6 +1,40 @@
 <?php
 require_once 'db_connect.php';
 
+
+// Get bulk images
+function getImages($section_name, $content_key_initial)
+{
+  global $connection;
+
+  try {
+    $keyword = $content_key_initial . '%';
+
+    $query = "SELECT content 
+              FROM content 
+              WHERE section_name = :section_name 
+              AND content_key ILIKE :keyword";
+
+    $stmt = $connection->prepare($query);
+    $stmt->execute([
+      ':section_name' => $section_name,
+      ':keyword' => $keyword
+    ]);
+
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if ($results) {
+      // Extract only the content column into array
+      return array_column($results, 'content');
+    }
+
+    return []; // better than "No content"
+
+  } catch (PDOException $e) {
+    die("Query failed: " . $e->getMessage());
+  }
+}
+
 // Function to fetch content from the database
 function getContent($section_name, $content_key)
 {
@@ -16,6 +50,8 @@ function getContent($section_name, $content_key)
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($result) {
       return $result['content'];
+    } else {
+      return "No content";
     }
   } catch (PDOException $e) {
     die("Query failed: " . $e->getMessage());
@@ -104,12 +140,12 @@ $herroTitleArr = explode(" ", $heroTitle);
           </div>
         </div>
         <div class="dropdown">
-          <button>About</button>
-          <div class="dropdown-content">
+          <button><a href="about">About</a></button>
+          <!-- <div class="dropdown-content">
             <a href="#" style="--i:1">My Story</a>
             <a href="#" style="--i:2">Careers</a>
             <a href="#" style="--i:3">myPortal</a>
-          </div>
+          </div> -->
         </div>
         <div class="talk-to-us ms-auto">
           <button onclick="window.location.href='contact'">Contact Us</button>
@@ -181,19 +217,29 @@ $herroTitleArr = explode(" ", $heroTitle);
 
     <!-- RATINGS & CLIENTS -->
     <div class="bg-background d-flex align-items-center justify-content-center hero-lower-tabs">
-      <div class="wrapper row py-4 w-100">
-        <div class="hero-lower-tab col-8 col-md-4 py-3">
+      <div class="wrapper row py-4 w-100 row-cols-1 row-cols-md-3">
+
+        <div class="hero-lower-tab d-flex flex-column col py-3">
           <p class="text-primary text-center">Clients</p>
-          <h3 class="text-secondary-foreground text-center fw-bold"><?= getContent('ratings_clients', 'value_clients'); ?></h3>
+          <h3 class="text-secondary-foreground text-center fw-bold">
+            <?= getContent('ratings_clients', 'value_clients'); ?>
+          </h3>
         </div>
-        <div class="hero-lower-tab col-8 col-md-4 py-3">
+
+        <div class="hero-lower-tab d-flex flex-column col py-3">
           <p class="text-primary text-center">Projects</p>
-          <h3 class="text-secondary-foreground text-center fw-bold"><?= getContent('ratings_clients', 'value_projects'); ?></h3>
+          <h3 class="text-secondary-foreground text-center fw-bold">
+            <?= getContent('ratings_clients', 'value_projects'); ?>
+          </h3>
         </div>
-        <div class="hero-lower-tab col-8 col-md-4 py-3">
+
+        <div class="hero-lower-tab d-flex flex-column col py-3">
           <p class="text-primary text-center">5-Star Reviews</p>
-          <h3 class="text-secondary-foreground text-center fw-bold">30+</h3>
+          <h3 class="text-secondary-foreground text-center fw-bold">
+            <?= getContent("ratings_clients", "five_star_reviews") ?>
+          </h3>
         </div>
+
       </div>
     </div>
 
@@ -205,19 +251,18 @@ $herroTitleArr = explode(" ", $heroTitle);
         <div class="section-header" data-aos="fade-up">
           <h2 class="montserrat fs-1 text-secondary-foreground">Services We <span class="text-primary">Offer</span></h2>
 
-          <p class="inter text-muted-foreground services-description">NEXEN delivers innovative tech solutions to streamline operations, boost
-            efficiency, and drive business growth.</p>
+          <p class="inter text-muted-foreground services-description"><?= getContent("services", "subtitle") ?></p>
         </div>
 
         <div class="row gy-4 service-card-wrapper">
           <?php
           $services = [
-            ['icon' => 'bi-server',              'key' => ''],
-            ['icon' => 'bi-distribute-horizontal', 'key' => '1'],
-            ['icon' => 'bi-window-fullscreen',   'key' => '2'],
-            ['icon' => 'bi-chat-dots-fill',      'key' => '3'],
-            ['icon' => 'bi-cloud-check-fill',    'key' => '4'],
-            ['icon' => 'bi-lightbulb-fill',      'key' => '5'],
+            ['icon' => 'bi-server',              'key' => '1'],
+            ['icon' => 'bi-distribute-horizontal', 'key' => '2'],
+            ['icon' => 'bi-window-fullscreen',   'key' => '3'],
+            ['icon' => 'bi-chat-dots-fill',      'key' => '4'],
+            ['icon' => 'bi-cloud-check-fill',    'key' => '5'],
+            ['icon' => 'bi-lightbulb-fill',      'key' => '6'],
           ];
           $delays = [100, 200, 300, 400, 500, 600];
           foreach ($services as $i => $s):
@@ -227,64 +272,64 @@ $herroTitleArr = explode(" ", $heroTitle);
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?php echo $delays[$i]; ?>">
               <div class="service-card <?php if ($i % 2 == 1) echo 'card-even' ?>">
                 <div class="service-icon"><i class="bi fs-6 <?php echo $s['icon']; ?>"></i></div>
-                <p class="service-content-description text-muted-foreground"><?php echo getContent('services', 'description' . $k); ?></p>
-                <h2><a class="text-secondary-foreground mt-auto" href="#"><?php echo getContent('services', 'title' . $k); ?></a></h2>
+                <p class="service-content-description text-muted-foreground"><?php echo getContent('services', 'service_content_' . $k); ?></p>
+                <h2 class="text-secondary-foreground mt-auto"><?php echo getContent('services', 'service_' . $k); ?></h2>
               </div>
             </div>
           <?php endforeach; ?>
         </div>
 
-        <div class="section-header" data-aos="fade-up">
+        <div class="section-header mt-5 pt-5" data-aos="fade-up">
           <h2 class="montserrat fs-1 text-secondary-foreground">With Us You Can <span class="text-primary">Trust</span></h2>
         </div>
 
         <div class="services-lower-cards-wrapper row">
-          <div data-aos="fade-up" class="col services-lower-cardd">
-            <h1 class="text-secondary-foreground mb-3">2010</h1>
+          <div data-aos="fade-up" class="col mb-5 mb-sm-0 pt-5 pt-sm-0 services-lower-cardd">
+            <h1 class="text-secondary-foreground mb-3"><?= getContent("you_can_trust", "yct_value_1") ?></h1>
             <div class="d-flex flex-column">
-              <p class="fs-5 text-secondary-foreground fw-light lower-cards-desc">Year of establishment</p>
-              <small class="text-muted-light">Lorem ipsum dolor sit.</small>
-              <div class="mt-5 d-flex align-items-end">
-                <div style="transform:translateY(22px); z-index:20;" class="bg-white p-4 rounded-circle"></div>
-                <div style="transform:translateY(22px); z-index:20;" class="bg-white p-4 rounded-circle"></div>
-                <div style="transform:translateY(22px); z-index:20;" class="bg-white p-4 rounded-circle"></div>
-              </div>
+              <p class="fs-5 text-secondary-foreground fw-light lower-cards-desc"><?= getContent("you_can_trust", "yct_title_1") ?></p>
+              <small class="text-muted-light lower-cards-small"><?= getContent("you_can_trust", "yct_desc_1") ?></small>
+            </div>
+            <div class="mt-5 d-flex align-items-end lower-cards-images">
+              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
+              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
+              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
             </div>
           </div>
-          <div data-aos-delay="200" data-aos="fade-up" class="col services-lower-cardd">
-            <h1 class="text-secondary-foreground mb-3">02</h1>
+          <div data-aos-delay="200" data-aos="fade-up" class="col mb-5 mb-sm-0 pt-5 pt-sm-0 services-lower-cardd">
+            <h1 class="text-secondary-foreground mb-3"><?= getContent("you_can_trust", "yct_value_2") ?></h1>
             <div class="d-flex flex-column">
-              <p class="fs-5 text-secondary-foreground fw-light lower-cards-desc">Projects are launched</p>
-              <small class="text-muted-light">Lorem ipsum dolor sit.</small>
-              <div class="mt-5 d-flex align-items-end">
-                <div style="transform:translateY(22px); z-index:20;" class="bg-white p-4 rounded-circle"></div>
-                <div style="transform:translateY(22px); z-index:20;" class="bg-white p-4 rounded-circle"></div>
-                <div style="transform:translateY(22px); z-index:20;" class="bg-white p-4 rounded-circle"></div>
-              </div>
+              <p class="fs-5 text-secondary-foreground fw-light lower-cards-desc"><?= getContent("you_can_trust", "yct_title_2") ?></p>
+              <small class="text-muted-light lower-cards-small"><?= getContent("you_can_trust", "yct_desc_2") ?></small>
+            </div>
+            <div class="mt-5 d-flex align-items-end  lower-cards-images">
+              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
+              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
+              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
             </div>
           </div>
-          <div data-aos="fade-up" class="col services-lower-cardd">
-            <h1 class="text-secondary-foreground mb-3">70</h1>
+          <div data-aos="fade-up" class="col mb-5 mb-sm-0 pt-5 pt-sm-0 services-lower-cardd">
+            <h1 class="text-secondary-foreground mb-3"><?= getContent("you_can_trust", "yct_value_3") ?></h1>
             <div class="d-flex flex-column">
-              <p class="fs-5 text-secondary-foreground fw-light lower-cards-desc">Clients are satisfied</p>
-              <small class="text-muted-light">Lorem ipsum dolor sit.</small>
-              <div class="mt-5 d-flex align-items-end">
-                <div style="transform:translateY(22px); z-index:20;" class="bg-white p-4 rounded-circle"></div>
-                <div style="transform:translateY(22px); z-index:20;" class="bg-white p-4 rounded-circle"></div>
-                <div style="transform:translateY(22px); z-index:20;" class="bg-white p-4 rounded-circle"></div>
-              </div>
+              <p class="fs-5 text-secondary-foreground fw-light lower-cards-desc"><?= getContent("you_can_trust", "yct_title_3") ?></p>
+              <small class="text-muted-light lower-cards-small"><?= getContent("you_can_trust", "yct_desc_3") ?></small>
+            </div>
+            <div class="mt-5 d-flex align-items-end lower-cards-images">
+              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
+              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
+              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
             </div>
           </div>
-          <div data-aos-delay="200" data-aos="fade-up" class="col services-lower-cardd">
-            <h1 class="text-secondary-foreground mb-3">12</h1>
+          <div data-aos-delay="200" data-aos="fade-up" class="col mb-5 mb-sm-0 pt-5 pt-sm-0 services-lower-cardd">
+            <h1 class="text-secondary-foreground mb-3"><?= getContent("you_can_trust", "yct_value_4") ?></h1>
             <div class="d-flex flex-column">
-              <p class="fs-5 text-secondary-foreground fw-light lower-cards-desc">Projects in work</p>
-              <small class="text-muted-light">Lorem ipsum dolor sit.</small>
-              <div class="mt-5 d-flex align-items-end">
-                <div style="transform:translateY(22px); z-index:20;" class="bg-white p-4 rounded-circle"></div>
-                <div style="transform:translateY(22px); z-index:20;" class="bg-white p-4 rounded-circle"></div>
-                <div style="transform:translateY(22px); z-index:20;" class="bg-white p-4 rounded-circle"></div>
-              </div>
+              <p class="fs-5 text-secondary-foreground fw-light lower-cards-desc"><?= getContent("you_can_trust", "yct_title_4") ?></p>
+              <small class="text-muted-light lower-cards-small"><?= getContent("you_can_trust", "yct_desc_4") ?></small>
+            </div>
+            <div class="mt-5 d-flex align-items-end lower-cards-images">
+              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
+              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
+              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
             </div>
           </div>
         </div>
@@ -298,48 +343,21 @@ $herroTitleArr = explode(" ", $heroTitle);
       <p class="text-center fs-5 fw-semibold text-secondary-foreground"><span class="text-primary">Meet</span> the People We are Working With</p>
 
       <div class="d-flex align-items-center justify-content-center gap-4">
-        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
-        </div>
-        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
-        </div>
-        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
-        </div>
-        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
-        </div>
-        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
-        </div>
-        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
-        </div>
-        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
-        </div>
-        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
-        </div>
-        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
-        </div>
-        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
-        </div>
-        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
-        </div>
-        <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-          <img src="assets/png/image 98.png" style="width:80px; height:80px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
-        </div>
+        <?php
+        $images = getImages("partners_logo", "p_logo_img");
+
+        foreach ($images as $img) {
+        ?>
+          <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
+            <img src="<?= $img ?>" style="width:55px; height:55px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+          </div>
+        <?php } ?>
       </div>
     </section>
 
 
     <!-- LOWER CTA BANNER  -->
-    <section id="cta-banner-section" data-aos="fade-up">
+    <section id="cta-banner-section" class="px-4" data-aos="fade-up">
       <div class="cta-banner" id="cta-banner">
         <h1 class="montserrat">Start Your Real Journey Today</h1>
         <p>
@@ -353,7 +371,6 @@ $herroTitleArr = explode(" ", $heroTitle);
         </a>
       </div>
     </section>
-
 
     <!-- FOOTER  -->
     <footer>
@@ -419,60 +436,61 @@ $herroTitleArr = explode(" ", $heroTitle);
     <div id="preloader">
       <div class="preloader-ring"></div>
     </div>
-
-    <!-- Vendor JS -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-
-    <script>
-      // Preloader
-      window.addEventListener('load', () => {
-        const pl = document.getElementById('preloader');
-        if (pl) {
-          pl.classList.add('done');
-        }
-      });
-
-      // AOS
-      AOS.init({
-        duration: 650,
-        easing: 'ease-out-quad',
-        once: true,
-        offset: 60
-      });
-
-      // Scroll top
-      const scrollBtn = document.getElementById('scroll-top');
-      window.addEventListener('scroll', () => {
-        scrollBtn.classList.toggle('active', window.scrollY > 400);
-      });
-
-      scrollBtn.addEventListener('click', e => {
-        e.preventDefault();
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-
-      // Header shrink on scroll
-      const header = document.getElementById('header');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) {
-          header.classList.add("scrolled")
-          // header.style.background = 'rgba(10, 10, 10, 0.9)';
-          // header.style.backdropFilter = "blur(10px)";
-          // header.style.borderBottom = '1px solid rgba(240,240,240,0.1)';
-        } else {
-          header.classList.remove("scrolled")
-          // header.style.background = 'transparent';
-          // header.style.backdropFilter = "blur(0)";
-          // header.style.borderBottom = '1px solid transparent';//
-        }
-      });
-    </script>
-
+  </main>
 </body>
+
+
+<!-- Vendor JS -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+
+<script>
+  // Preloader
+  window.addEventListener('load', () => {
+    const pl = document.getElementById('preloader');
+    if (pl) {
+      pl.classList.add('done');
+    }
+  });
+
+  // AOS
+  AOS.init({
+    duration: 650,
+    easing: 'ease-out-quad',
+    once: true,
+    offset: 60
+  });
+
+  // Scroll top
+  const scrollBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('active', window.scrollY > 400);
+  });
+
+  scrollBtn.addEventListener('click', e => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Header shrink on scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      header.classList.add("scrolled")
+      // header.style.background = 'rgba(10, 10, 10, 0.9)';
+      // header.style.backdropFilter = "blur(10px)";
+      // header.style.borderBottom = '1px solid rgba(240,240,240,0.1)';
+    } else {
+      header.classList.remove("scrolled")
+      // header.style.background = 'transparent';
+      // header.style.backdropFilter = "blur(0)";
+      // header.style.borderBottom = '1px solid transparent';//
+    }
+  });
+</script>
 
 <script>
   const lenis = new Lenis({

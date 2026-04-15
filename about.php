@@ -74,15 +74,10 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <button>About</button>
-                    <div class="dropdown-content">
-                        <a href="#" style="--i:1">My Story</a>
-                        <a href="#" style="--i:2">Careers</a>
-                        <a href="#" style="--i:3">myPortal</a>
-                    </div>
+                    <button> <a href="">About</a></button>
                 </div>
                 <div class="talk-to-us ms-auto">
-                    <button onclick="window.location.href='talk-to-us.php'">Contact Us</button>
+                    <button onclick="window.location.href='contact'">Contact Us</button>
                 </div>
             </div>
 
@@ -106,8 +101,8 @@
 
     <!-- MAIN CONTENT  -->
     <main class="about-main-wrapper relative">
-        <div class="about-page-top-glow"></div>
-        <section class="row row-col-2 no-gutter mx-auto max-w-wrapper" id="about-hero">
+        <div class="about-page-top-glow w-100"></div>
+        <section class="row row-cols-1 row-cols-md-2 no-gutter mx-auto max-w-wrapper" id="about-hero">
             <div class="col px-0">
                 <h2 class="urbanist mb-4">Our Journey</h2>
                 <p class="text-muted-foreground urbanist">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt dicta totam perferendis et non qui, repellat amet nobis accusantium provident? Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolore eum minima earum perspiciatis excepturi. Earum fugit perferendis sit et? Nesciunt debitis nam reprehenderit voluptate quasi magni ea facilis nobis in quidem facere laboriosam cumque, consequuntur quos exercitationem repudiandae similique incidunt necessitatibus eveniet praesentium odit nemo fuga? Illum, at quos. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea quae debitis consectetur doloremque pariatur libero reiciendis voluptatem nulla facere beatae numquam asperiores repellat maxime voluptatum quibusdam sapiente praesentium, temporibus accusamus dolor. Libero dolorem at aperiam, blanditiis est perspiciatis inventore officia, vero nostrum accusamus culpa dicta fuga voluptate similique nihil. Atque voluptates reprehenderit tempore at. Id debitis quisquam consequuntur molestiae minus nam pariatur ratione sint labore voluptatem ipsum, eius illo iusto soluta maxime, reprehenderit minima doloribus, est magni. Cumque iusto numquam rerum cupiditate aut voluptate eligendi obcaecati, quas recusandae vel consequuntur suscipit, reprehenderit commodi perspiciatis, ab quia accusantium temporibus quasi eveniet!</p>
@@ -176,7 +171,6 @@
             </div>
         </section>
 
-
         <section id="meet-the-team" class="mx-auto max-w-wrapper py-5">
             <div class="mb-4">
                 <h2 class="urbanist text-secondary-foreground">Meet the Nexen Team</h2>
@@ -214,7 +208,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- BLOG SECTIONS  -->
         <section id="blog" class="mx-auto max-w-wrapper py-5">
@@ -276,10 +269,16 @@
 
             <div class="row row-cols-1 row-cols-md-2">
                 <div class="col">
-                    <div class="bg-card border-thick p-4 rounded-3"></div>
+                    <div class="bg-card border-thick p-4 rounded-3">
+                        <p class="text-muted-light fs-7">Since 2019</p>
+                        <h3 class="urbanist">JFC Coop</h3>
+                    </div>
                 </div>
                 <div class="col">
-                    <div class="bg-card border-thick p-4 rounded-3"></div>
+                    <div class="bg-card border-thick p-4 rounded-3">
+                        <p class="text-muted-light fs-7">Since 2018</p>
+                        <h3 class="urbanist">AFCCO</h3>
+                    </div>
                 </div>
             </div>
         </section>

@@ -56,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>NEXEN — Sign In</title>
     <link href="assets/img/logo.jpg" rel="icon">
 
+    <link rel="stylesheet" href="style.css">
     <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,11 +70,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             /* Color Palette */
             --nx-bg-primary: #ffffff;
             --nx-bg-secondary: #f8fafc;
-            --nx-brand-dark: #0A0F29;
-            --nx-brand-accent: #2563EB;
-            --nx-brand-hover: #1D4ED8;
+            --nx-brand-dark: rgb(4, 4, 4);
+            --nx-brand-accent: #d92b3a;
+            --nx-brand-hover: #d92b3a;
             --nx-text-main: #1E293B;
-            --nx-text-muted: #64748B;
+            --nx-text-muted: #bcc4ce;
             --nx-border: #E2E8F0;
             --nx-error: #EF4444;
             --nx-error-bg: #FEF2F2;
@@ -120,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             content: "";
             position: absolute;
             inset: 0;
-            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.09) 1px, transparent 0);
             background-size: 32px 32px;
             pointer-events: none;
         }
@@ -131,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             position: absolute;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(235, 37, 37, 0.15) 0%, transparent 70%);
             top: -200px;
             left: -200px;
             pointer-events: none;
@@ -146,32 +147,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .nx-logo-box {
-            width: 40px;
-            height: 40px;
-            background: var(--nx-brand-accent);
+            width: 75px;
+            height: 75px;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
         }
 
         .nx-brand-name {
-            font-weight: 600;
-            font-size: 20px;
+            font-weight: 400;
+            font-size: 16px;
             letter-spacing: -0.02em;
         }
 
         .nx-brand-content {
             position: relative;
             z-index: 10;
-            max-width: 480px;
+            /* max-width: 480px; */
         }
 
         .nx-headline {
-            font-family: 'DM Serif Display', serif;
+            /* font-family: 'DM Serif Display', serif; */
             font-size: clamp(2.5rem, 5vw, 4rem);
             line-height: 1.1;
+            max-width: 600px;
             margin-bottom: 24px;
         }
 
@@ -184,6 +184,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: rgba(255, 255, 255, 0.6);
             line-height: 1.6;
             font-weight: 300;
+            max-width: 600px;
         }
 
         .nx-brand-footer {
@@ -216,7 +217,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         /* --- Form Panel (Right) --- */
         .nx-form-panel {
             flex: 1;
-            background-color: var(--nx-bg-primary);
+            background-color: rgba(25, 25, 25, .4);
+            background: linear-gradient(to bottom, rgba(50, 50, 50, .5),
+                    transparent);
+            backdrop-filter: blur(20px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -237,6 +241,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: 600;
             letter-spacing: -0.02em;
             margin-bottom: 8px;
+
         }
 
         .nx-form-subtitle {
@@ -254,23 +259,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 14px;
             font-weight: 500;
             margin-bottom: 8px;
-            color: var(--nx-text-main);
+            color: var(--nx-text-muted);
         }
 
         .nx-input-container {
             position: relative;
         }
 
+
         .nx-input {
-            width: 100%;
-            height: 48px;
-            padding: 12px 16px;
-            font-size: 15px;
-            background-color: var(--nx-bg-primary);
-            border: 1px solid var(--nx-border);
-            border-radius: var(--nx-radius);
-            transition: var(--nx-transition);
-            outline: none;
+            background: rgba(31, 31, 31, 1);
+            border: 1px solid rgba(86, 86, 86, 0.5);
+            border-radius: 10px;
+            padding-block: 10px;
+            padding-inline: 14px;
+            color: rgb(240, 240, 240);
+            font-size: 14px;
         }
 
         .nx-input:hover {
@@ -312,6 +316,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 4px;
             border: 1px solid var(--nx-border);
             cursor: pointer;
+        }
+
+
+        .back-button {
+            font-size: 18px;
+            outline: 0;
+            border: none;
+            background-color: rgba(50, 50, 50, .2);
+            border-radius: 8px;
+            padding: 8px 18px;
+            color: rgba(230, 230, 230, 1);
+            margin-bottom: 1rem;
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            text-decoration: none;
+        }
+
+
+
+        input[type="checkbox"] {
+            accent-color: #ff0000;
+            /* Replaces the default blue with red */
         }
 
         .nx-link {
@@ -376,11 +407,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             .nx-form-panel {
                 flex: 1;
-                background-color: var(--nx-bg-secondary);
+                /* background-color: var(--nx-bg-secondary); */
             }
 
             .nx-form-container {
-                background: white;
+                /* background: white; */
                 padding: 40px;
                 border-radius: 16px;
                 box-shadow: var(--nx-shadow-md);
@@ -401,22 +432,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-    <div class="nx-wrapper">
+    <div class="nx-wrapper bg-background">
         <!-- Brand Section -->
         <aside class="nx-brand-panel">
             <div class="nx-brand-header">
                 <div class="nx-logo-box">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="16 18 22 12 16 6"></polyline>
                         <polyline points="8 6 2 12 8 18"></polyline>
-                    </svg>
+                    </svg> -->
+                    <img src="assets/png/nexen-logo.png" alt="">
                 </div>
-                <span class="nx-brand-name">NEXEN</span>
+                <span class="nx-brand-name">NEXEN INNOVATION TECHNOLOGIES</span>
             </div>
 
             <div class="nx-brand-content">
-                <h1 class="nx-headline">Build the <span>future</span> of software.</h1>
-                <p class="nx-subtext">The unified platform for modern development teams to manage code, deployments, and infrastructure in one beautiful interface.</p>
+                <h1 class="nx-headline inter">Your Next Business Engine <span class="text-red-gradient">Solutions</span></h1>
+                <p class="nx-subtext">Find everything you need in one place. From modern homes to valuable opportunities, NEXEN brings you closer to what matters most.</p>
             </div>
 
             <div class="nx-brand-footer">
@@ -436,11 +468,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </aside>
 
         <!-- Form Section -->
-        <main class="nx-form-panel">
+        <main class="nx-form-panel position-relative">
+            <a href="/nexen-official-website" class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+                </svg>
+                <span style="font-size: 14px;">
+                    Back
+                </span>
+            </a>
             <div class="nx-form-container">
+
                 <header class="nx-form-header">
-                    <h2 class="nx-form-title">Sign in</h2>
-                    <p class="nx-form-subtitle">Enter your credentials to access the admin portal.</p>
+                    <h2 class="nx-form-title text-secondary-foreground">Sign in</h2>
+                    <p class="nx-form-subtitle text-muted-light">Enter your credentials to access the admin portal.</p>
                 </header>
 
                 <?php if (!empty($message)): ?>
@@ -454,6 +495,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 <?php endif; ?>
 
+
                 <form method="POST" action="">
                     <div class="nx-form-group">
                         <label for="username" class="nx-label">Username</label>
@@ -462,7 +504,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 type="text"
                                 id="username"
                                 name="username"
-                                class="nx-input <?php echo !empty($message) ? 'is-invalid' : ''; ?>"
+                                class="nx-input w-100 <?php echo !empty($message) ? 'is-invalid' : ''; ?>"
                                 placeholder="name@company.com"
                                 value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>"
                                 required>
@@ -476,7 +518,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 type="password"
                                 id="password"
                                 name="password"
-                                class="nx-input <?php echo !empty($message) ? 'is-invalid' : ''; ?>"
+                                class="nx-input w-100 <?php echo !empty($message) ? 'is-invalid' : ''; ?>"
                                 placeholder="••••••••"
                                 required>
                         </div>
@@ -485,12 +527,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="nx-actions">
                         <label class="nx-checkbox-group">
                             <input type="checkbox" class="nx-checkbox" name="remember">
-                            <span>Remember me</span>
+                            <span class="text-muted-light">Remember me</span>
                         </label>
                         <a href="#" class="nx-link">Forgot password?</a>
                     </div>
 
-                    <button type="submit" class="nx-btn-submit">
+                    <button type="submit" style="padding-block: 12px;" class="bg-gradient-red text-white rounded-3 w-100 outline-0 border-0 px-5">
                         <span>Sign in to NEXEN</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -499,11 +541,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </button>
                 </form>
 
-                <footer style="margin-top: 40px; text-align: center;">
+                <!-- <footer style="background:transparent !important; margin-top: 40px; text-align: center;">
                     <p style="font-size: 13px; color: var(--nx-text-muted);">
                         Don't have an account? <a href="#" class="nx-link">Contact your administrator</a>
                     </p>
-                </footer>
+
+                    <p class="text-secondary-foreground">Don't have an account? <a href="" class="nx-link">Contact your administrator</a></p>
+                </footer> -->
             </div>
         </main>
     </div>

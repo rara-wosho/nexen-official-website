@@ -293,6 +293,8 @@ foreach ($contentItems as $item) {
                         <input type="hidden" name="section_name" value="<?php echo htmlspecialchars($sectionName); ?>">
                         <input type="hidden" name="content_key"
                           value="<?php echo htmlspecialchars($item['content_key']); ?>">
+
+
                         <?php if (!empty($item['content'])): ?>
                           <input type="hidden" name="old_file" value="<?php echo htmlspecialchars($item['content']); ?>">
                         <?php endif; ?>
@@ -310,6 +312,10 @@ foreach ($contentItems as $item) {
                           $isFileUpload = true;
                           $acceptTypes = 'video/mp4,video/webm,video/ogg';
                           $helpText = 'Upload a video file (MP4, WebM, or OGG - Max 50MB)';
+                        } elseif ($sectionName === "partners_logo" && str_starts_with($item['content_key'], 'p_logo_img')) {
+                          $isFileUpload = true;
+                          $acceptTypes = 'image/jpeg,image/png,image/gif';
+                          $helpText = 'Upload an image file (JPG, PNG, or GIF - Max 5MB)';
                         } elseif (
                           ($sectionName === 'blog' && strpos($item['content_key'], 'img') !== false) ||
                           ($sectionName === 'why-us' && strpos($item['content_key'], 'img') !== false) ||
@@ -321,7 +327,7 @@ foreach ($contentItems as $item) {
                         }
 
                         if ($isFileUpload):
-                          ?>
+                        ?>
                           <div class="mb-3">
                             <?php if (!empty($item['content'])): ?>
                               <div class="current-file mb-2">
@@ -470,13 +476,13 @@ foreach ($contentItems as $item) {
 
   <script>
     // Sidebar Toggle
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       const sidebar = document.querySelector('.sidebar');
       const mainContent = document.querySelector('.main-content');
       const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
 
       if (sidebarToggleBtn) {
-        sidebarToggleBtn.addEventListener('click', function () {
+        sidebarToggleBtn.addEventListener('click', function() {
           sidebar.classList.toggle('show');
           mainContent.classList.toggle('sidebar-open');
         });
@@ -484,8 +490,8 @@ foreach ($contentItems as $item) {
 
       // Auto-dismiss alerts after 5 seconds
       const alerts = document.querySelectorAll('.alert');
-      alerts.forEach(function (alert) {
-        setTimeout(function () {
+      alerts.forEach(function(alert) {
+        setTimeout(function() {
           const closeBtn = alert.querySelector('.btn-close');
           if (closeBtn) {
             closeBtn.click();
@@ -495,8 +501,8 @@ foreach ($contentItems as $item) {
 
       // Smooth scroll to section
       const sectionLinks = document.querySelectorAll('a[href^="#section-"]');
-      sectionLinks.forEach(function (link) {
-        link.addEventListener('click', function (e) {
+      sectionLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
           e.preventDefault();
           const targetId = this.getAttribute('href');
           const targetElement = document.querySelector(targetId);
@@ -511,7 +517,7 @@ foreach ($contentItems as $item) {
     });
 
     // Website Preview Modal Functionality
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       // Get DOM elements
       const viewWebsiteBtn = document.getElementById('viewWebsiteBtn');
       const websitePreviewModal = document.getElementById('websitePreviewModal');
@@ -526,7 +532,7 @@ foreach ($contentItems as $item) {
       }
 
       // Open the preview modal
-      viewWebsiteBtn.addEventListener('click', function (e) {
+      viewWebsiteBtn.addEventListener('click', function(e) {
         e.preventDefault();
         console.log('View Website button clicked'); // Debug log
 
@@ -544,7 +550,7 @@ foreach ($contentItems as $item) {
       });
 
       // Close the preview modal
-      closePreviewBtn.addEventListener('click', function () {
+      closePreviewBtn.addEventListener('click', function() {
         console.log('Close button clicked'); // Debug log
         websitePreviewModal.style.display = 'none';
         document.body.classList.remove('modal-open');
@@ -553,7 +559,7 @@ foreach ($contentItems as $item) {
       });
 
       // Close modal if clicking outside of the content
-      websitePreviewModal.addEventListener('click', function (e) {
+      websitePreviewModal.addEventListener('click', function(e) {
         if (e.target === websitePreviewModal) {
           websitePreviewModal.style.display = 'none';
           document.body.classList.remove('modal-open');
@@ -564,7 +570,7 @@ foreach ($contentItems as $item) {
       // Handle responsive device buttons
       if (deviceButtons.length > 0) {
         deviceButtons.forEach(button => {
-          button.addEventListener('click', function () {
+          button.addEventListener('click', function() {
             // Remove active class from all buttons
             deviceButtons.forEach(btn => btn.classList.remove('active'));
 
@@ -588,7 +594,7 @@ foreach ($contentItems as $item) {
       }
 
       // Close modal with Escape key
-      document.addEventListener('keydown', function (e) {
+      document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && websitePreviewModal.style.display === 'block') {
           websitePreviewModal.style.display = 'none';
           document.body.classList.remove('modal-open');

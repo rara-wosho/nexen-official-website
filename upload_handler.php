@@ -35,6 +35,12 @@ function getFileConfig($section_name)
             'max_size' => 5000000, // 5MB
             'message' => 'JPG, JPEG, PNG & GIF files'
         ],
+        'partners_logo' => [
+            'dir' => 'img',
+            'types' => ['jpg', 'jpeg', 'png', 'gif'],
+            'max_size' => 5000000, // 5MB
+            'message' => 'JPG, JPEG, PNG & GIF files'
+        ],
         'projects' => [
             'dir' => 'img',
             'types' => ['jpg', 'jpeg', 'png', 'gif'],
@@ -51,16 +57,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $section_name = $_POST['section_name'];
         $content_key = $_POST['content_key'];
 
-        // Get configuration for this section
-        $config = getFileConfig($section_name);
-
-        if (!$config) {
-            $_SESSION['error'] = "Invalid section name.";
-            header("Location: admin_editor.php");
-            exit();
-        }
-
         if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
+            // Get configuration for this section
+            $config = getFileConfig($section_name);
+
+            if (!$config) {
+                $_SESSION['error'] = "Invalid section name.";
+                header("Location: admin_editor.php");
+                exit();
+            }
             $target_dir = "assets/" . $config['dir'] . "/";
 
             // Create directory if it doesn't exist
@@ -144,4 +149,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: admin_editor.php");
     exit();
 }
-?>

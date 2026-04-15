@@ -54,6 +54,7 @@ body {
 
 .max-w-wrapper {
     max-width: 1320px;
+    padding-inline: 18px;
 }
 
 img {
@@ -275,6 +276,10 @@ a {
     white-space: nowrap;
 }
 
+.links-container .dropdown button a {
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .links-container .dropdown > button:hover {
     color: var(--white);
     background: rgba(255, 255, 255, 0.08);
@@ -412,7 +417,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* overflow: hidden; */
+    overflow: hidden;
     background: var(--bg-background);
     padding-top: var(--nav-h);
 }
@@ -804,7 +809,7 @@ a {
     left: 50%;
     transform: translateX(-50%);
     top: -500px;
-    width: 1000px;
+    max-width: 1000px;
     aspect-ratio: 6/6;
     background: radial-gradient(
         50% 60% at 50% 32.8%,
@@ -972,19 +977,30 @@ a {
 }
 
 .service-card-wrapper {
-    margin-bottom: 8rem;
+    /* margin-bottom: 8rem; */
 }
 
 .services-lower-cards-wrapper {
-    margin-bottom: 8rem;
     column-gap: 24px;
+    margin-bottom: 7rem;
 }
 .services-lower-cards-wrapper .lower-cards-desc {
-    line-height: 0px;
+    /* line-height: 0px; */
     font-weight: bolder;
+    white-space: wrap;
+}
+
+.lower-cards-images {
+    position: absolute;
+    bottom: -24px;
+    left: 12px;
+}
+.lower-cards-small {
+    transform: translateY(-12px);
 }
 
 .services-lower-cardd {
+    padding-bottom: 3rem;
     position: relative;
 }
 
@@ -1076,6 +1092,7 @@ a {
 /*LOWER CTA BANNER */
 #cta-banner-section {
     padding-block: 6rem;
+    z-index: 49;
 }
 .cta-banner {
     background-color: rgba(15, 15, 16, 0.5);
@@ -1309,19 +1326,32 @@ footer {
     background: rgba(26, 26, 26, 0.3);
     backdrop-filter: blur(30px);
     position: relative;
+    /* overflow-x: hidden; */
 }
 .glow-4 {
     position: absolute;
-    top: -500px;
-    right: -400px;
-    width: 650px;
-    height: 650px;
+    width: 750px;
+    height: 750px;
+    bottom: 40%;
+    right: 0;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.glow-4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -55%;
+    width: 750px;
+    height: 750px;
     background: #7a0c0c;
     background: radial-gradient(
         circle,
         rgba(122, 12, 12, 0.4) 0%,
         rgba(255, 0, 0, 0) 75%
     );
+    z-index: -1;
 }
 
 .upper-footer {
