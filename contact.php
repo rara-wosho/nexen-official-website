@@ -35,11 +35,12 @@
     <header id="header" class="">
         <div class="max-w-wrapper w-100 d-flex align-items-center mx-auto">
             <a href="/nexen-official-website" class="logo ">
-                <img src="assets/png/nexen-logo.png" alt="nexen-logo"> <!-- DO NOT TOUCH, TAGUON NAKO NI -->
+                <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo"> <!-- DO NOT TOUCH, TAGUON NAKO NI -->
             </a>
 
             <!-- Desktop Dropdown Nav -->
             <div class="links-container">
+                <div class="dropdown"><button onclick="window.location.href='/nexen-official-website'">Home</button></div>
                 <div class="dropdown">
                     <button>Solutions</button>
                     <div class="dropdown-content">
@@ -74,15 +75,10 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <button>About</button>
-                    <div class="dropdown-content">
-                        <a href="#" style="--i:1">My Story</a>
-                        <a href="#" style="--i:2">Careers</a>
-                        <a href="#" style="--i:3">myPortal</a>
-                    </div>
+                    <button><a href="about">About</a></button>
                 </div>
                 <div class="talk-to-us ms-auto">
-                    <button onclick="window.location.href='talk-to-us.php'">Contact Us</button>
+                    <button onclick="window.location.href='contact'">Contact Us</button>
                 </div>
             </div>
 
@@ -109,16 +105,16 @@
         <div class="mx-auto max-w-wrapper mb-5">
 
             <div class="get-in-touch-upper-wrapper rounded-4 p-5">
-                <div class="flex align-items-center gap-1 mb-3">
-                    <i style="font-size:24px" class="bi bi-stars"></i>
-                    <i style="font-size:18px" class="bi bi-stars"></i>
-                    <i style="font-size:12px" class="bi bi-stars"></i>
+                <div class="ascii-wrapper mb-2">
+                    <p class="mb-0 text-muted-light">✦</p>
+                    <p class="mb-0 text-muted-light">✦</p>
+                    <p class="mb-0 text-muted-light">✦</p>
                 </div>
                 <h1 class="urbanist">Get in Touch with <span class="text-red-gradient">Nexen</span></h1>
                 <p class="text-muted-foreground fs-7 mt-4">Welcome to Nexen’s Contact Us page. We’re here to assist you with any inquiries, requests, or feedback. Whether you need our services, want to explore opportunities, or simply connect, we’re just a message away. Let’s start a conversation.</p>
             </div>
             <div class="p-5 bg-card rounded-4 mt-3 urbanist">
-                <p class="fs-7 text-muted-foreground"><i class="bi bi-building me-2"></i> Main Office</p>
+                <p class="fs-7 text-muted-foreground"><i class="bi bi-building me-2"></i> Central Office</p>
                 <h5>Nexen Bldg., 68 McKinley St., National Highway, Purok-1, Talic, Oroquieta City, Misamis Occidental,
                     Philppines, 7207</h5>
 
@@ -184,7 +180,7 @@
         <div class="upper-footer max-w-wrapper mx-auto">
             <div class="row">
                 <div class="col-12 col-sm-4">
-                    <img src="assets/png/nexen-logo.png" class="w-25" alt="">
+                    <img src="assets/png/nexen-logo.png" class="w-25 mb-3" alt="">
                     <p class="fw-semibold">NEXEN INNOVATION TECHNOLOGIES</p>
                 </div>
                 <div class="col-12 col-md-2">
@@ -222,13 +218,17 @@
                         <i class="bi bi-facebook"></i>
                     </div>
                     <div class="footer-icon-wrapper">
+                        <i class="bi bi-linkedin"></i>
+                    </div>
+
+                    <div class="footer-icon-wrapper">
                         <i class="bi bi-instagram"></i>
                     </div>
                     <div class="footer-icon-wrapper">
-                        <i class="bi bi-facebook"></i>
+                        <i class="bi bi-envelope-fill"></i>
                     </div>
                     <div class="footer-icon-wrapper">
-                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-youtube"></i>
                     </div>
                 </div>
             </div>

@@ -101,11 +101,12 @@ $herroTitleArr = explode(" ", $heroTitle);
   <header id="header" class="">
     <div class="max-w-wrapper  w-100 d-flex align-items-center mx-auto">
       <a href="#" class="logo ">
-        <img src="assets/png/nexen-logo.png" alt="nexen-logo"> <!-- DO NOT TOUCH, TAGUON NAKO NI -->
+        <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo"> <!-- DO NOT TOUCH, TAGUON NAKO NI -->
       </a>
 
       <!-- Desktop Dropdown Nav -->
       <div class="links-container">
+        <div class="dropdown"><button><a href="#" class="text-white">Home</a></button></div>
         <div class="dropdown">
           <button>Solutions</button>
           <div class="dropdown-content">
@@ -141,11 +142,6 @@ $herroTitleArr = explode(" ", $heroTitle);
         </div>
         <div class="dropdown">
           <button><a href="about">About</a></button>
-          <!-- <div class="dropdown-content">
-            <a href="#" style="--i:1">My Story</a>
-            <a href="#" style="--i:2">Careers</a>
-            <a href="#" style="--i:3">myPortal</a>
-          </div> -->
         </div>
         <div class="talk-to-us ms-auto">
           <button onclick="window.location.href='contact'">Contact Us</button>
@@ -247,7 +243,8 @@ $herroTitleArr = explode(" ", $heroTitle);
     <section id="services" class="bg-background ">
       <div class="services-glow"></div>
       <img src="./assets/png/prism.png" alt="" class="prisms">
-      <div class="max-w-wrapper mx-auto ">
+      <div class="max-w-wrapper mx-auto position-relative" style="isolation: isolate;">
+        <img src="assets/png/flare.png" class="position-absolute opacity-25" style="z-index:-1;width:700px; aspect-ratio:8/12;bottom:-10rem; right:-6rem; transform:rotate(50deg)" alt="">
         <div class="section-header" data-aos="fade-up">
           <h2 class="montserrat fs-1 text-secondary-foreground">Services We <span class="text-primary">Offer</span></h2>
 
@@ -333,6 +330,9 @@ $herroTitleArr = explode(" ", $heroTitle);
             </div>
           </div>
         </div>
+
+
+
       </div>
     </section>
 
@@ -378,7 +378,7 @@ $herroTitleArr = explode(" ", $heroTitle);
       <div class="upper-footer max-w-wrapper mx-auto">
         <div class="row">
           <div class="col-12 col-sm-4">
-            <img src="assets/png/nexen-logo.png" class="w-25" alt="">
+            <img src="assets/png/nexen-logo.png" class="w-25 mb-3" alt="">
             <p class="fw-semibold">NEXEN INNOVATION TECHNOLOGIES</p>
           </div>
           <div class="col-12 col-md-2">
@@ -416,16 +416,21 @@ $herroTitleArr = explode(" ", $heroTitle);
               <i class="bi bi-facebook"></i>
             </div>
             <div class="footer-icon-wrapper">
+              <i class="bi bi-linkedin"></i>
+            </div>
+
+            <div class="footer-icon-wrapper">
               <i class="bi bi-instagram"></i>
             </div>
             <div class="footer-icon-wrapper">
-              <i class="bi bi-facebook"></i>
+              <i class="bi bi-envelope-fill"></i>
             </div>
             <div class="footer-icon-wrapper">
-              <i class="bi bi-instagram"></i>
+              <i class="bi bi-youtube"></i>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </footer>
 

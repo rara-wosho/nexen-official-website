@@ -32,14 +32,15 @@
 
 <body>
     <!-- ══ HEADER ══════════════════════════════════════════ -->
-    <header id="header" class="">
+    <header id="header" class="scrolled">
         <div class="max-w-wrapper w-100 d-flex align-items-center mx-auto">
             <a href="/nexen-official-website" class="logo ">
-                <img src="assets/png/nexen-logo.png" alt="nexen-logo"> <!-- DO NOT TOUCH, TAGUON NAKO NI -->
+                <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo"> <!-- DO NOT TOUCH, TAGUON NAKO NI -->
             </a>
 
             <!-- Desktop Dropdown Nav -->
             <div class="links-container">
+                <div class="dropdown"><button onclick="window.location.href='/nexen-official-website'">Home</button></div>
                 <div class="dropdown">
                     <button>Solutions</button>
                     <div class="dropdown-content">
@@ -82,7 +83,7 @@
                     </div>
                 </div>
                 <div class="talk-to-us ms-auto">
-                    <button onclick="window.location.href='talk-to-us.php'">Contact Us</button>
+                    <button onclick="window.location.href='contact'">Contact Us</button>
                 </div>
             </div>
 
@@ -104,9 +105,9 @@
         </div>
     </header>
 
-
     <!-- BOOK A DEMO SECTION  -->
-    <section id="book-a-demo" class="book-a-demo ">
+    <section id="book-a-demo" class="book-a-demo position-relative">
+        <img src="assets/png/flare.png" class="position-absolute" style="z-index:-1;width:700px; aspect-ratio:8/10;bottom:-17rem; left:-6rem; transform:rotate(50deg); opacity:0.2;" alt="">
         <div class="row  max-w-wrapper mx-auto">
             <div class="col-12 col-md-5 ">
                 <p class="text-muted-foreground">Get in Touch</p>
@@ -118,63 +119,85 @@
                     and delivers efficient digital solutions- built to support your business
                     and turn ideas into reality.</p>
                 <ul class="mt-4 list-unstyled">
-                    <li class="fw-thin mb-2 text-muted-foreground urbanist d-flex gap-3"><i class="bi bi-check-circle-fill text-danger"></i><span> User-Friendly Interface</span></li>
-                    <li class="fw-thin mb-2 text-muted-foreground urbanist d-flex gap-3"><i class="bi bi-check-circle-fill text-danger"></i><span> Smart System Features</span></li>
-                    <li class="fw-thin mb-2 text-muted-foreground urbanist d-flex gap-3"><i class="bi bi-check-circle-fill text-danger"></i><span> Custom Web Solutions</span></li>
-                    <li class="fw-thin mb-2 text-muted-foreground urbanist d-flex gap-3"><i class="bi bi-check-circle-fill text-danger"></i><span> Reliable Technical Support</span></li>
+                    <li class="fw-thin mb-3 text-muted-foreground urbanist d-flex gap-3">
+                        <div style="width:24px; aspect-ratio:5/5" class="rounded-circle bg-gradient-red d-flex align-items-center justify-content-center"><i style="line-height: 1px;" class="bi bi-check2"></i></div></i><span> User-Friendly Interface</span>
+                    </li>
+                    <li class="fw-thin mb-3 text-muted-foreground urbanist d-flex gap-3">
+                        <div style="width:24px; aspect-ratio:5/5" class="rounded-circle bg-gradient-red d-flex align-items-center justify-content-center"><i style="line-height: 1px;" class="bi bi-check2"></i></div>
+                        </i><span> Smart System Features</span>
+                    </li>
+                    <li class="fw-thin mb-3 text-muted-foreground urbanist d-flex gap-3">
+                        <div style="width:24px; aspect-ratio:5/5" class="rounded-circle bg-gradient-red d-flex align-items-center justify-content-center"><i style="line-height: 1px;" class="bi bi-check2"></i></div>
+                        </i><span> Custom Web Solutions</span>
+                    </li>
+                    <li class="fw-thin mb-3 text-muted-foreground urbanist d-flex gap-3">
+                        <div style="width:24px; aspect-ratio:5/5" class="rounded-circle bg-gradient-red d-flex align-items-center justify-content-center"><i style="line-height: 1px;" class="bi bi-check2"></i></div>
+                        </i><span> Reliable Technical Support</span>
+                    </li>
                 </ul>
             </div>
             <div class="col-12 col-md-7  p-4">
-                <form action="">
+
+                <div id="form-message" class="mb-3"></div>
+                <!-- FORM  -->
+                <form id="book-demo-form" action="book-a-demo-action.php" method="POST">
                     <div class="row mb-4 px-1 no-gutter">
                         <div class="col-12 col-md-6 d-flex flex-column px-2">
-                            <label for="org" class="text-muted-foreground fs-7 mb-2">
+                            <label for="organization" class="text-muted-foreground fs-7 mb-2">
                                 Organization
                             </label>
-                            <input type="text" placeholder="Enter your company or organization name" class="modern-input" id="org">
+                            <input type="text" placeholder="Enter your company or organization name" name="organization" class="modern-input" id="organization">
                         </div>
                         <div class="col-12 col-md-6 d-flex flex-column px-2">
-                            <label for="org" class="text-muted-foreground fs-7 mb-2">
-                                Number of employees</label>
-                            <input type="text" placeholder="Enter number of employees" class="modern-input" id="org">
+                            <label for="employees" class="text-muted-foreground fs-7 mb-2">
+                                Number of Employees
+                            </label>
+                            <input type="text" placeholder="Enter number of employees" name="number_of_employees" class="modern-input" id="employees">
                         </div>
                     </div>
+
                     <div class="row mb-4 px-1 no-gutter">
                         <div class="col-12 col-md-6 d-flex flex-column px-2">
-                            <label for="org" class="text-muted-foreground fs-7 mb-2">
-                                Organization
+                            <label for="address" class="text-muted-foreground fs-7 mb-2">
+                                Address
                             </label>
-                            <input type="text" placeholder="Enter your company or organization name" class="modern-input" id="org">
+                            <input type="text" placeholder="Full address" name="address" class="modern-input" id="address">
                         </div>
                         <div class="col-12 col-md-6 d-flex flex-column px-2">
-                            <label for="org" class="text-muted-foreground fs-7 mb-2">
-                                Number of employees</label>
-                            <input type="text" placeholder="Enter number of employees" class="modern-input" id="org">
+                            <label for="contact_person" class="text-muted-foreground fs-7 mb-2">
+                                Contact Person
+                            </label>
+                            <input type="text" placeholder="Enter contact person" name="contact_person" class="modern-input" id="contact_person">
                         </div>
                     </div>
+
                     <div class="row mb-4 px-1 no-gutter">
                         <div class="col-12 col-md-6 d-flex flex-column px-2">
-                            <label for="org" class="text-muted-foreground fs-7 mb-2">
-                                Organization
+                            <label for="contact_number" class="text-muted-foreground fs-7 mb-2">
+                                Contact Number
                             </label>
-                            <input type="text" placeholder="Enter your company or organization name" class="modern-input" id="org">
+                            <input type="text" placeholder="+639 19 641 3744" name="contact_number" class="modern-input" id="contact_number">
                         </div>
                         <div class="col-12 col-md-6 d-flex flex-column px-2">
-                            <label for="org" class="text-muted-foreground fs-7 mb-2">
-                                Number of employees</label>
-                            <input type="text" placeholder="Enter number of employees" class="modern-input" id="org">
+                            <label for="email" class="text-muted-foreground fs-7 mb-2">
+                                Email Address
+                            </label>
+                            <input type="email" placeholder="info@gmail.com" name="email" class="modern-input" id="email">
                         </div>
                     </div>
 
                     <div class="row mb-4 px-1">
                         <div class="col d-flex flex-column px-2">
-                            <label for="org" class="text-muted-foreground fs-7 mb-2">
-                                Number of employees</label>
-                            <input type="text" placeholder="Enter number of employees" class="modern-input" id="org">
+                            <label for="priority_code" class="text-muted-foreground fs-7 mb-2">
+                                Priority Reference Code
+                            </label>
+                            <input type="text" placeholder="Enter Priority Reference Code" name="priority_reference_code" class="modern-input" id="priority_code">
                         </div>
                     </div>
 
-                    <button class="bg-gradient-red rounded-3 outline-0 border-0 px-5 text-secondary-foreground urbanist py-2">Book Demo</button>
+                    <button class="bg-gradient-red rounded-3 outline-0 border-0 px-5 text-secondary-foreground urbanist py-2">
+                        Book Demo
+                    </button>
                 </form>
             </div>
         </div>
@@ -186,7 +209,7 @@
         <div class="upper-footer max-w-wrapper mx-auto">
             <div class="row">
                 <div class="col-12 col-sm-4">
-                    <img src="assets/png/nexen-logo.png" class="w-25" alt="">
+                    <img src="assets/png/nexen-logo.png" class="w-25 mb-3" alt="">
                     <p class="fw-semibold">NEXEN INNOVATION TECHNOLOGIES</p>
                 </div>
                 <div class="col-12 col-md-2">
@@ -224,18 +247,121 @@
                         <i class="bi bi-facebook"></i>
                     </div>
                     <div class="footer-icon-wrapper">
+                        <i class="bi bi-linkedin"></i>
+                    </div>
+
+                    <div class="footer-icon-wrapper">
                         <i class="bi bi-instagram"></i>
                     </div>
                     <div class="footer-icon-wrapper">
-                        <i class="bi bi-facebook"></i>
+                        <i class="bi bi-envelope-fill"></i>
                     </div>
                     <div class="footer-icon-wrapper">
-                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-youtube"></i>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
+
+    <script>
+        window.addEventListener('load', () => {
+            document.getElementById("book-demo-form").addEventListener("submit", async function(e) {
+                e.preventDefault();
+
+                const form = e.target;
+                const formData = new FormData(form);
+                const messageDiv = document.getElementById("form-message");
+
+                // Optional: loading state
+                messageDiv.innerHTML = "<div class='text-warning mb-5'>Submitting...</div>";
+
+                try {
+                    // 1. Send the request
+                    const response = await fetch(form.action, {
+                        method: "POST",
+                        body: formData
+                    });
+
+                    // 2. Parse the JSON response
+                    const data = await response.json();
+
+                    // 3. Handle the logic based on the data
+                    if (data.success) {
+                        messageDiv.innerHTML = `<div class="text-success mb-5">${data.message}</div>`;
+                        form.reset(); // clear form
+                    } else {
+                        // handle validation errors
+                        if (data.errors) {
+                            messageDiv.innerHTML = `<div class="text-danger mb-5">${data.errors.join(" ")}</div>`;
+                        } else {
+                            messageDiv.innerHTML = `<div class="text-danger mb-5">${data.message}</div>`;
+                        }
+                    }
+                } catch (error) {
+                    // 4. Catch network or parsing errors
+                    messageDiv.innerHTML = "<div class='text-danger mb-5'>Something went wrong. Try again.</div>";
+                    console.error("Fetch error:", error);
+                } finally {
+                    setTimeout(() => {
+                        messageDiv.style.display = "none"
+                    }, 3000);
+                }
+            });
+        })
+    </script>
+
 </body>
+
+
+<!-- Vendor JS -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+
+<script>
+    // Preloader
+    window.addEventListener('load', () => {
+        const pl = document.getElementById('preloader');
+        if (pl) {
+            pl.classList.add('done');
+        }
+
+
+        // AOS
+        AOS.init({
+            duration: 650,
+            easing: 'ease-out-quad',
+            once: true,
+            offset: 60
+        });
+    });
+
+
+    // Scroll top
+    // const scrollBtn = document.getElementById('scroll-top');
+    // window.addEventListener('scroll', () => {
+    //     scrollBtn.classList.toggle('active', window.scrollY > 400);
+    // });
+
+    // scrollBtn.addEventListener('click', e => {
+    //     e.preventDefault();
+    //     window.scrollTo({
+    //         top: 0,
+    //         behavior: 'smooth'
+    //     });
+    // });
+</script>
+
+<script>
+    const lenis = new Lenis({
+        autoRaf: true,
+        autoToggle: true,
+        anchors: true,
+        allowNestedScroll: true,
+        naiveDimensions: true,
+        stopInertiaOnNavigate: true
+    });
+</script>
 
 </html>
