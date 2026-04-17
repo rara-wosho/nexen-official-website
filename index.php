@@ -106,7 +106,7 @@ $herroTitleArr = explode(" ", $heroTitle);
 
       <!-- Desktop Dropdown Nav -->
       <div class="links-container">
-        <div class="dropdown"><button><a href="#" class="text-white">Home</a></button></div>
+        <div class="dropdown"><button><a href="#" class="text-red">Home</a></button></div>
         <div class="dropdown">
           <button>Solutions</button>
           <div class="dropdown-content">
@@ -141,10 +141,14 @@ $herroTitleArr = explode(" ", $heroTitle);
           </div>
         </div>
         <div class="dropdown">
-          <button><a href="about">About</a></button>
+          <button onclick="window.location.href='about'"><span>About</span></button>
         </div>
-        <div class="talk-to-us ms-auto">
-          <button onclick="window.location.href='contact'">Contact Us</button>
+
+        <div class="d-flex align-items-center gap-2 ms-auto">
+          <div class="talk-to-us">
+            <button onclick="window.location.href='contact'">Contact Us</button>
+          </div>
+          <button onclick="window.location.href='login'" class="btn text-secondary-foreground nav-login-btn fs-7">Admin Login</button>
         </div>
       </div>
 
@@ -188,9 +192,7 @@ $herroTitleArr = explode(" ", $heroTitle);
         <div class="hero-actions">
           <a href="#about" class="btn-primary-hero">
             Get Started
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            <i class="bi bi-arrow-right"></i>
           </a>
           <a href="book-a-demo" class="btn-ghost-hero">
             Book a Demo
@@ -230,7 +232,7 @@ $herroTitleArr = explode(" ", $heroTitle);
         </div>
 
         <div class="hero-lower-tab d-flex flex-column col py-3">
-          <p class="text-primary text-center">5-Star Reviews</p>
+          <p class="text-primary text-center">Years of Experience</p>
           <h3 class="text-secondary-foreground text-center fw-bold">
             <?= getContent("ratings_clients", "five_star_reviews") ?>
           </h3>
@@ -342,14 +344,14 @@ $herroTitleArr = explode(" ", $heroTitle);
       <div class="gradient-02"></div>
       <p class="text-center fs-5 fw-semibold text-secondary-foreground"><span class="text-primary">Meet</span> the People We are Working With</p>
 
-      <div class="d-flex align-items-center justify-content-center gap-4">
+      <div class="d-flex partners-logo-wrapper align-items-center gap-4">
         <?php
         $images = getImages("partners_logo", "p_logo_img");
 
         foreach ($images as $img) {
         ?>
           <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-            <img src="<?= $img ?>" style="width:55px; height:55px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+            <img src="<?= $img == "." ? "assets\png\image 98.png" : $img ?>" style="width:55px; flex-shrink:0; height:55px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
           </div>
         <?php } ?>
       </div>
@@ -365,9 +367,9 @@ $herroTitleArr = explode(" ", $heroTitle);
           Innovation Technologies delivers smart, future-ready solutions.
           Innovate faster. Lead with confidence.
         </p>
-        <a class="btn bg-gradient-red" href="#">
-          Get Started
-          <span class="arrow">→</span>
+        <a class="btn bg-gradient-red" href="book-a-demo">
+          Book a Demo
+          <i class="bi bi-arrow-right"></i>
         </a>
       </div>
     </section>

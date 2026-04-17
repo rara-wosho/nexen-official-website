@@ -140,7 +140,7 @@ function getContent($section_name, $content_key)
                     </div>
                 </div>
                 <div class="dropdown">
-                    <button> <a href="">About</a></button>
+                    <button> <a class="text-red" href="">About</a></button>
                 </div>
                 <div class="talk-to-us ms-auto">
                     <button onclick="window.location.href='contact'">Contact Us</button>
@@ -182,13 +182,13 @@ function getContent($section_name, $content_key)
                     <div class="col">
                         <div class="p-2 p-md-4 rounded-3 bg-card-down border-upper">
                             <h2><?= getContent("about", "happy_customers") ?></h2>
-                            <p class="mt-1 mb-0 text-muted-foreground fs-7">Happy Customers</p>
+                            <p class="mt-1 mb-0 text-muted-foreground fs-7">Clients</p>
                         </div>
                     </div>
                     <div class="col">
                         <div class="p-2 p-md-4 rounded-3 bg-card-down border-upper">
                             <h2><?= getContent("about", "properties_for_clients") ?></h2>
-                            <p class="mt-1 mb-0 text-muted-foreground fs-7">Properties for clients</p>
+                            <p class="mt-1 mb-0 text-muted-foreground fs-7">Projects</p>
                         </div>
                     </div>
                     <div class="col">
@@ -341,29 +341,29 @@ function getContent($section_name, $content_key)
                 <div class="col mb-3 px-2">
                     <div class="border-border p-4 rounded-3">
                         <img src="assets/png/nexen2 1.png" class="w-100 rounded-1" style="aspect-ratio: 5/4; object-fit:cover;" alt="">
-                        <h5 class="text-secondary-foreground text-center mt-4 urbanist">Max Mitchel</h5>
-                        <p class="text-muted-light fs-7 text-center mb-0 urbanist">Founder</p>
+                        <h5 class="text-secondary-foreground text-center mt-4 urbanist">Geramel Handomon</h5>
+                        <p class="text-muted-light fs-7 text-center mb-0 urbanist">CEO</p>
                     </div>
                 </div>
                 <div class="col mb-3 px-2">
                     <div class="border-border p-4 rounded-3">
                         <img src="assets/png/nexen2 1.png" class="w-100 rounded-1" style="aspect-ratio: 5/4; object-fit:cover;" alt="">
-                        <h5 class="text-secondary-foreground text-center mt-4 urbanist">Max Mitchel</h5>
-                        <p class="text-muted-light fs-7 text-center mb-0 urbanist">Founder</p>
+                        <h5 class="text-secondary-foreground text-center mt-4 urbanist">Armando Bacang JR.</h5>
+                        <p class="text-muted-light fs-7 text-center mb-0 urbanist">Software Engineer</p>
                     </div>
                 </div>
                 <div class="col mb-3 px-2">
                     <div class="border-border p-4 rounded-3">
                         <img src="assets/png/nexen2 1.png" class="w-100 rounded-1" style="aspect-ratio: 5/4; object-fit:cover;" alt="">
-                        <h5 class="text-secondary-foreground text-center mt-4 urbanist">Max Mitchel</h5>
-                        <p class="text-muted-light fs-7 text-center mb-0 urbanist">Founder</p>
+                        <h5 class="text-secondary-foreground text-center mt-4 urbanist">Erolyn Lood</h5>
+                        <p class="text-muted-light fs-7 text-center mb-0 urbanist">Deployment Support Specialist</p>
                     </div>
                 </div>
                 <div class="col mb-3 px-2">
                     <div class="border-border p-4 rounded-3">
                         <img src="assets/png/nexen2 1.png" class="w-100 rounded-1" style="aspect-ratio: 5/4; object-fit:cover;" alt="">
-                        <h5 class="text-secondary-foreground text-center mt-4 urbanist">Max Mitchel</h5>
-                        <p class="text-muted-light fs-7 text-center mb-0 urbanist">Founder</p>
+                        <h5 class="text-secondary-foreground text-center mt-4 urbanist">Arnold Lapinig</h5>
+                        <p class="text-muted-light fs-7 text-center mb-0 urbanist">Technical</p>
                     </div>
                 </div>
             </div>
@@ -430,24 +430,88 @@ function getContent($section_name, $content_key)
         </section>
 
         <!-- VALUED CLIENTS  -->
-        <section id="our-valued-clients" class="mx-auto max-w-wrapper py-5">
-            <div class="mb-4">
+        <section id="our-valued-clients">
+            <div class="mb-4 mx-auto max-w-wrapper">
                 <h2 class="urbanist text-secondary-foreground">Our Valued Clients</h2>
                 <p class="text-muted-foreground fs-7">Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary.</p>
             </div>
+            <div class="value-clients-wrapper pb-5 mb-5 position-relative">
+                <div class="max-w-wrapper mx-auto">
+                    <div class="row row-cols-4 row-cols-md-4 first-row">
+                        <div class="col mb-2 px-1">
+                            <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
+                                <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
+                                <p class="text-muted-light fs-7">Since 2019</p>
+                                <h3 class="urbanist">JFC Coop</h3>
+                            </div>
+                        </div>
+                        <div class="col mb-2 px-1">
+                            <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
+                                <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
+                                <p class="text-muted-light fs-7">Since 2019</p>
+                                <h3 class="urbanist">JFC Coop</h3>
+                            </div>
+                        </div>
+                        <div class="col mb-2 px-1">
+                            <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
+                                <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
+                                <p class="text-muted-light fs-7">Since 2019</p>
+                                <h3 class="urbanist">JFC Coop</h3>
+                            </div>
+                        </div>
+                        <div class="col mb-2 px-1">
+                            <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
+                                <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
+                                <p class="text-muted-light fs-7">Since 2019</p>
+                                <h3 class="urbanist">JFC Coop</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-4 row-cols-md-4 second-row">
+                        <div class="col mb-2 px-1">
+                            <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
+                                <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
+                                <p class="text-muted-light fs-7">Since 2019</p>
+                                <h3 class="urbanist">JFC Coop</h3>
+                            </div>
+                        </div>
+                        <div class="col mb-2 px-1">
+                            <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
+                                <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
+                                <p class="text-muted-light fs-7">Since 2019</p>
+                                <h3 class="urbanist">JFC Coop</h3>
+                            </div>
+                        </div>
+                        <div class="col mb-2 px-1">
+                            <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
+                                <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
+                                <p class="text-muted-light fs-7">Since 2019</p>
+                                <h3 class="urbanist">JFC Coop</h3>
+                            </div>
+                        </div>
+                        <div class="col mb-2 px-1">
+                            <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
+                                <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
+                                <p class="text-muted-light fs-7">Since 2019</p>
+                                <h3 class="urbanist">JFC Coop</h3>
+                            </div>
+                        </div>
+                        <!-- <div class="col mb-2 px-1">
+                            <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
+                                <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
+                                <p class="text-muted-light fs-7">Since 2019</p>
+                                <h3 class="urbanist">JFC Coop</h3>
+                            </div>
+                        </div>
+                        <div class="col mb-2 px-1">
+                            <div class="bg-card-dark border-thick p-4 rounded-3">
+        
+                                <p class="text-muted-light fs-7">Since 2018</p>
+                                <h3 class="urbanist">AFCCO</h3>
+                            </div>
+                        </div> -->
+                    </div>
 
-            <div class="row row-cols-1 row-cols-md-2">
-                <div class="col">
-                    <div class="bg-card-dark border-thick p-4 rounded-3">
-                        <p class="text-muted-light fs-7">Since 2019</p>
-                        <h3 class="urbanist">JFC Coop</h3>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="bg-card-dark border-thick p-4 rounded-3">
-                        <p class="text-muted-light fs-7">Since 2018</p>
-                        <h3 class="urbanist">AFCCO</h3>
-                    </div>
                 </div>
             </div>
         </section>

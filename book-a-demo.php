@@ -106,13 +106,13 @@
     </header>
 
     <!-- BOOK A DEMO SECTION  -->
-    <section id="book-a-demo" class="book-a-demo position-relative">
+    <section id="book-a-demo" class="book-a-demo position-relative w-100 overflow-hidden">
         <img src="assets/png/flare.png" class="position-absolute" style="z-index:-1;width:700px; aspect-ratio:8/10;bottom:-17rem; left:-6rem; transform:rotate(50deg); opacity:0.2;" alt="">
-        <div class="row  max-w-wrapper mx-auto">
-            <div class="col-12 col-md-5 ">
-                <p class="text-muted-foreground">Get in Touch</p>
-                <h2 class="urbanist mb-3"><span>Let’s Explore the</span> <br>
-                    <span class="text-red-gradient">Nexen System Demo</span>
+        <div class="row px-1 max-w-wrapper mx-auto">
+            <div class="col-12 px-3 col-md-5 pt-3">
+                <!-- <p class="text-muted-foreground">Get in Touch</p> -->
+                <h2 class="urbanist mb-3"><span>The Future of Your</span> <br>
+                    <span class="text-red-gradient">Workflow</span>
                 </h2>
 
                 <p class="urbanist text-muted-foreground">Experience how Nexen streamlines workflows, boosts productivity,
@@ -120,35 +120,34 @@
                     and turn ideas into reality.</p>
                 <ul class="mt-4 list-unstyled">
                     <li class="fw-thin mb-3 text-muted-foreground urbanist d-flex gap-3">
-                        <div style="width:24px; aspect-ratio:5/5" class="rounded-circle bg-gradient-red d-flex align-items-center justify-content-center"><i style="line-height: 1px;" class="bi bi-check2"></i></div></i><span> User-Friendly Interface</span>
+                        <div style="width:24px; height:24px; flex-shrink:0; flex-grow:0;" class="rounded-circle bg-gradient-red d-flex align-items-center justify-content-center"><i style="line-height: 1px;" class="bi bi-check2"></i></div></i><span> <strong>Intuitive Design</strong>: Zero learning curve for your team.</span>
                     </li>
                     <li class="fw-thin mb-3 text-muted-foreground urbanist d-flex gap-3">
-                        <div style="width:24px; aspect-ratio:5/5" class="rounded-circle bg-gradient-red d-flex align-items-center justify-content-center"><i style="line-height: 1px;" class="bi bi-check2"></i></div>
-                        </i><span> Smart System Features</span>
+                        <div style="width:24px; height:24px; flex-shrink:0; flex-grow:0;" class="rounded-circle bg-gradient-red d-flex align-items-center justify-content-center"><i style="line-height: 1px;" class="bi bi-check2"></i></div>
+                        </i><span> <strong>Intelligent Automation</strong>: Smarter features that do the heavy lifting.</span>
                     </li>
                     <li class="fw-thin mb-3 text-muted-foreground urbanist d-flex gap-3">
-                        <div style="width:24px; aspect-ratio:5/5" class="rounded-circle bg-gradient-red d-flex align-items-center justify-content-center"><i style="line-height: 1px;" class="bi bi-check2"></i></div>
-                        </i><span> Custom Web Solutions</span>
+                        <div style="width:24px; height:24px; flex-shrink:0; flex-grow:0;" class="rounded-circle bg-gradient-red d-flex align-items-center justify-content-center"><i style="line-height: 1px;" class="bi bi-check2"></i></div>
+                        </i><span> <strong>Tailored Scalability</strong>: Built to grow alongside your business.</span>
                     </li>
                     <li class="fw-thin mb-3 text-muted-foreground urbanist d-flex gap-3">
-                        <div style="width:24px; aspect-ratio:5/5" class="rounded-circle bg-gradient-red d-flex align-items-center justify-content-center"><i style="line-height: 1px;" class="bi bi-check2"></i></div>
-                        </i><span> Reliable Technical Support</span>
+                        <div style="width:24px; height:24px; flex-shrink:0; flex-grow:0;" class="rounded-circle bg-gradient-red d-flex align-items-center justify-content-center"><i style="line-height: 1px;" class="bi bi-check2"></i></div>
+                        </i><span> <strong>Expert Support</strong>: A dedicated partnership, not just a help desk.</span>
                     </li>
                 </ul>
             </div>
-            <div class="col-12 col-md-7  p-4">
-
+            <div class="col-12 px-3 col-md-7">
                 <div id="form-message" class="mb-3"></div>
                 <!-- FORM  -->
                 <form id="book-demo-form" action="book-a-demo-action.php" method="POST">
                     <div class="row mb-4 px-1 no-gutter">
-                        <div class="col-12 col-md-6 d-flex flex-column px-2">
+                        <div class="col-12  col-md-6 mb-3 mb-md-0 d-flex flex-column px-2">
                             <label for="organization" class="text-muted-foreground fs-7 mb-2">
                                 Organization
                             </label>
                             <input type="text" placeholder="Enter your company or organization name" name="organization" class="modern-input" id="organization">
                         </div>
-                        <div class="col-12 col-md-6 d-flex flex-column px-2">
+                        <div class="col-12  col-md-6 mb-3 mb-md-0 d-flex flex-column px-2">
                             <label for="employees" class="text-muted-foreground fs-7 mb-2">
                                 Number of Employees
                             </label>
@@ -157,13 +156,13 @@
                     </div>
 
                     <div class="row mb-4 px-1 no-gutter">
-                        <div class="col-12 col-md-6 d-flex flex-column px-2">
+                        <div class="col-12  col-md-6 mb-3 mb-md-0 d-flex flex-column px-2">
                             <label for="address" class="text-muted-foreground fs-7 mb-2">
                                 Address
                             </label>
                             <input type="text" placeholder="Full address" name="address" class="modern-input" id="address">
                         </div>
-                        <div class="col-12 col-md-6 d-flex flex-column px-2">
+                        <div class="col-12  col-md-6 mb-3 mb-md-0 d-flex flex-column px-2">
                             <label for="contact_person" class="text-muted-foreground fs-7 mb-2">
                                 Contact Person
                             </label>
@@ -172,13 +171,13 @@
                     </div>
 
                     <div class="row mb-4 px-1 no-gutter">
-                        <div class="col-12 col-md-6 d-flex flex-column px-2">
+                        <div class="col-12  col-md-6 mb-3 mb-md-0 d-flex flex-column px-2">
                             <label for="contact_number" class="text-muted-foreground fs-7 mb-2">
                                 Contact Number
                             </label>
                             <input type="text" placeholder="+639 19 641 3744" name="contact_number" class="modern-input" id="contact_number">
                         </div>
-                        <div class="col-12 col-md-6 d-flex flex-column px-2">
+                        <div class="col-12  col-md-6 mb-3 mb-md-0 d-flex flex-column px-2">
                             <label for="email" class="text-muted-foreground fs-7 mb-2">
                                 Email Address
                             </label>
@@ -208,15 +207,15 @@
         <div class="glow-4"></div>
         <div class="upper-footer max-w-wrapper mx-auto">
             <div class="row">
-                <div class="col-12 col-sm-4">
-                    <img src="assets/png/nexen-logo.png" class="w-25 mb-3" alt="">
-                    <p class="fw-semibold">NEXEN INNOVATION TECHNOLOGIES</p>
+                <div class="col-12 mb-3 flex-grow-1 col-sm-4 d-flex flex-column align-items-center align-items-md-start">
+                    <img src="assets/png/nexen-logo.png" style="width: 90px; aspect-ratio:5/5" class="mb-3" alt="">
+                    <p class="fw-semibold text-center text-md-start">NEXEN INNOVATION TECHNOLOGIES</p>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
                     <p class="text-muted-foreground mb-3">Home</p>
                     <p class="text-secondary-foreground">Features</p>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
                     <p class="text-muted-foreground mb-3">About Us</p>
                     <p class="text-secondary-foreground">Our Story</p>
                     <p class="text-secondary-foreground">Our Works</p>
@@ -224,12 +223,12 @@
                     <p class="text-secondary-foreground">Our Team</p>
                     <p class="text-secondary-foreground">Our Clients</p>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
                     <p class="text-muted-foreground mb-3">Services</p>
                     <p class="text-secondary-foreground">Strategic Marketing</p>
                     <p class="text-secondary-foreground">Closing Success</p>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
                     <p class="text-muted-foreground mb-3">Contact Us</p>
                     <p class="text-secondary-foreground">Contact Form</p>
                     <p class="text-secondary-foreground">Our Offices</p>
@@ -306,7 +305,7 @@
                 } finally {
                     setTimeout(() => {
                         messageDiv.style.display = "none"
-                    }, 3000);
+                    }, 5000);
                 }
             });
         })

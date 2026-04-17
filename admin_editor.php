@@ -157,6 +157,9 @@ foreach ($contentItems as $item) {
       </li>
 
       <div class="sidebar-divider"></div>
+      <div class="sidebar-heading">Demo Bookings</div>
+      <li class="sidebar-menu-item"><a href="bookings" class="sidebar-menu-link"><span>View Bookings</span></a></li>
+      <div class="sidebar-divider"></div>
       <div class="sidebar-heading">Website Sections</div>
 
       <?php foreach (array_keys($sections) as $sectionName): ?>
