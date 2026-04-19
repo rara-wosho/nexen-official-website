@@ -107,7 +107,7 @@
 
     <!-- BOOK A DEMO SECTION  -->
     <section id="book-a-demo" class="book-a-demo position-relative w-100 overflow-hidden">
-        <img src="assets/png/flare.png" class="position-absolute" style="z-index:-1;width:700px; aspect-ratio:8/10;bottom:-17rem; left:-6rem; transform:rotate(50deg); opacity:0.2;" alt="">
+        <img src="assets/png/flare.png" class="flare-image position-absolute" style="z-index:-1;width:700px; aspect-ratio:8/10;bottom:-17rem; left:-6rem; transform:rotate(50deg); opacity:0.2;" alt="">
         <div class="row px-1 max-w-wrapper mx-auto">
             <div class="col-12 px-3 col-md-5 pt-3">
                 <!-- <p class="text-muted-foreground">Get in Touch</p> -->
@@ -204,7 +204,7 @@
 
     <!-- FOOTER  -->
     <footer>
-        <div class="glow-4"></div>
+        <!-- <div class="glow-4"></div> -->
         <div class="upper-footer max-w-wrapper mx-auto">
             <div class="row">
                 <div class="col-12 mb-3 flex-grow-1 col-sm-4 d-flex flex-column align-items-center align-items-md-start">

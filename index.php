@@ -246,7 +246,7 @@ $herroTitleArr = explode(" ", $heroTitle);
       <div class="services-glow"></div>
       <img src="./assets/png/prism.png" alt="" class="prisms">
       <div class="max-w-wrapper mx-auto position-relative" style="isolation: isolate;">
-        <img src="assets/png/flare.png" class="position-absolute opacity-25" style="z-index:-1;width:700px; aspect-ratio:8/12;bottom:-10rem; right:-6rem; transform:rotate(50deg)" alt="">
+        <img src="assets/png/flare.png" class="position-absolute opacity-25 flare-image" style="z-index:-1;width:700px; aspect-ratio:8/12;bottom:-10rem; right:-6rem; transform:rotate(50deg)" alt="">
         <div class="section-header" data-aos="fade-up">
           <h2 class="montserrat fs-1 text-secondary-foreground">Services We <span class="text-primary">Offer</span></h2>
 

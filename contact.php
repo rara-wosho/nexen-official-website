@@ -101,9 +101,7 @@
     </header>
 
     <section class="get-in-touch">
-
         <div class="mx-auto max-w-wrapper mb-5">
-
             <div class="get-in-touch-upper-wrapper rounded-4 p-5">
                 <div class="ascii-wrapper mb-2">
                     <p class="mb-0 text-muted-light">✦</p>
@@ -112,28 +110,53 @@
                 </div>
                 <h1 class="urbanist">Get in Touch with <span class="text-red-gradient">Nexen</span></h1>
                 <p class="text-muted-foreground fs-7 mt-4">Welcome to Nexen’s Contact Us page. We’re here to assist you with any inquiries, requests, or feedback. Whether you need our services, want to explore opportunities, or simply connect, we’re just a message away. Let’s start a conversation.</p>
+
+                <div class="mt-4 row row-cols-2 row-cols-sm-3 row-cols-md-5 ">
+                    <div class="col px-2">
+                        <div class="get-in-touch-card p-3 bg-card-down rounded-3 position-relative">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-envelope-fill"></i>
+                                <p class="text-secondary-foreground mb-0">Email</p>
+                            </div>
+                            <p class="mt-2 mb-0 text-muted-foreground fw-light">info@nexen.com.ph</p>
+                        </div>
+                    </div>
+                    <div class="col px-2">
+                        <div class="get-in-touch-card p-3 bg-card-down rounded-3 position-relative">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-telephone-fill"></i>
+                                <p class="text-secondary-foreground mb-0">Phone</p>
+                            </div>
+                            <p class="mt-2 mb-0 text-muted-foreground fw-light">0997-609-3356</p>
+                        </div>
+                    </div>
+                    <div class="col px-2">
+                        <div class="get-in-touch-card p-3 bg-card-down rounded-3 position-relative">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-linkedin"></i>
+                                <p class="text-secondary-foreground mb-0">Linkedin</p>
+                            </div>
+                            <p class="mt-2 mb-0 text-muted-foreground fw-light">Nexen.ph</p>
+                        </div>
+                    </div>
+                    <div class="col px-2">
+                        <div class="get-in-touch-card p-3 bg-card-down rounded-3 position-relative">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-youtube"></i>
+                                <p class="text-secondary-foreground mb-0">Youtube</p>
+                            </div>
+                            <p class="mt-2 mb-0 text-muted-foreground fw-light">Nexen.ph</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="p-5 bg-card rounded-4 mt-3 urbanist">
+            <div class="p-5 bg-card-dark rounded-4 mt-3 urbanist">
                 <p class="fs-7 text-muted-foreground"><i class="bi bi-building me-2"></i> Central Office</p>
                 <h5>Nexen Bldg., 68 McKinley St., National Highway, Purok-1, Talic, Oroquieta City, Misamis Occidental,
                     Philppines, 7207</h5>
 
                 <p class="mt-1 text-muted-foreground fs-7">Our main office serves as the core of Nexen. Located in a strategic area of the city, it is where our team works together to drive innovation, deliver quality solutions, and support our clients with excellence.</p>
 
-                <div class="d-flex mt-4 align-items-center gap-1">
-                    <div class="px-3 py-2 border-border bg-card rounded-pill d-flex align-items-center gap-2">
-                        <i class="bi bi-envelope-fill"></i>
-                        <p class="mb-0">info@nexen.com.ph</p>
-                    </div>
-                    <div class="px-3 py-2 border-border bg-card rounded-pill d-flex align-items-center gap-2">
-                        <i class="bi bi-telephone-fill"></i>
-                        <p class="mb-0">0997-609-3356</p>
-                    </div>
-                    <div class="px-3 py-2 border-border bg-card rounded-pill d-flex align-items-center gap-2">
-                        <i class="bi bi-building-fill"></i>
-                        <p class="mb-0">Nexen</p>
-                    </div>
-                </div>
 
 
                 <!-- 

@@ -676,11 +676,20 @@ a {
 .bg-card-down {
     background: linear-gradient(
         to bottom,
-        rgb(30, 30, 30),
+        rgb(25, 25, 25),
         rgba(30, 30, 30, 0.2)
     );
 }
 
+.flare-image {
+    animation: rotate 170s linear infinite;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
 .hero-title span {
     margin-inline: 8px;
 }
@@ -1321,15 +1330,26 @@ a {
     );
 }
 
+/* GET IN TOUCH  */
 .get-in-touch {
     margin-bottom: 8rem;
+    z-index: 20;
 }
 
-/* GET IN TOUCH  */
 .get-in-touch-upper-wrapper {
     margin-top: 7rem;
     background: linear-gradient(to right, rgba(20, 20, 20, 0.5), transparent);
 }
+
+/* .get-in-touch-card {
+    border: 1px solid transparent;
+    transition-duration: 0.3s;
+    transition-property: all;
+}
+.get-in-touch-card:hover {
+    border: 1px solid rgba(167, 22, 22, 0.493) !important;
+    background: rgba(153, 17, 17, 0.108);
+} */
 /* ═══════════════════════════════════════════════
        PROJECTS / CAROUSEL
     ═══════════════════════════════════════════════ */
@@ -1465,7 +1485,7 @@ footer {
     background: rgba(26, 26, 26, 0.3);
     backdrop-filter: blur(30px);
     position: relative;
-    isolation: isolate;
+    /* isolation: isolate; */
     /* overflow-x: hidden; */
 }
 .glow-4 {
@@ -1476,7 +1496,7 @@ footer {
     right: 0;
     isolation: isolate;
     overflow: hidden;
-    z-index: -1;
+    z-index: -50;
     pointer-events: none;
 }
 
@@ -1493,7 +1513,7 @@ footer {
         rgba(122, 12, 12, 0.4) 0%,
         rgba(255, 0, 0, 0) 75%
     );
-    z-index: -1;
+    z-index: -50;
 }
 
 .upper-footer {
