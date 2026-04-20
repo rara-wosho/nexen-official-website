@@ -178,27 +178,60 @@ function getContent($section_name, $content_key)
                 <h2 class="urbanist mb-4"><?= getContent("about", "intro_title") ?></h2>
                 <p class="text-muted-foreground urbanist about-introduction"><?= getContent("about", "intro_paragraph") ?></p>
 
-                <div class="row row-cols-3 gap-0 gap-md-0 mb-5 mb-md-0 mt-5">
-                    <div class="col">
-                        <div class="p-2 p-md-4 rounded-3 bg-card-down border-upper">
+                <!-- happy customers section  -->
+                <div class="row row-cols-3 px-1 gap-0 gap-md-0 mb-5 mt-5">
+                    <div class="col px-2">
+                        <div class="p-2 p-md-3 rounded-3 bg-card-down border-upper">
                             <h2><?= getContent("about", "happy_customers") ?></h2>
                             <p class="mt-1 mb-0 text-muted-foreground fs-7">Clients</p>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="p-2 p-md-4 rounded-3 bg-card-down border-upper">
+                    <div class="col px-2">
+                        <div class="p-2 p-md-3 rounded-3 bg-card-down border-upper">
                             <h2><?= getContent("about", "properties_for_clients") ?></h2>
                             <p class="mt-1 mb-0 text-muted-foreground fs-7">Projects</p>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="p-2 p-md-4 rounded-3 bg-card-down border-upper">
+                    <div class="col px-2">
+                        <div class="p-2 p-md-3 rounded-3 bg-card-down border-upper">
                             <h2><?= getContent("about", "years_of_experience") ?></h2>
                             <p class="mt-1 mb-0 text-muted-foreground fs-7">Years of experience</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- mission vision section  -->
+                <div class="row row-cols-2 px-1 mt-3 mb-3 mb-md-0">
+                    <div class="col px-2">
+                        <div class="ascii-wrapper mb-2">
+                            <p class="mb-0 text-muted-light">✦</p>
+                            <p class="mb-0 text-muted-light">✦</p>
+                            <p class="mb-0 text-muted-light">✦</p>
+                        </div>
+                        <h2>Our Mission</h2>
+                        <p class="mb-0 text-muted-light fs-7">Bring technological systems innovation
+                            to every partner institution to help them
+                            reach their full potential.</p>
+
+                    </div>
+                    <div class="col px-2">
+                        <div class="ascii-wrapper mb-2">
+                            <p class="mb-0 text-muted-light">✦</p>
+                            <p class="mb-0 text-muted-light">✦</p>
+                            <p class="mb-0 text-muted-light">✦</p>
+                        </div>
+                        <h2>Our Vision</h2>
+                        <p class="mb-0 text-muted-light fs-7">To become the leading
+                            provider
+                            of innovative business
+                            engine
+                            solutions.</p>
+                    </div>
+                </div>
             </div>
+
+
+            <!-- Employees Images  -->
             <div class="col ps-0 ps-md-3 ps-lg-4 pe-0">
                 <div class="mb-3 mb-md-5 bg-card-down border-upper p-sm-3 p-md-4 p-2 rounded-3">
                     <img src="assets/png/nexen2 1.png" style="aspect-ratio: 8/5;" class="w-full rounded-1" alt="">
@@ -209,62 +242,56 @@ function getContent($section_name, $content_key)
             </div>
         </section>
 
-        <!-- MISSION VISION -->
+        <!-- Core values -->
         <section id="mission-vision" class="mx-auto max-w-wrapper mb-5">
             <div class="row">
-                <div class="col py-3 col-12 col-md-4">
-                    <div class="d-flex align-items-center mission-vision-wrapper">
-                        <div class="mission-block">
-                            <div class="ascii-wrapper mb-2">
-                                <p class="mb-0 text-muted-light">✦</p>
-                                <p class="mb-0 text-muted-light">✦</p>
-                                <p class="mb-0 text-muted-light">✦</p>
-                            </div>
-                            <h2 class="urbanist text-secondary-foreground">Our Mission</h2>
-                            <p class="text-muted-foreground fs-7">Bring technological systems innovation to every partner institution to help them reach their full potential.</p>
+                <div class="col py-3 col-12 col-md-3 d-flex flex-column justify-content-center">
+                    <div class="mission-block">
+                        <div class="ascii-wrapper mb-2">
+                            <p class="mb-0 text-muted-light">✦</p>
+                            <p class="mb-0 text-muted-light">✦</p>
+                            <p class="mb-0 text-muted-light">✦</p>
                         </div>
-                        <div class="vision-block">
-                            <div class="ascii-wrapper mb-2">
-                                <p class="mb-0 text-muted-light">✦</p>
-                                <p class="mb-0 text-muted-light">✦</p>
-                                <p class="mb-0 text-muted-light">✦</p>
-                            </div>
-                            <h2 class="urbanist text-secondary-foreground">Our Vision</h2>
-                            <p class="text-muted-foreground fs-7">To become the leading provider of innovative business engine solutions.</p>
-                        </div>
+                        <h2 class="urbanist text-secondary-foreground">Core Values</h2>
                     </div>
                 </div>
-                <div class="col py-3 col-12 col-md-8">
+                <div class="col py-3 col-12 col-md-9">
                     <div style="row-gap:8px" class="border-thick bg-card-dark p-1 p-sm-3 p-md-4 rounded-3">
                         <div class="d-flex align-items-center py-2 mb-3">
                             <div class="w-50 px-3 border-end border-color-border">
                                 <div class="d-flex align-items-center mb-3">
-                                    <div class="mission-vision-badge-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake-icon lucide-heart-handshake">
-                                            <path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2 mb-3.823-2.762" />
-                                        </svg></div>
-                                    <p class="fw-bold mb-0 ms-2 urbanist">Trust</p>
+                                    <div class="mission-vision-badge-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hard-hat-icon lucide-hard-hat">
+                                            <path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5" />
+                                            <path d="M14 6a6 6 0 0 1 6 6v3" />
+                                            <path d="M4 15v-3a6 6 0 0 1 6-6" />
+                                            <rect x="2" y="15" width="20" height="4" rx="1" />
+                                        </svg>
+                                    </div>
+                                    <p class="fw-bold mb-0 ms-2 urbanist">Engineering that Performs</p>
                                 </div>
-                                <p class="text-muted-light fs-7 urbanist">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, rem.</p>
+                                <p class="text-muted-light fs-7 urbanist">We design and build technology with precision, reliability, and scalability at its core. Our teams are committed to high-quality code, resilient systems, and continuous technical advancement. We deliver solutions that organizations can trust and depend on.</p>
                             </div>
                             <div class="w-50 px-3 ">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="mission-vision-badge-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap-icon lucide-graduation-cap">
-                                            <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
-                                            <path d="M22 10v6" />
-                                            <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb-icon lucide-lightbulb">
+                                            <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                                            <path d="M9 18h6" />
+                                            <path d="M10 22h4" />
                                         </svg>
                                     </div>
-                                    <p class="fw-medium mb-0 ms-2">Excellence</p>
+                                    <p class="fw-medium mb-0 ms-2">Execution that Delivers</p>
                                 </div>
-                                <p class="text-muted-light fs-7 urbanist">We set the bar high for ourselves. From the properties we list to the services we provide.</p>
+                                <p class="text-muted-light fs-7 urbanist">We believe that ideas create possibilities, but disciplined execution delivers results. With focus, accountability, and operational rigor, we transform concepts into impactful solutions that consistently deliver on commitments and
+                                    drive continuous improvement.</p>
                             </div>
                         </div>
                         <!-- separator  -->
                         <div class="border-color-border border-bottom mb-3"></div>
 
                         <div class="d-flex align-items-center py-2">
-                            <div class="w-50 px-3 border-end border-color-border">
+                            <div class="w-100 px-3">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="mission-vision-badge-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round-icon lucide-users-round">
                                             <path d="M18 21a8 8 0 0 0-16 0" />
@@ -275,16 +302,6 @@ function getContent($section_name, $content_key)
                                 </div>
                                 <p class="text-muted-light fs-7 urbanist">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, rem.</p>
                             </div>
-                            <div class="w-50 px-3 ">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="mission-vision-badge-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star">
-                                            <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
-                                        </svg></div>
-                                    <p class="fw-medium mb-0 ms-2">Our Commitment</p>
-                                </div>
-                                <p class="text-muted-light fs-7 urbanist">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, rem.</p>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -339,28 +356,28 @@ function getContent($section_name, $content_key)
 
             <div class="row row-cols-1 px-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
                 <div class="col mb-3 px-2">
-                    <div class="border-border p-4 rounded-3">
+                    <div class="border-border p-4 rounded-3 h-100">
                         <img src="assets/png/nexen2 1.png" class="w-100 rounded-1" style="aspect-ratio: 5/4; object-fit:cover;" alt="">
                         <h5 class="text-secondary-foreground text-center mt-4 urbanist">Geramel Handomon</h5>
                         <p class="text-muted-light fs-7 text-center mb-0 urbanist">CEO</p>
                     </div>
                 </div>
                 <div class="col mb-3 px-2">
-                    <div class="border-border p-4 rounded-3">
+                    <div class="border-border p-4 rounded-3 h-100">
                         <img src="assets/png/nexen2 1.png" class="w-100 rounded-1" style="aspect-ratio: 5/4; object-fit:cover;" alt="">
                         <h5 class="text-secondary-foreground text-center mt-4 urbanist">Armando Bacang JR.</h5>
                         <p class="text-muted-light fs-7 text-center mb-0 urbanist">Software Engineer</p>
                     </div>
                 </div>
                 <div class="col mb-3 px-2">
-                    <div class="border-border p-4 rounded-3">
+                    <div class="border-border p-4 rounded-3 h-100">
                         <img src="assets/png/nexen2 1.png" class="w-100 rounded-1" style="aspect-ratio: 5/4; object-fit:cover;" alt="">
                         <h5 class="text-secondary-foreground text-center mt-4 urbanist">Erolyn Lood</h5>
                         <p class="text-muted-light fs-7 text-center mb-0 urbanist">Deployment Support Specialist</p>
                     </div>
                 </div>
                 <div class="col mb-3 px-2">
-                    <div class="border-border p-4 rounded-3">
+                    <div class="border-border p-4 rounded-3 h-100">
                         <img src="assets/png/nexen2 1.png" class="w-100 rounded-1" style="aspect-ratio: 5/4; object-fit:cover;" alt="">
                         <h5 class="text-secondary-foreground text-center mt-4 urbanist">Arnold Lapinig</h5>
                         <p class="text-muted-light fs-7 text-center mb-0 urbanist">Technical</p>
@@ -383,22 +400,20 @@ function getContent($section_name, $content_key)
 
             <div class="row row-cols-1 px-1 row-cols-sm-2 row-cols-md-3">
                 <div class="col px-2 mb-3">
-                    <div class="border-border rounded-3 p-4">
+                    <div class="border-border h-100 rounded-3 p-4 d-flex flex-column align-items-start">
                         <img src="assets/png/group_pic-3.png" class="w-full rounded-1" style="object-fit: cover; aspect-ratio:5/3" alt="">
                         <div class="blog-date-badge mt-3">
                             <p class="text-blue mb-0 fs-7"><i class="me-2 bi bi-calendar4"></i> Jan 21 2024</p>
                         </div>
-
                         <h6 class="urbanist mt-3">NSCC Cooperative Partnetship</h6>
                         <p class="fs-7 text-muted-light mb-5">Newly closed deal HRMAX partner NSCC Cooperative...</p>
-
                         <div class="w-100 d-flex justify-content-end">
                             <a href="https://www.facebook.com/Nexen.ph/posts/pfbid0ij5LmrPVWTHxkLrFXVLYjoZ1pnqF6hNx399daWERG5LBo28nBtaPaXipP6YZwcojl" target="_blank" class="pt-1 text-red fs-7">Read More</a>
                         </div>
                     </div>
                 </div>
                 <div class="col px-2 mb-3">
-                    <div class="border-border rounded-3 p-4">
+                    <div class="border-border h-100 rounded-3 p-4 d-flex flex-column align-items-start">
                         <img src="assets/png/group_pic-2.png" class="w-full rounded-1" style="object-fit: cover; aspect-ratio:5/3" alt="">
                         <div class="blog-date-badge mt-3">
                             <p class="text-blue mb-0 fs-7"><i class="me-2 bi bi-calendar4"></i> April 24 2024</p>
@@ -412,7 +427,7 @@ function getContent($section_name, $content_key)
                     </div>
                 </div>
                 <div class="col px-2 mb-3">
-                    <div class="border-border rounded-3 p-4">
+                    <div class="border-border h-100 rounded-3 p-4 d-flex flex-column align-items-start">
                         <img src="assets/png/group_pic-1.png" class="w-full rounded-1" style="object-fit: cover; aspect-ratio:5/3" alt="nexen-img">
                         <div class="blog-date-badge  mt-3">
                             <p class="text-blue mb-0 fs-7"><i class="me-2 bi bi-calendar4"></i> May 17 2024</p>
@@ -436,30 +451,30 @@ function getContent($section_name, $content_key)
                 <p class="text-muted-foreground fs-7">Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary.</p>
             </div>
             <div class="value-clients-wrapper pb-5 mb-5 position-relative">
-                <div class="max-w-wrapper mx-auto">
-                    <div class="row row-cols-4 row-cols-md-4 first-row">
-                        <div class="col mb-2 px-1">
+                <div class="max-w-wrapper mx-auto w-100">
+                    <div class="d-flex gap-2 align-items-center w-100 first-row">
+                        <div class="mb-2 valued-clients-card">
                             <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
                                 <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
                                 <p class="text-muted-light fs-7">Since 2019</p>
                                 <h3 class="urbanist">JFC Coop</h3>
                             </div>
                         </div>
-                        <div class="col mb-2 px-1">
+                        <div class="mb-2 valued-clients-card">
                             <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
                                 <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
                                 <p class="text-muted-light fs-7">Since 2019</p>
                                 <h3 class="urbanist">JFC Coop</h3>
                             </div>
                         </div>
-                        <div class="col mb-2 px-1">
+                        <div class="mb-2 valued-clients-card">
                             <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
                                 <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
                                 <p class="text-muted-light fs-7">Since 2019</p>
                                 <h3 class="urbanist">JFC Coop</h3>
                             </div>
                         </div>
-                        <div class="col mb-2 px-1">
+                        <div class="mb-2 valued-clients-card">
                             <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
                                 <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
                                 <p class="text-muted-light fs-7">Since 2019</p>
@@ -467,51 +482,36 @@ function getContent($section_name, $content_key)
                             </div>
                         </div>
                     </div>
-                    <div class="row row-cols-4 row-cols-md-4 second-row">
-                        <div class="col mb-2 px-1">
+                    <div class="d-flex gap-2 align-items-center w-100 second-row">
+                        <div class="mb-2 valued-clients-card">
                             <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
                                 <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
                                 <p class="text-muted-light fs-7">Since 2019</p>
                                 <h3 class="urbanist">JFC Coop</h3>
                             </div>
                         </div>
-                        <div class="col mb-2 px-1">
+                        <div class="mb-2 valued-clients-card">
                             <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
                                 <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
                                 <p class="text-muted-light fs-7">Since 2019</p>
                                 <h3 class="urbanist">JFC Coop</h3>
                             </div>
                         </div>
-                        <div class="col mb-2 px-1">
+                        <div class="mb-2 valued-clients-card">
                             <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
                                 <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
                                 <p class="text-muted-light fs-7">Since 2019</p>
                                 <h3 class="urbanist">JFC Coop</h3>
                             </div>
                         </div>
-                        <div class="col mb-2 px-1">
+                        <div class="mb-2 valued-clients-card">
                             <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
                                 <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
                                 <p class="text-muted-light fs-7">Since 2019</p>
                                 <h3 class="urbanist">JFC Coop</h3>
                             </div>
                         </div>
-                        <!-- <div class="col mb-2 px-1">
-                            <div class="bg-card-dark border-thick overflow-hidden p-4 rounded-3 position-relative">
-                                <img src="assets/png/image 98.png" class="bi bi-8-square position-absolute" style="right:2rem; bottom:1.3rem; width:5.5rem; height:5rem;"></i>
-                                <p class="text-muted-light fs-7">Since 2019</p>
-                                <h3 class="urbanist">JFC Coop</h3>
-                            </div>
-                        </div>
-                        <div class="col mb-2 px-1">
-                            <div class="bg-card-dark border-thick p-4 rounded-3">
-        
-                                <p class="text-muted-light fs-7">Since 2018</p>
-                                <h3 class="urbanist">AFCCO</h3>
-                            </div>
-                        </div> -->
                     </div>
-
                 </div>
             </div>
         </section>

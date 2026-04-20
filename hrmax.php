@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>NEXEN Innovation Technologies Inc.</title>
+    <title>HRMAX | NEXEN Innovation Technologies Inc.</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -12,11 +12,6 @@
     <!-- Favicons -->
     <link href="assets/img/logo.jpg" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap + Icons -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -100,104 +95,52 @@
         </div>
     </header>
 
-    <section class="get-in-touch">
-        <div class="mx-auto max-w-wrapper mb-5">
-            <div class="get-in-touch-upper-wrapper rounded-4 p-5">
-                <div class="ascii-wrapper mb-2">
-                    <p class="mb-0 text-muted-light">✦</p>
-                    <p class="mb-0 text-muted-light">✦</p>
-                    <p class="mb-0 text-muted-light">✦</p>
-                </div>
-                <h1 class="urbanist">Get in Touch with <span class="text-red-gradient">Nexen</span></h1>
-                <p class="text-muted-foreground fs-7 mt-4">Welcome to Nexen’s Contact Us page. We’re here to assist you with any inquiries, requests, or feedback. Whether you need our services, want to explore opportunities, or simply connect, we’re just a message away. Let’s start a conversation.</p>
-
-                <div class="mt-4 row row-cols-2 row-cols-sm-3 row-cols-md-5 ">
-                    <div class="col px-2 h-100">
-                        <div class="get-in-touch-card p-3 bg-card-down rounded-3 position-relative">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="bi bi-envelope-fill"></i>
-                                <p class="text-secondary-foreground mb-0">Email</p>
-                            </div>
-                            <p class="mt-2 mb-0 text-muted-foreground fw-light">info@nexen.com.ph</p>
-                        </div>
+    <main>
+        <section id="hrmax-hero-section" class="py-5 d-flex align-items-center" style="min-height: 100vh;">
+            <div class="max-w-wrapper mx-auto w-100">
+                <div class="row row-cols-2">
+                    <div class="col d-flex flex-column justify-content-center">
+                        <h1 style="font-size: 3.2rem;" class="text-white-gradient inter fw-bold">Automate Your Workforce <br /> Management with Ease</h1>
+                        <p style="max-width: 600px;" class="text-slate fs-6 mb-0 pt-2">HRMAX helps organizations streamline HR processes and improve efficiency with intelligent human resource management tools.</p>
                     </div>
-                    <div class="col px-2 h-100">
-                        <div class="get-in-touch-card p-3 bg-card-down rounded-3 position-relative">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="bi bi-telephone-fill"></i>
-                                <p class="text-secondary-foreground mb-0">Phone</p>
-                            </div>
-                            <p class="mt-2 mb-0 text-muted-foreground fw-light">0997-609-3356</p>
-                        </div>
-                    </div>
-                    <div class="col px-2 h-100">
-                        <a target="_blank" href="https://linkedin.com" class="get-in-touch-card p-3 bg-card-down rounded-3 position-relative">
-                            <div class="d-flex align-items-center gap-3">
-                                <i class="bi bi-linkedin"></i>
-                                <p class="text-secondary-foreground mb-0">Linkedin</p>
-                            </div>
-                            <p class="mt-2 mb-0 text-muted-foreground fw-light">Nexen.ph</p>
-                        </a>
-                    </div>
-                    <div class="col px-2 h-100">
-                        <a target="_blank" href="https://facebook.com" class="get-in-touch-card p-3 bg-card-down rounded-3 position-relative">
-                            <div class="d-flex mb-2 align-items-center gap-3">
-                                <i class="bi bi-facebook"></i>
-                                <p class="text-secondary-foreground mb-0">Facebook</p>
-                            </div>
-                            <p class="mb-0 text-muted-foreground fw-light">
-                                NEXEN</p>
-                        </a>
+                    <div class="col d-flex flex-column justify-content-center position-relative">
+                        <div class="hrmax-hero-circle-1"></div>
+                        <div class="hrmax-hero-circle-2"></div>
+                        <img src="assets/png/hrmax-hero.png" style="aspect-ratio: 5/4; object-fit:contain; z-index:10" alt="" class="w-100">
                     </div>
                 </div>
             </div>
-            <div class="p-5 bg-card-dark rounded-4 mt-3 urbanist">
-                <p class="fs-7 text-muted-foreground"><i class="bi bi-building me-2"></i> Central Office</p>
-                <h5>Nexen Bldg., 68 McKinley St., National Highway, Purok-1, Talic, Oroquieta City, Misamis Occidental,
-                    Philppines, 7207</h5>
+        </section>
 
-                <p class="mt-1 text-muted-foreground fs-7">Our main office serves as the core of Nexen. Located in a strategic area of the city, it is where our team works together to drive innovation, deliver quality solutions, and support our clients with excellence.</p>
+        <!-- CHOOSE A PLAN  -->
+        <section id="choose-a-plan" class="py-5">
+            <h1 class="urbanist text-center mb-3">Choose the Plan That’s Right for You</h1>
 
-
-
-                <!-- 
-                <div class="mt-4 py-2 px-5 w-100 bg-gradient-red rounded-3 text-center">Get Direction</div> -->
+            <p class="text-center text-muted-foreground mb-0 mx-auto pb-5 mb-5" style="max-width:600px;">Access powerful features designed to streamline your operations. With Nexen, experience smarter systems, improved workflows, and scalable solutions.</p>
 
 
+            <div class="mx-auto w-100 max-w-wrapper py-5 row row-cols-1 row-cols-md-3 no-gutter">
+                <div class="col px-0">
+                    <div style="height: 400px;" class="bg-glass border-thin rounded-start-4 p-5">
 
-                <div class="embed-map-responsive p-5 mt-4 w-full rounded-3 overflow-hidden">
-                    <div class="embed-map-container"><iframe class="embed-map-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&height=400&hl=en&q=nexen%20oroquita&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe><a href="https://idolsofash.app" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:1px;overflow:hidden">Idols of Ash</a></div>
-                    <style>
-                        .embed-map-responsive {
-                            position: relative;
-                            text-align: right;
-                            width: 100%;
-                            height: 500px;
-                            padding-bottom: 66.66666666666666%;
-                        }
+                    </div>
+                </div>
+                <div class="col px-0">
+                    <div style="height: 500px; transform:translateY(-50px)" class="bg-glass border-red rounded-4 p-5">
+                        <h3 class="text-red-gradient fw-bold mb-3">One Time Payment</h3>
+                        <p class="text-muted-foreground fw-thin mb-0 pb-5 border-bottom border-color-border">Unlock a new level of your personal
+                            productivity.</p>
+                    </div>
+                </div>
+                <div class="col px-0">
+                    <div style="height: 400px;" class="bg-glass border-thin rounded-end-4 p-5">
 
-                        .embed-map-container {
-                            overflow: hidden;
-                            background: none !important;
-                            width: 100%;
-                            height: 100%;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                        }
-
-                        .embed-map-frame {
-                            width: 100% !important;
-                            height: 100% !important;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                        }
-                    </style>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
+
     <!-- FOOTER  -->
     <footer>
         <div class="glow-4"></div>
@@ -258,8 +201,8 @@
             </div>
         </div>
     </footer>
-
 </body>
+
 <script>
     // Header shrink on scroll
     const header = document.getElementById('header');
@@ -285,18 +228,6 @@
         naiveDimensions: true,
         stopInertiaOnNavigate: true
     });
-
-    // function updateVisibleClass() {
-    //   document.querySelectorAll('.animation-div, .watch-on-screen').forEach((box) => {
-    //     const rect = box.getBoundingClientRect();
-    //     const visible = rect.top < window.innerHeight - 150 && rect.bottom > 0;
-    //     box.classList.toggle('active', visible);
-    //   });
-    // }
-
-    // lenis.on('scroll', updateVisibleClass);
-    // window.addEventListener('load', updateVisibleClass);
-    // window.addEventListener('resize', updateVisibleClass);
 </script>
 
 </html>

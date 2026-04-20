@@ -4,11 +4,6 @@
  * NEXEN Admin Sign In
  * Redesigned with a premium SaaS aesthetic.
  * 
- * DESIGN NOTES:
- * - Layout: Split-screen (Left: Brand/Trust, Right: Form)
- * - Typography: Inter (UI) + DM Serif Display (Headlines)
- * - Palette: Deep Navy (#0A0F29), Primary Blue (#2563EB), Muted Slate
- * - Details: Glassmorphism accents, subtle borders, high-precision spacing
  */
 
 session_start();
