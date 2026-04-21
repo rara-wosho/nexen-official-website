@@ -166,7 +166,7 @@ function getContent($section_name, $content_key)
     </header>
 
     <!-- MAIN CONTENT  -->
-    <main class="about-main-wrapper relative">
+    <main class="about-main-wrapper position-relative">
         <div class="about-page-top-glow w-100"></div>
         <section class="row row-cols-1 row-cols-md-2 no-gutter mx-auto max-w-wrapper" id="about-hero">
             <div class="col px-0">
