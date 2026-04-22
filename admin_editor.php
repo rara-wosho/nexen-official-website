@@ -162,14 +162,16 @@ foreach ($contentItems as $item) {
       <div class="sidebar-divider"></div>
       <div class="sidebar-heading">Website Sections</div>
 
-      <?php foreach (array_keys($sections) as $sectionName): ?>
-        <li class="sidebar-menu-item">
-          <a href="#section-<?php echo htmlspecialchars($sectionName); ?>" class="sidebar-menu-link">
-            <i class="bi bi-layout-text-window sidebar-menu-icon"></i>
-            <span><?php echo htmlspecialchars(ucfirst($sectionName)); ?></span>
-          </a>
-        </li>
-      <?php endforeach; ?>
+      <div class="sidebar-item-wrapper">
+        <?php foreach (array_keys($sections) as $sectionName): ?>
+          <li class="sidebar-menu-item">
+            <a href="#section-<?php echo htmlspecialchars($sectionName); ?>" class="sidebar-menu-link">
+              <i class="bi bi-layout-text-window sidebar-menu-icon"></i>
+              <span><?php echo htmlspecialchars(ucfirst($sectionName)); ?></span>
+            </a>
+          </li>
+        <?php endforeach; ?>
+      </div>
 
       <div class="sidebar-divider"></div>
 
@@ -191,26 +193,8 @@ foreach ($contentItems as $item) {
   <!-- Main Content -->
   <div class="main-content">
     <!-- Topbar -->
-    <div class="topbar">
-      <button id="sidebarToggleBtn" class="btn btn-link sidebar-toggle d-md-none">
-        <i class="bi bi-list"></i>
-      </button>
+    <!-- Refers to the scraps.txt file  -->
 
-      <div class="topbar-search d-none d-md-block">
-        <!-- <i class="bi bi-search topbar-search-icon"></i> -->
-        <!-- <input type="text" class="form-control topbar-search-input" placeholder="Search for..."> -->
-      </div>
-
-      <div class="d-flex align-items-center">
-        <div class="topbar-divider d-none d-md-block"></div>
-        <div class="topbar-profile">
-          <span class="topbar-profile-text d-none d-lg-inline">
-            <?php echo htmlspecialchars($_SESSION['username'] ?? 'Admin'); ?>
-          </span>
-          <img class="topbar-profile-img" src="assets/img/smile.jpg" alt="Profile">
-        </div>
-      </div>
-    </div>
 
     <!-- Add this at the top of the page, after the topbar -->
     <?php if (isset($_SESSION['error'])): ?>
@@ -264,12 +248,12 @@ foreach ($contentItems as $item) {
 
       <!-- Section Content -->
       <?php foreach ($sections as $sectionName => $sectionItems): ?>
-        <div id="section-<?php echo htmlspecialchars($sectionName); ?>" class="card">
+        <div id="section-<?php echo htmlspecialchars($sectionName); ?>" class="card overflow-hidden">
           <div class="card-header">
-            <h5 class="card-header-title">
-              <i class="bi bi-layout-text-window mr-1"></i>
+            <h4 class="card-header-title mb-0">
+              <!-- <i class="bi bi-layout-text-window mr-1"></i> -->
               <?php echo htmlspecialchars(ucfirst($sectionName)); ?> Section
-            </h5>
+            </h4>
             <button class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#addContentModal"
               onclick="prefillSection('<?php echo htmlspecialchars($sectionName); ?>')">
               <i class="bi bi-plus-circle"></i> Add to <?php echo htmlspecialchars(ucfirst($sectionName)); ?>
@@ -278,18 +262,18 @@ foreach ($contentItems as $item) {
           <div class="card-body">
             <div class="row">
               <?php foreach ($sectionItems as $item): ?>
-                <div class="col-lg-6 col-xl-4">
-                  <div class="content-item">
+                <div class="col-lg-6 col-xl-4 mb-4">
+                  <div class="content-item rounded-3 overflow-hidden h-100 d-flex flex-column">
                     <div class="content-item-header">
                       <span><?php echo htmlspecialchars($item['content_key']); ?></span>
                       <div>
-                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                        <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
                           data-bs-target="#deleteModal<?php echo $item['id']; ?>">
                           <i class="bi bi-trash"></i>
                         </button>
                       </div>
                     </div>
-                    <div class="content-item-body">
+                    <div class="content-item-body flex-grow-1 ">
                       <form method="post" action="upload_handler.php" enctype="multipart/form-data">
                         <input type="hidden" name="action" value="update">
                         <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
@@ -337,10 +321,10 @@ foreach ($contentItems as $item) {
                                 <label class="form-label">Current file:</label>
                                 <?php if (strpos($acceptTypes, 'image/') !== false): ?>
                                   <img src="<?php echo htmlspecialchars($item['content']); ?>" alt="Current image"
-                                    style="max-width: 200px; max-height: 200px;" class="d-block">
+                                    style="max-width: 100%; aspect-ratio:5/3; object-fit:contain;" class="border mb-3 d-block w-100">
                                 <?php else: ?>
                                   <video src="<?php echo htmlspecialchars($item['content']); ?>"
-                                    style="max-width: 200px; max-height: 200px;" class="d-block" controls></video>
+                                    style="max-width: 100%; aspect-ratio:5/3; object-fit:contain;" class="border mb-3 d-block w-100" controls></video>
                                 <?php endif; ?>
                               </div>
                             <?php endif; ?>
@@ -350,13 +334,15 @@ foreach ($contentItems as $item) {
                           </div>
                         <?php else: ?>
                           <div class="mb-3">
-                            <textarea class="form-control" name="content"
-                              rows="4"><?php echo htmlspecialchars($item['content']); ?></textarea>
+                            <div class="form-control-wrapper">
+                              <textarea class="form-control" name="content"
+                                rows="4"><?php echo htmlspecialchars($item['content']); ?></textarea>
+                            </div>
                           </div>
                         <?php endif; ?>
 
                         <div class="content-actions">
-                          <button type="submit" class="btn btn-primary btn-sm">
+                          <button type="submit" class="btn btn-outline w-100 btn-sm">
                             <i class="bi bi-check-circle"></i> Update
                           </button>
                         </div>

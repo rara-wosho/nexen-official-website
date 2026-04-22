@@ -350,8 +350,11 @@ $herroTitleArr = explode(" ", $heroTitle);
 
         foreach ($images as $img) {
         ?>
-          <div class="d-flex align-items-center justify-content-center bg-background rounded-circle">
-            <img src="<?= $img == "." ? "assets\png\image 98.png" : $img ?>" style="width:55px; flex-shrink:0; height:55px;aspect-ratio:5/5; object-fit:cover" class="rounded-circle" alt="logo1">
+          <div class="d-flex align-items-center justify-content-center rounded-circle">
+            <?php
+            $source = $img === "." ? "assets/png/image 98.png" : $img;
+            ?>
+            <img src="<?= htmlspecialchars($source) ?>" style="flex-shrink:0; height:90px; object-fit:scale-down; min-width:70px" class="" alt="logo1" />
           </div>
         <?php } ?>
       </div>

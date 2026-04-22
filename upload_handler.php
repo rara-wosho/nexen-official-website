@@ -36,7 +36,7 @@ function getFileConfig($section_name)
             'message' => 'JPG, JPEG, PNG & GIF files'
         ],
         'partners_logo' => [
-            'dir' => 'img',
+            'dir' => 'img/v2',
             'types' => ['jpg', 'jpeg', 'png', 'gif'],
             'max_size' => 5000000, // 5MB
             'message' => 'JPG, JPEG, PNG & GIF files'

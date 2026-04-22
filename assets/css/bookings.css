@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist:wght@100..900&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+    --primary-color: #e05050;
+    --secondary-color: #6f42c1;
+    --success-color: #1cc88a;
+    --info-color: #36b9cc;
+    --warning-color: #f6c23e;
+    --danger-color: #e74a3b;
+    --dark-color: #5a5c69;
+    --light-color: #f8f9fc;
+    --sidebar-width: 250px;
+    --topbar-height: 70px;
+
+    /* --v2-bg-color: rgb(20, 20, 20);
+    --v2-bg-card: rgb(40, 40, 40);
+    --v2-bg-accent: rgb(48, 48, 50);
+    --v2-text-foreground: rgb(250, 250, 250);
+    --v2-border: 1px solid rgba(250, 250, 250, 0.196); */
+
+    --v2-bg-color: rgb(250, 250, 250);
+    --v2-bg-card: rgb(255, 255, 255);
+    --v2-bg-accent: rgb(240, 240, 240);
+    --v2-text-foreground: rgb(20, 20, 20);
+    --v2-border: 1px solid rgba(0, 0, 0, 0.1);
+    --v2-btn-secondary: rgb(240, 240, 240);
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--v2-bg-color);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* UTIL CLASSES  */
+.fs-7 {
+    font-size: 12px;
+}
+.d-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.outliner {
+    border: 1px solid red;
+}
+.max-w-wrapper {
+    max-width: 1320px;
+    padding-inline: 18px;
+}
+
+header.nav {
+    border-bottom: var(--v2-border);
+}
+
+.org-avatar {
+    width: 35px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    background-color: rgb(240, 240, 240);
+}
+
+td {
+    padding-block: 1rem !important;
+    font-size: 14px;
+    color: rgb(60, 60, 60) !important;
+}
+.table-wrapper {
+    min-width: 100%;
+    overflow-x: auto;
+}
+th {
+    white-space: nowrap;
+}
+
+.modern-input-white {
+    border: 1px solid rgb(210, 210, 210);
+    padding-block: 8px;
+    padding-inline-start: 38px;
+    padding-inline-end: 12px;
+}
+
+.btn-primary {
+    padding: 8px 22px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    border: 1px solid var(--primary-color) !important;
+    background-color: var(--primary-color) !important;
+}

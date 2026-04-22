@@ -1,4 +1,6 @@
-
+SCRAPS.TXT FILE
+STORES THE PREVIOUS CODE OF THE VERSION 1 WEBSITE    
+    
     <!-- ══ ABOUT ════════════════════════════════════════════ -->
     <section id="about" class="nx-section bg-surface">
       <div class="container">
@@ -251,6 +253,20 @@
   </footer>
 
 
+ <div class="topbar">
+      <button id="sidebarToggleBtn" class="btn btn-link sidebar-toggle d-md-none">
+        <i class="bi bi-list"></i>
+      </button>
 
+      <div class="d-flex align-items-center">
+        <div class="topbar-divider d-none d-md-block"></div>
+        <div class="topbar-profile">
+          <span class="topbar-profile-text d-none d-lg-inline">
+            <?php echo htmlspecialchars($_SESSION['username'] ?? 'Admin'); ?>
+          </span>
+          <img class="topbar-profile-img" src="assets/img/smile.jpg" alt="Profile">
+        </div>
+      </div>
+    </div>
   
   
