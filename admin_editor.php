@@ -157,8 +157,9 @@ foreach ($contentItems as $item) {
       </li>
 
       <div class="sidebar-divider"></div>
-      <div class="sidebar-heading">Demo Bookings</div>
-      <li class="sidebar-menu-item"><a href="bookings" class="sidebar-menu-link"><span>View Bookings</span></a></li>
+      <li class="sidebar-menu-item"><a href="teams" class="sidebar-menu-link"><span>Teams</span></a></li>
+      <li class="sidebar-menu-item"><a href="bookings" class="sidebar-menu-link"><span>Bookings</span></a></li>
+
       <div class="sidebar-divider"></div>
       <div class="sidebar-heading">Website Sections</div>
 
@@ -234,7 +235,7 @@ foreach ($contentItems as $item) {
       </div>
 
       <!-- Section Navigation -->
-      <div class="section-nav">
+      <div class="section-nav rounded-4">
         <ul class="section-nav-list">
           <?php foreach (array_keys($sections) as $sectionName): ?>
             <li class="section-nav-item">
@@ -292,6 +293,21 @@ foreach ($contentItems as $item) {
                         $helpText = '';
 
                         // Configure file upload settings based on section and content key
+
+                        $renderImageInput = false;
+
+                        $chosenSections = ["partners_logo", "about"];
+
+                        if (
+                          in_array($sectionName, $chosenSections) &&
+                          (
+                            str_starts_with($item['content_key'], 'p_logo_img') ||
+                            str_starts_with($item['content_key'], 'about_img')
+                          )
+                        ) {
+                          $renderImageInput = true;
+                        }
+
                         if (
                           ($sectionName === 'hero' && $item['content_key'] === 'background') ||
                           ($sectionName === 'about' && $item['content_key'] === 'video')
@@ -299,7 +315,7 @@ foreach ($contentItems as $item) {
                           $isFileUpload = true;
                           $acceptTypes = 'video/mp4,video/webm,video/ogg';
                           $helpText = 'Upload a video file (MP4, WebM, or OGG - Max 50MB)';
-                        } elseif ($sectionName === "partners_logo" && str_starts_with($item['content_key'], 'p_logo_img')) {
+                        } elseif ($renderImageInput) {
                           $isFileUpload = true;
                           $acceptTypes = 'image/jpeg,image/png,image/gif';
                           $helpText = 'Upload an image file (JPG, PNG, or GIF - Max 5MB)';

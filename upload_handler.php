@@ -18,10 +18,10 @@ function getFileConfig($section_name)
             'message' => 'MP4, WebM & OGG files'
         ],
         'about' => [
-            'dir' => 'video',
-            'types' => ['mp4', 'webm', 'ogg'],
-            'max_size' => 50000000, // 50MB
-            'message' => 'MP4, WebM & OGG files'
+            'dir' => 'img/v2',
+            'types' => ['jpg', 'jpeg', 'png'],
+            'max_size' => 5000000, // 5MB
+            'message' => 'JPG, JPEG, PNG & GIF files'
         ],
         'blog' => [
             'dir' => 'img',

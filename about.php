@@ -1,7 +1,6 @@
 <?php
 require_once 'db_connect.php';
 
-
 // Get bulk images
 function getImages($section_name, $content_key_initial)
 {
@@ -60,6 +59,30 @@ function getContent($section_name, $content_key)
     return '';
 }
 
+function getTeamMembers()
+{
+    global $connection;
+
+    try {
+        // Select only the columns you actually need for better performance
+        $query = "SELECT * FROM team_members ORDER BY added_at asc";
+
+        $stmt = $connection->prepare($query);
+        $stmt->execute();
+
+        // Fetch all rows as an associative array
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Return the results, or an empty array if nothing is found
+        return $results ?: [];
+    } catch (PDOException $e) {
+        // In production, consider logging this instead of using die()
+        die("Query failed: " . $e->getMessage());
+    }
+}
+
+// Store the result in the $members variable
+$members = getTeamMembers();
 ?>
 
 <!DOCTYPE html>
@@ -230,14 +253,13 @@ function getContent($section_name, $content_key)
                 </div>
             </div>
 
-
             <!-- Employees Images  -->
-            <div class="col ps-0 ps-md-3 ps-lg-4 pe-0">
-                <div class="mb-3 mb-md-5 bg-card-down border-upper p-sm-3 p-md-4 p-2 rounded-3">
-                    <img src="assets/png/nexen2 1.png" style="aspect-ratio: 8/5;" class="w-full rounded-1" alt="">
+            <div class="col px-md-0 px-0 ps-0 ps-md-3">
+                <div class="mb-3 mb-md-5 bg-card-down w-100 border-upper p-sm-3 p-md-4 p-2 rounded-3">
+                    <img src="<?= getContent("about", "about_img_1") ?>" style="aspect-ratio: 8/5;" class="w-full rounded-1" alt="">
                 </div>
-                <div class="bg-card-down p-sm-3 p-md-4 p-2 border-upper rounded-3">
-                    <img src="assets/png/68087205ad60a 2.png" style="aspect-ratio: 8/5;" class="w-full rounded-1" alt="">
+                <div class="bg-card-down w-100 p-sm-3 p-md-4 p-2 border-upper rounded-3">
+                    <img src="<?= getContent("about", "about_img_2") ?>" style="aspect-ratio: 8/5;" class="w-full rounded-1" alt="">
                 </div>
             </div>
         </section>
@@ -257,8 +279,8 @@ function getContent($section_name, $content_key)
                 </div>
                 <div class="col py-3 col-12 col-md-9">
                     <div style="row-gap:8px" class="border-thick bg-card-dark p-1 p-sm-3 p-md-4 rounded-3">
-                        <div class="d-flex align-items-center py-2 mb-3">
-                            <div class="w-50 px-3 border-end border-color-border">
+                        <div class="row row-cols-1 row-cols-md-2 py-2 mb-3">
+                            <div class="col px-3 border-end border-color-border">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="mission-vision-badge-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hard-hat-icon lucide-hard-hat">
@@ -272,7 +294,7 @@ function getContent($section_name, $content_key)
                                 </div>
                                 <p class="text-muted-light fs-7 urbanist">We design and build technology with precision, reliability, and scalability at its core. Our teams are committed to high-quality code, resilient systems, and continuous technical advancement. We deliver solutions that organizations can trust and depend on.</p>
                             </div>
-                            <div class="w-50 px-3 ">
+                            <div class="col px-3 ">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="mission-vision-badge-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb-icon lucide-lightbulb">
@@ -281,7 +303,7 @@ function getContent($section_name, $content_key)
                                             <path d="M10 22h4" />
                                         </svg>
                                     </div>
-                                    <p class="fw-medium mb-0 ms-2">Execution that Delivers</p>
+                                    <p class="fw-medium mb-0 ms-2">eXecution that Delivers</p>
                                 </div>
                                 <p class="text-muted-light fs-7 urbanist">We believe that ideas create possibilities, but disciplined execution delivers results. With focus, accountability, and operational rigor, we transform concepts into impactful solutions that consistently deliver on commitments and
                                     drive continuous improvement.</p>
@@ -355,34 +377,36 @@ function getContent($section_name, $content_key)
             </div>
 
             <div class="row row-cols-1 px-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-                <div class="col mb-3 px-2">
-                    <div class="border-border p-4 rounded-3 h-100">
-                        <img src="assets/png/nexen2 1.png" class="w-100 rounded-1" style="aspect-ratio: 5/4; object-fit:cover;" alt="">
-                        <h5 class="text-secondary-foreground text-center mt-4 urbanist">Geramel Handomon</h5>
-                        <p class="text-muted-light fs-7 text-center mb-0 urbanist">CEO</p>
+                <?php if (!empty($members)): ?>
+                    <?php foreach ($members as $member): ?>
+                        <div class="col mb-3 px-2">
+                            <div class="border-border bg-glass p-4 rounded-3 h-100">
+                                <?php
+                                // Use the image from the database, fallback to default if empty or invalid
+                                $src = !empty($member['avatar']) ? $member['avatar'] : 'https://placehold.co/600x400';
+
+                                ?>
+
+                                <img src="uploads/avatars/<?= htmlspecialchars($src) ?>"
+                                    class="w-100 rounded-1"
+                                    style="aspect-ratio: 5/6; object-fit:cover;"
+                                    alt="<?= htmlspecialchars($member['full_name'] ?? 'Team Member') ?>">
+
+                                <h5 class="text-secondary-foreground text-center mt-4 urbanist">
+                                    <?= htmlspecialchars($member['full_name'] ?? 'Unknown Member') ?>
+                                </h5>
+
+                                <p class="text-muted-light fs-7 text-center mb-0 urbanist">
+                                    <?= htmlspecialchars($member['position'] ?? 'Team Member') ?>
+                                </p>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="col-12 text-center">
+                        <p class="text-muted">No team members found.</p>
                     </div>
-                </div>
-                <div class="col mb-3 px-2">
-                    <div class="border-border p-4 rounded-3 h-100">
-                        <img src="assets/png/nexen2 1.png" class="w-100 rounded-1" style="aspect-ratio: 5/4; object-fit:cover;" alt="">
-                        <h5 class="text-secondary-foreground text-center mt-4 urbanist">Armando Bacang JR.</h5>
-                        <p class="text-muted-light fs-7 text-center mb-0 urbanist">Software Engineer</p>
-                    </div>
-                </div>
-                <div class="col mb-3 px-2">
-                    <div class="border-border p-4 rounded-3 h-100">
-                        <img src="assets/png/nexen2 1.png" class="w-100 rounded-1" style="aspect-ratio: 5/4; object-fit:cover;" alt="">
-                        <h5 class="text-secondary-foreground text-center mt-4 urbanist">Erolyn Lood</h5>
-                        <p class="text-muted-light fs-7 text-center mb-0 urbanist">Deployment Support Specialist</p>
-                    </div>
-                </div>
-                <div class="col mb-3 px-2">
-                    <div class="border-border p-4 rounded-3 h-100">
-                        <img src="assets/png/nexen2 1.png" class="w-100 rounded-1" style="aspect-ratio: 5/4; object-fit:cover;" alt="">
-                        <h5 class="text-secondary-foreground text-center mt-4 urbanist">Arnold Lapinig</h5>
-                        <p class="text-muted-light fs-7 text-center mb-0 urbanist">Technical</p>
-                    </div>
-                </div>
+                <?php endif; ?>
             </div>
         </section>
 
@@ -401,11 +425,11 @@ function getContent($section_name, $content_key)
             <div class="row row-cols-1 px-1 row-cols-sm-2 row-cols-md-3">
                 <div class="col px-2 mb-3">
                     <div class="border-border h-100 rounded-3 p-4 d-flex flex-column align-items-start">
-                        <img src="assets/png/group_pic-3.png" class="w-full rounded-1" style="object-fit: cover; aspect-ratio:5/3" alt="">
+                        <img src="<?= htmlspecialchars(getContent("blog", "img")) ?>" class="w-full rounded-1" style="object-fit: cover; aspect-ratio:5/3" alt="">
                         <div class="blog-date-badge mt-3">
                             <p class="text-blue mb-0 fs-7"><i class="me-2 bi bi-calendar4"></i> Jan 21 2024</p>
                         </div>
-                        <h6 class="urbanist mt-3">NSCC Cooperative Partnetship</h6>
+                        <h6 class="urbanist mt-3"><?= htmlspecialchars(getContent("blog", "title")) ?></h6>
                         <p class="fs-7 text-muted-light mb-5">Newly closed deal HRMAX partner NSCC Cooperative...</p>
                         <div class="w-100 d-flex justify-content-end">
                             <a href="https://www.facebook.com/Nexen.ph/posts/pfbid0ij5LmrPVWTHxkLrFXVLYjoZ1pnqF6hNx399daWERG5LBo28nBtaPaXipP6YZwcojl" target="_blank" class="pt-1 text-red fs-7">Read More</a>
@@ -414,12 +438,12 @@ function getContent($section_name, $content_key)
                 </div>
                 <div class="col px-2 mb-3">
                     <div class="border-border h-100 rounded-3 p-4 d-flex flex-column align-items-start">
-                        <img src="assets/png/group_pic-2.png" class="w-full rounded-1" style="object-fit: cover; aspect-ratio:5/3" alt="">
+                        <img src="<?= htmlspecialchars(getContent("blog", "img1")) ?>" class="w-full rounded-1" style="object-fit: cover; aspect-ratio:5/3" alt="">
                         <div class="blog-date-badge mt-3">
                             <p class="text-blue mb-0 fs-7"><i class="me-2 bi bi-calendar4"></i> April 24 2024</p>
                         </div>
 
-                        <h6 class="urbanist mt-3">Tam-an BMPC Partnership</h6>
+                        <h6 class="urbanist mt-3"><?= htmlspecialchars(getContent("blog", "title1")) ?></h6>
                         <p class="fs-7 text-muted-light mb-5">Tam-an BMPC has signed a strategic partnership with Nexen Innovation Technologies, Inc...</p>
                         <div class="w-100 d-flex justify-content-end">
                             <a href="https://www.facebook.com/Nexen.ph/posts/pfbid0LgszzbLA2r4359ZVv3eauGw1AzMs5V3cRNfHta3CKNsRV1oU39sgRekdTg4Qgod8l" target="_blank" class="pt-1 text-red fs-7">Read More</a>
@@ -428,12 +452,12 @@ function getContent($section_name, $content_key)
                 </div>
                 <div class="col px-2 mb-3">
                     <div class="border-border h-100 rounded-3 p-4 d-flex flex-column align-items-start">
-                        <img src="assets/png/group_pic-1.png" class="w-full rounded-1" style="object-fit: cover; aspect-ratio:5/3" alt="nexen-img">
+                        <img src="<?= htmlspecialchars(getContent("blog", "img2")) ?>" class="w-full rounded-1" style="object-fit: cover; aspect-ratio:5/3" alt="nexen-img">
                         <div class="blog-date-badge  mt-3">
                             <p class="text-blue mb-0 fs-7"><i class="me-2 bi bi-calendar4"></i> May 17 2024</p>
                         </div>
 
-                        <h6 class="urbanist mt-3">14th Anniversary</h6>
+                        <h6 class="urbanist mt-3"><?= htmlspecialchars(getContent("blog", "title2")) ?></h6>
                         <p class="fs-7 text-muted-light mb-5">A week long celebration of NEXEN 14th years of continuous success...
                         </p>
                         <div class="w-100 d-flex justify-content-end">
@@ -445,7 +469,7 @@ function getContent($section_name, $content_key)
         </section>
 
         <!-- VALUED CLIENTS  -->
-        <section id="our-valued-clients">
+        <section id="our-valued-clients" class="overflow-x-hidden">
             <div class="mb-4 mx-auto max-w-wrapper">
                 <h2 class="urbanist text-secondary-foreground">Our Valued Clients</h2>
                 <p class="text-muted-foreground fs-7">Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary.</p>

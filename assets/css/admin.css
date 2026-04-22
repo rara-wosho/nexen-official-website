@@ -370,9 +370,8 @@ body {
 /* Section Navigation */
 .section-nav {
     background-color: var(--v2-bg-card);
-    border-radius: 0.35rem;
     box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     padding: 0.75rem;
 }
 
@@ -383,10 +382,6 @@ body {
     padding: 0;
     gap: 0.5rem;
     flex-wrap: wrap;
-}
-
-.section-nav-item {
-    margin-bottom: 0.25rem;
 }
 
 .section-nav-link {
