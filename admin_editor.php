@@ -281,7 +281,7 @@ foreach ($contentItems as $item) {
           </div>
 
           <!-- CARD BODY  -->
-          <div class="card-body">
+          <div class="card-body shrink">
             <div class="row">
               <?php foreach ($sectionItems as $item): ?>
                 <div class="col-lg-6 col-xl-4 mb-4">

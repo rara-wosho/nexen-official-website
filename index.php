@@ -382,15 +382,15 @@ $herroTitleArr = explode(" ", $heroTitle);
       <div class="glow-4"></div>
       <div class="upper-footer max-w-wrapper mx-auto">
         <div class="row">
-          <div class="col-12 col-sm-4">
-            <img src="assets/png/nexen-logo.png" class="w-25 mb-3" alt="">
-            <p class="fw-semibold">NEXEN INNOVATION TECHNOLOGIES</p>
+          <div class="col-12 mb-3 flex-grow-1 col-sm-4 d-flex flex-column align-items-center align-items-md-start">
+            <img src="assets/png/nexen-logo.png" style="width: 90px; aspect-ratio:5/5" class="mb-3" alt="">
+            <p class="fw-semibold text-center text-md-start">NEXEN INNOVATION TECHNOLOGIES</p>
           </div>
-          <div class="col-12 col-md-2">
+          <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
             <p class="text-muted-foreground mb-3">Home</p>
             <p class="text-secondary-foreground">Features</p>
           </div>
-          <div class="col-12 col-md-2">
+          <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
             <p class="text-muted-foreground mb-3">About Us</p>
             <p class="text-secondary-foreground">Our Story</p>
             <p class="text-secondary-foreground">Our Works</p>
@@ -398,12 +398,12 @@ $herroTitleArr = explode(" ", $heroTitle);
             <p class="text-secondary-foreground">Our Team</p>
             <p class="text-secondary-foreground">Our Clients</p>
           </div>
-          <div class="col-12 col-md-2">
+          <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
             <p class="text-muted-foreground mb-3">Services</p>
             <p class="text-secondary-foreground">Strategic Marketing</p>
             <p class="text-secondary-foreground">Closing Success</p>
           </div>
-          <div class="col-12 col-md-2">
+          <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
             <p class="text-muted-foreground mb-3">Contact Us</p>
             <p class="text-secondary-foreground">Contact Form</p>
             <p class="text-secondary-foreground">Our Offices</p>
@@ -413,10 +413,10 @@ $herroTitleArr = explode(" ", $heroTitle);
 
       <!-- LOWER FOOTER SECTION  -->
       <div class="py-4 lower-footer">
-        <div class="inner-lower-footer max-w-wrapper mx-auto d-flex align-items-center justify-content-between">
+        <div class="inner-lower-footer max-w-wrapper mx-auto d-flex align-items-center justify-content-center justify-content-sm-between" style="flex-wrap: wrap;">
           <small class="fs-7 text-muted-foreground">Copyright NEXEN All Rights Reserved</small>
 
-          <div class="d-flex align-items-center gap-1">
+          <div class="d-flex align-items-center gap-1 mt-3 mt-sm-0">
             <div class="footer-icon-wrapper">
               <i class="bi bi-facebook"></i>
             </div>
@@ -435,7 +435,6 @@ $herroTitleArr = explode(" ", $heroTitle);
             </div>
           </div>
         </div>
-      </div>
       </div>
     </footer>
 

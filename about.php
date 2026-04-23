@@ -203,19 +203,19 @@ $members = getTeamMembers();
                 <!-- happy customers section  -->
                 <div class="row row-cols-3 px-1 gap-0 gap-md-0 mb-5 mt-5">
                     <div class="col px-2">
-                        <div class="p-2 p-md-3 rounded-3 bg-card-down border-upper">
+                        <div class="p-2 p-md-3 h-100 rounded-3 bg-card-down border-upper">
                             <h2><?= getContent("about", "clients") ?></h2>
                             <p class="mt-1 mb-0 text-muted-foreground fs-7">Clients</p>
                         </div>
                     </div>
                     <div class="col px-2">
-                        <div class="p-2 p-md-3 rounded-3 bg-card-down border-upper">
+                        <div class="p-2 p-md-3 h-100 rounded-3 bg-card-down border-upper">
                             <h2><?= getContent("about", "projects") ?></h2>
                             <p class="mt-1 mb-0 text-muted-foreground fs-7">Projects</p>
                         </div>
                     </div>
                     <div class="col px-2">
-                        <div class="p-2 p-md-3 rounded-3 bg-card-down border-upper">
+                        <div class="p-2 p-md-3 h-100 rounded-3 bg-card-down border-upper">
                             <h2><?= getContent("about", "years_of_experience") ?></h2>
                             <p class="mt-1 mb-0 text-muted-foreground fs-7">Years of experience</p>
                         </div>
@@ -557,15 +557,15 @@ $members = getTeamMembers();
         <div class="glow-4"></div>
         <div class="upper-footer max-w-wrapper mx-auto">
             <div class="row">
-                <div class="col-12 col-sm-4">
-                    <img src="assets/png/nexen-logo.png" class="w-25 mb-3" alt="">
-                    <p class="fw-semibold">NEXEN INNOVATION TECHNOLOGIES</p>
+                <div class="col-12 mb-3 flex-grow-1 col-sm-4 d-flex flex-column align-items-center align-items-md-start">
+                    <img src="assets/png/nexen-logo.png" style="width: 90px; aspect-ratio:5/5" class="mb-3" alt="">
+                    <p class="fw-semibold text-center text-md-start">NEXEN INNOVATION TECHNOLOGIES</p>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
                     <p class="text-muted-foreground mb-3">Home</p>
                     <p class="text-secondary-foreground">Features</p>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
                     <p class="text-muted-foreground mb-3">About Us</p>
                     <p class="text-secondary-foreground">Our Story</p>
                     <p class="text-secondary-foreground">Our Works</p>
@@ -573,12 +573,12 @@ $members = getTeamMembers();
                     <p class="text-secondary-foreground">Our Team</p>
                     <p class="text-secondary-foreground">Our Clients</p>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
                     <p class="text-muted-foreground mb-3">Services</p>
                     <p class="text-secondary-foreground">Strategic Marketing</p>
                     <p class="text-secondary-foreground">Closing Success</p>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
                     <p class="text-muted-foreground mb-3">Contact Us</p>
                     <p class="text-secondary-foreground">Contact Form</p>
                     <p class="text-secondary-foreground">Our Offices</p>
@@ -588,10 +588,10 @@ $members = getTeamMembers();
 
         <!-- LOWER FOOTER SECTION  -->
         <div class="py-4 lower-footer">
-            <div class="inner-lower-footer max-w-wrapper mx-auto d-flex align-items-center justify-content-between">
+            <div class="inner-lower-footer max-w-wrapper mx-auto d-flex align-items-center justify-content-center justify-content-sm-between" style="flex-wrap: wrap;">
                 <small class="fs-7 text-muted-foreground">Copyright NEXEN All Rights Reserved</small>
 
-                <div class="d-flex align-items-center gap-1">
+                <div class="d-flex align-items-center gap-1 mt-3 mt-sm-0">
                     <div class="footer-icon-wrapper">
                         <i class="bi bi-facebook"></i>
                     </div>

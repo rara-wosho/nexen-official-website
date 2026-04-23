@@ -235,10 +235,10 @@
 
         <!-- LOWER FOOTER SECTION  -->
         <div class="py-4 lower-footer">
-            <div class="inner-lower-footer max-w-wrapper mx-auto d-flex align-items-center justify-content-between">
+            <div class="inner-lower-footer max-w-wrapper mx-auto d-flex align-items-center justify-content-center justify-content-sm-between" style="flex-wrap: wrap;">
                 <small class="fs-7 text-muted-foreground">Copyright NEXEN All Rights Reserved</small>
 
-                <div class="d-flex align-items-center gap-1">
+                <div class="d-flex align-items-center gap-1 mt-3 mt-sm-0">
                     <div class="footer-icon-wrapper">
                         <i class="bi bi-facebook"></i>
                     </div>

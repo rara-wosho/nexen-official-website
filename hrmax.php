@@ -129,7 +129,7 @@ function getContent($section_name, $content_key)
         <div class="hrmax-bottom-glow w-100"></div>
         <section id="hrmax-hero-section" class="py-5 d-flex align-items-center" style="min-height: 100vh;">
             <div class="max-w-wrapper mx-auto w-100">
-                <div class="row row-cols-2">
+                <div class="row row-cols-1 row-cols-md-2">
                     <div class="col d-flex flex-column justify-content-center">
                         <h1 style="font-size: 3.2rem;" class="text-white-gradient inter fw-bold">Automate Your Workforce <br /> Management with Ease</h1>
                         <p style="max-width: 600px;" class="text-slate fs-6 mb-0 pt-2"><?= htmlspecialchars(getContent("hrmax", "title-description")) ?></p>
@@ -153,7 +153,7 @@ function getContent($section_name, $content_key)
                 </p>
             </div>
 
-            <div class="row row-cols-2 px-1 max-w-wrapper mx-auto">
+            <div class="row row-cols-1 row-cols-md-2 px-1 max-w-wrapper mx-auto">
                 <div class="col">
                     <div class="hrmax-banner-card p-5 d-center flex-column">
                         <div class="mt-auto d-center flex-column pb-5">
@@ -205,8 +205,69 @@ function getContent($section_name, $content_key)
             </div>
         </section>
 
+        <?php
+        $features = [
+            [
+                ["title" => "Hiring Management System", "icon" => "bi-person-plus"],
+                ["title" => "Employee Information System", "icon" => "bi-people"],
+                ["title" => "Timekeeping System", "icon" => "bi-clock-history"],
+                ["title" => "Performance Appraisal System", "icon" => "bi-graph-up-arrow"]
+            ],
+            [
+                ["title" => "Payroll System", "icon" => "bi-cash-stack"],
+                ["title" => "Online Employee Portal System", "icon" => "bi-globe"],
+                ["title" => "Mobile Notification System", "icon" => "bi-bell"],
+                ["title" => "Disciplinary Management System", "icon" => "bi-exclamation-triangle"]
+            ],
+            [
+                ["title" => "Medical Tracking System", "icon" => "bi-heart-pulse"],
+                ["title" => "Vehicle Monitoring System", "icon" => "bi-truck"],
+                ["title" => "Asset Management System", "icon" => "bi-box-seam"],
+                ["title" => "Security Guard Logs System", "icon" => "bi-shield-check"]
+            ]
+        ];
+        ?>
+
         <!-- HRMAX KEY FEATURES  -->
         <section id="key-features py-5">
+            <div class="mx-auto max-w-wrapper mb-5">
+                <div class="border-color-border-light border p-5">
+                    <h1 class="urbanist fw-semibold mb-3 pt-5">HRMAX Key Features</h1>
+                    <p class="text-muted-foreground mb-0">
+                        Everything you need to manage your workforce efficiently in one seamless platform.
+                    </p>
+                </div>
+
+                <?php foreach ($features as $row): ?>
+
+                    <div class="border-color-border-light border py-3"></div>
+
+                    <div style="padding-inline: 12px;" class="row row-cols-2 row-cols-md-4">
+                        <?php foreach ($row as $index => $feature): ?>
+                            <div class="col px-0">
+                                <div class="border-color-border-light h-100 border p-4 p-md-5">
+
+                                    <!-- ✅ Bootstrap Icon -->
+                                    <div class="hrmax-feature-icon-wrapper border-border d-center">
+                                        <i class="bi <?= htmlspecialchars($feature['icon']) ?>" style="font-size: 28px;"></i>
+                                    </div>
+
+                                    <h6 class="urbanist text-muted-foreground mb-0">
+                                        <?= htmlspecialchars($feature['title']) ?>
+                                    </h6>
+
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+
+                <?php endforeach; ?>
+
+            </div>
+        </section>
+
+        <!-- HRMAX KEY FEATURES  -->
+        <!-- <section id="key-features py-5">
             <div class="mx-auto max-w-wrapper mb-5">
                 <div class="border-border p-5">
                     <h1 class="urbanist fw-semibold mb-3 pt-5">HRMAX Key Features</h1>
@@ -218,7 +279,7 @@ function getContent($section_name, $content_key)
 
                 <div style="padding-inline: 12px;" class="row row-cols-2 row-cols-md-4">
                     <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-5">
+                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
                             <div class="hrmax-feature-icon-wrapper border-border d-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase-business-icon lucide-briefcase-business">
                                     <path d="M12 12h.01" />
@@ -231,7 +292,7 @@ function getContent($section_name, $content_key)
                         </div>
                     </div>
                     <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-5">
+                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
                             <div class="hrmax-feature-icon-wrapper border-border d-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round-icon lucide-users-round">
                                     <path d="M18 21a8 8 0 0 0-16 0" />
@@ -243,7 +304,7 @@ function getContent($section_name, $content_key)
                         </div>
                     </div>
                     <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-5">
+                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
                             <div class="hrmax-feature-icon-wrapper border-border d-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock-icon lucide-clock">
                                     <circle cx="12" cy="12" r="10" />
@@ -254,7 +315,7 @@ function getContent($section_name, $content_key)
                         </div>
                     </div>
                     <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom  border-end p-5">
+                        <div class="border-color-border h-100 border-start border-top border-bottom  border-end p-4 p-md-5">
                             <div class="hrmax-feature-icon-wrapper border-border d-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge-icon lucide-gauge">
                                     <path d="m12 14 4-4" />
@@ -269,7 +330,7 @@ function getContent($section_name, $content_key)
 
                 <div style="padding-inline: 12px;" class="row row-cols-2 row-cols-md-4">
                     <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-5">
+                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
                             <div class="hrmax-feature-icon-wrapper border-border d-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase-business-icon lucide-briefcase-business">
                                     <path d="M12 12h.01" />
@@ -282,7 +343,7 @@ function getContent($section_name, $content_key)
                         </div>
                     </div>
                     <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-5">
+                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
                             <div class="hrmax-feature-icon-wrapper border-border d-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round-icon lucide-users-round">
                                     <path d="M18 21a8 8 0 0 0-16 0" />
@@ -294,7 +355,7 @@ function getContent($section_name, $content_key)
                         </div>
                     </div>
                     <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-5">
+                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
                             <div class="hrmax-feature-icon-wrapper border-border d-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock-icon lucide-clock">
                                     <circle cx="12" cy="12" r="10" />
@@ -305,7 +366,7 @@ function getContent($section_name, $content_key)
                         </div>
                     </div>
                     <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom  border-end p-5">
+                        <div class="border-color-border h-100 border-start border-top border-bottom  border-end p-4 p-md-5">
                             <div class="hrmax-feature-icon-wrapper border-border d-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge-icon lucide-gauge">
                                     <path d="m12 14 4-4" />
@@ -320,7 +381,7 @@ function getContent($section_name, $content_key)
 
                 <div style="padding-inline: 12px;" class="row row-cols-2 row-cols-md-4">
                     <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-5">
+                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
                             <div class="hrmax-feature-icon-wrapper border-border d-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase-business-icon lucide-briefcase-business">
                                     <path d="M12 12h.01" />
@@ -333,7 +394,7 @@ function getContent($section_name, $content_key)
                         </div>
                     </div>
                     <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-5">
+                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
                             <div class="hrmax-feature-icon-wrapper border-border d-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round-icon lucide-users-round">
                                     <path d="M18 21a8 8 0 0 0-16 0" />
@@ -345,7 +406,7 @@ function getContent($section_name, $content_key)
                         </div>
                     </div>
                     <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-5">
+                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
                             <div class="hrmax-feature-icon-wrapper border-border d-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock-icon lucide-clock">
                                     <circle cx="12" cy="12" r="10" />
@@ -356,7 +417,7 @@ function getContent($section_name, $content_key)
                         </div>
                     </div>
                     <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom  border-end p-5">
+                        <div class="border-color-border h-100 border-start border-top border-bottom  border-end p-4 p-md-5">
                             <div class="hrmax-feature-icon-wrapper border-border d-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge-icon lucide-gauge">
                                     <path d="m12 14 4-4" />
@@ -369,7 +430,7 @@ function getContent($section_name, $content_key)
                 </div>
 
             </div>
-        </section>
+        </section> -->
 
         <!-- HRMAX BENEFITS  -->
         <section id="hrmax-benefits" class="py-5">
@@ -423,102 +484,115 @@ function getContent($section_name, $content_key)
             </div>
         </section>
 
-        <!-- CHOOSE A PLAN  -->
-        <section id="choose-a-plan" class="py-5">
-            <h1 class="urbanist fw-semibold text-center mb-3">Choose the Plan That’s Right for You</h1>
+        <?php
+        $plans = [
+            [
+                "title" => "Business Plan",
+                "description" => "All-in-One Workforce Monitoring and Management System",
+                "sections" => [
+                    [
+                        "label" => "What’s included",
+                        "items" => [
+                            "Employee Information System",
+                            "Timekeeping System",
+                            "Payroll System",
+                            "Mobile Notification System",
+                            "Online Employee Portal System",
+                            "Payroll System"
+                        ]
+                    ],
+                    [
+                        "label" => "Add- ons",
+                        "items" => [
+                            "Hiring Management System",
+                            "Disciplinary Management System",
+                            "Performance Appraisal System",
+                            "Medical Tracking System",
+                            "Vehicle Monitoring System",
+                            "Asset Management System",
+                            "Security Guard Logs System"
+                        ]
+                    ]
+                ]
+            ],
+            [
+                "title" => "Enterprise-Grade Plan",
+                "description" => "Enterprise HR and Operations Transformation Plan",
+                "sections" => [
+                    [
+                        "label" => "Phase 1",
+                        "items" => [
+                            "Hiring Management System",
+                            "Employee Information System",
+                            "Timekeeping System",
+                            "Payroll System",
+                            "Mobile Notification System",
+                            "Online Employee Portal System"
+                        ]
+                    ],
+                    [
+                        "label" => "Phase 2",
+                        "items" => [
+                            "Disciplinary Management System",
+                            "Performance Appraisal System",
+                            "Asset Management System"
+                        ]
+                    ],
+                    [
+                        "label" => "Phase 3",
+                        "items" => [
+                            "Medical Tracking System",
+                            "Vehicle Monitoring System",
+                            "Security Guard Logs System"
+                        ]
+                    ]
+                ]
+            ]
+        ];
+        ?>
 
-            <p class="text-center text-muted-foreground mb-0 mx-auto pb-5 mb-5" style="max-width:600px;">Access powerful features designed to streamline your operations. With Nexen, experience smarter systems, improved workflows, and scalable solutions.</p>
+        <div style="max-width: 900px;" class="mx-auto py-5 row row-cols-1 row-cols-md-2 no-gutter">
 
+            <?php foreach ($plans as $plan): ?>
+                <div class="col mb-3">
+                    <div class="bg-glass h-100 p-3 p-md-5 d-flex flex-column border-thin rounded-4">
 
-            <div class="mx-auto w-100 max-w-wrapper py-5 row row-cols-1 row-cols-md-3 no-gutter">
-                <div class="col px-0">
-                    <div style="height: 600px;" class="bg-glass border-thin rounded-start-4 p-5 d-flex flex-column">
-                        <h4 class="mb-3">Monthly</h4>
-                        <p class="text-muted-foreground fw-light mb-0 pb-4">Free support, updates, and upgrades
-                            with a dedicated team.</p>
+                        <h5 class="mb-3 urbanist"><?= htmlspecialchars($plan['title']) ?></h5>
+
+                        <p class="text-muted-foreground fw-light mb-0 pb-4">
+                            <?= htmlspecialchars($plan['description']) ?>
+                        </p>
 
                         <div class="gradient-separator mb-4"></div>
 
-                        <p class="fs-7 fw-ligh text-muted-light">What's included</p>
+                        <?php foreach ($plan['sections'] as $section): ?>
 
-                        <div class="d-flex flex-column gap-3">
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="bi bi-check-circle pt-1"></i>
-                                <p class="fw-light text-muted-foreground mb-0">Free maintenance support with dedicated support team</p>
-                            </div>
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="bi bi-check-circle pt-1"></i>
-                                <p class="fw-light text-muted-foreground mb-0">Free updates</p>
-                            </div>
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="bi bi-check-circle pt-1"></i>
-                                <p class="fw-light text-muted-foreground mb-0">Free upgrade to newer version</p>
-                            </div>
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="bi bi-check-circle pt-1"></i>
-                                <p class="fw-light text-muted-foreground mb-0">Worry-free on software support. It’s a long-term partnership.</p>
-                            </div>
-                        </div>
+                            <p class="fs-7 fw-light text-muted-light">
+                                <?= htmlspecialchars($section['label']) ?>
+                            </p>
 
-                        <div class="mt-auto d-flex align-items-center justify-content-center"><button class="btn glowing-red-btn">Subscribe <i class="bi bi-chevron-right"></i></button></div>
+                            <div class="d-flex flex-column gap-3 mb-3">
+                                <?php foreach ($section['items'] as $item): ?>
+                                    <div class="d-flex gap-3">
+                                        <i class="bi bi-check-circle-fill text-red-dark"></i>
+                                        <p class="mb-0 text-muted-foreground fw-light">
+                                            <?= htmlspecialchars($item) ?>
+                                        </p>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+
+                        <?php endforeach; ?>
+
                     </div>
                 </div>
-                <div class="col px-0">
-                    <div style="height: 700px; transform:translateY(-50px)" class="bg-glass d-flex flex-column border-red rounded-4 p-5">
-                        <h3 class="text-red-gradient fw-bold mb-3">One Time Payment</h3>
-                        <p class="text-muted-foreground fw-light mb-0 pb-4">Unlock a new level of your personal
-                            productivity.</p>
+            <?php endforeach; ?>
 
-                        <div class="gradient-separator mb-4"></div>
-                        <p class="fs-7 fw-ligh text-muted-light">What's included</p>
-
-                        <div class="d-flex flex-column gap-3">
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="bi text-red bi-check-circle-fill"></i>
-                                <p class="fw-light text-muted-foreground mb-0">Free maintenance support with dedicated support team for one (1) year</p>
-                            </div>
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="bi text-red bi-check-circle-fill"></i>
-                                <p class="fw-light text-muted-foreground mb-0">Free updates for one (1) year</p>
-                            </div>
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="bi text-red bi-check-circle-fill"></i>
-                                <p class="fw-light text-muted-foreground mb-0">Option for Paid Support after Free One (1) year</p>
-                            </div>
-                        </div>
-
-                        <div class="mt-auto d-flex align-items-center justify-content-center"><button class="btn glowing-red-btn">Subscribe <i class="bi bi-chevron-right"></i></button></div>
-                    </div>
-                </div>
-                <div class="col px-0">
-                    <div style="height: 600px;" class="bg-glass d-flex flex-column border-thin rounded-end-4 p-5">
-                        <h4 class="mb-3">Inclusion</h4>
-                        <p class="text-muted-foreground fw-light mb-0 pb-4">Complete setup with server and backup
-                            power supply.</p>
-
-                        <div class="gradient-separator mb-4"></div>
-                        <p class="fs-7 fw-ligh text-muted-light">What's included</p>
-                        <div class="d-flex flex-column gap-3">
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="bi bi-check-circle pt-1"></i>
-                                <p class="fw-light text-muted-foreground mb-0">1 Unit Dell Power Edge Server</p>
-                            </div>
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="bi bi-check-circle pt-1"></i>
-                                <p class="fw-light text-muted-foreground mb-0">1 Unit UPS</p>
-                            </div>
-                        </div>
-
-                        <div class="mt-auto d-flex align-items-center justify-content-center"><button class="btn glowing-red-btn">Subscribe <i class="bi bi-chevron-right"></i></button></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
     <!-- FOOTER  -->
     <footer class="bg-background">
-        <div class="glow-4"></div>
         <div class="upper-footer max-w-wrapper mx-auto">
             <div class="row">
                 <div class="col-12 col-sm-4">
