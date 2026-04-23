@@ -130,7 +130,6 @@ $members = getTeamMembers();
                 <div class="dropdown"><button onclick="window.location.href='/nexen-official-website'">Home</button></div>
                 <div class="dropdown">
                     <button>Solutions</button>
-                    <button>Solutions</button>
                     <div class="dropdown-content">
                         <a href="#" style="--i:1">Software Subscriptions</a>
                         <a href="#" style="--i:2">Payroll Outsourcing</a>
@@ -141,7 +140,7 @@ $members = getTeamMembers();
                 <div class="dropdown">
                     <button>Products</button>
                     <div class="dropdown-content">
-                        <a href="#" style="--i:1">HRMAX</a>
+                        <a href="hrmax" style="--i:1">HRMAX</a>
                         <a href="#" style="--i:2">PROFILE MANAGER</a>
                         <a href="#" style="--i:3">MEDIXPRO</a>
                         <a href="#" style="--i:4">LINEONE</a>
@@ -205,13 +204,13 @@ $members = getTeamMembers();
                 <div class="row row-cols-3 px-1 gap-0 gap-md-0 mb-5 mt-5">
                     <div class="col px-2">
                         <div class="p-2 p-md-3 rounded-3 bg-card-down border-upper">
-                            <h2><?= getContent("about", "happy_customers") ?></h2>
+                            <h2><?= getContent("about", "clients") ?></h2>
                             <p class="mt-1 mb-0 text-muted-foreground fs-7">Clients</p>
                         </div>
                     </div>
                     <div class="col px-2">
                         <div class="p-2 p-md-3 rounded-3 bg-card-down border-upper">
-                            <h2><?= getContent("about", "properties_for_clients") ?></h2>
+                            <h2><?= getContent("about", "projects") ?></h2>
                             <p class="mt-1 mb-0 text-muted-foreground fs-7">Projects</p>
                         </div>
                     </div>
@@ -232,9 +231,9 @@ $members = getTeamMembers();
                             <p class="mb-0 text-muted-light">✦</p>
                         </div>
                         <h2>Our Mission</h2>
-                        <p class="mb-0 text-muted-light fs-7">Bring technological systems innovation
-                            to every partner institution to help them
-                            reach their full potential.</p>
+                        <p class="mb-0 text-muted-light fs-7">
+                            <?= getContent("about", "mission") ?>
+                        </p>
 
                     </div>
                     <div class="col px-2">
@@ -244,11 +243,9 @@ $members = getTeamMembers();
                             <p class="mb-0 text-muted-light">✦</p>
                         </div>
                         <h2>Our Vision</h2>
-                        <p class="mb-0 text-muted-light fs-7">To become the leading
-                            provider
-                            of innovative business
-                            engine
-                            solutions.</p>
+                        <p class="mb-0 text-muted-light fs-7">
+                            <?= getContent("about", "vision") ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -292,7 +289,7 @@ $members = getTeamMembers();
                                     </div>
                                     <p class="fw-bold mb-0 ms-2 urbanist">Engineering that Performs</p>
                                 </div>
-                                <p class="text-muted-light fs-7 urbanist">We design and build technology with precision, reliability, and scalability at its core. Our teams are committed to high-quality code, resilient systems, and continuous technical advancement. We deliver solutions that organizations can trust and depend on.</p>
+                                <p class="text-muted-light fs-7 urbanist"><?= getContent("core-values", "value-1") ?></p>
                             </div>
                             <div class="col px-3 ">
                                 <div class="d-flex align-items-center mb-3">
@@ -305,8 +302,9 @@ $members = getTeamMembers();
                                     </div>
                                     <p class="fw-medium mb-0 ms-2">eXecution that Delivers</p>
                                 </div>
-                                <p class="text-muted-light fs-7 urbanist">We believe that ideas create possibilities, but disciplined execution delivers results. With focus, accountability, and operational rigor, we transform concepts into impactful solutions that consistently deliver on commitments and
-                                    drive continuous improvement.</p>
+                                <p class="text-muted-light fs-7 urbanist">
+                                    <?= getContent("core-values", "value-2") ?>
+                                </p>
                             </div>
                         </div>
                         <!-- separator  -->
@@ -322,7 +320,7 @@ $members = getTeamMembers();
                                         </svg></div>
                                     <p class="fw-medium mb-0 ms-2">Client-Centric</p>
                                 </div>
-                                <p class="text-muted-light fs-7 urbanist">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, rem.</p>
+                                <p class="text-muted-light fs-7 urbanist"><?= getContent("core-values", "value-3") ?></p>
                             </div>
                         </div>
                     </div>
@@ -339,26 +337,39 @@ $members = getTeamMembers();
                     <p class="mb-0 text-muted-light">✦</p>
                 </div>
                 <h2 class="urbanist text-secondary-foreground">Our Achievements</h2>
-                <p class="text-muted-foreground fs-7">Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary.</p>
+                <p class="text-muted-foreground fs-7">
+                    <?= htmlspecialchars(getContent("achievements", "title-description")) ?>
+                </p>
             </div>
 
             <div class="row row-cols-1 px-1 row-cols-md-3">
                 <div class="col px-2 mb-2">
-                    <div class="p-4 bg-card-dark our-achievement-card border-thick rounded-3">
-                        <h5 class="text-secondary-foreground urbanist mb-4">3+ Years of Excellence</h5>
-                        <p class="text-muted-light mb-0 fs-7 urbanist">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor numquam officia impedit labore natus qui doloremque sit itaque illum hic.</p>
+                    <div class="p-4 bg-card-dark h-100 our-achievement-card border-thick rounded-3">
+                        <h5 class="text-secondary-foreground urbanist mb-4">
+                            <?= htmlspecialchars(getContent("achievements", "achieve-title-1")) ?>
+                        </h5>
+                        <p class="text-muted-light mb-0 fs-7 urbanist">
+                            <?= htmlspecialchars(getContent("achievements", "achieve-desc-1")) ?>
+                        </p>
                     </div>
                 </div>
                 <div class="col px-2 mb-2">
-                    <div class="p-4 bg-card-dark our-achievement-card border-thick rounded-3">
-                        <h5 class="text-secondary-foreground urbanist mb-4">3+ Years of Excellence</h5>
-                        <p class="text-muted-light mb-0 fs-7 urbanist">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor numquam officia impedit labore natus qui doloremque sit itaque illum hic.</p>
+                    <div class="p-4 bg-card-dark h-100 our-achievement-card border-thick rounded-3">
+                        <h5 class="text-secondary-foreground urbanist mb-4"><?= htmlspecialchars(getContent("achievements", "achieve-title-2")) ?>
+                        </h5>
+                        <p class="text-muted-light mb-0 fs-7 urbanist">
+                            <?= htmlspecialchars(getContent("achievements", "achieve-desc-2")) ?>
+                        </p>
                     </div>
                 </div>
                 <div class="col px-2 mb-2">
-                    <div class="p-4 bg-card-dark our-achievement-card border-thick rounded-3">
-                        <h5 class="text-secondary-foreground urbanist mb-4">3+ Years of Excellence</h5>
-                        <p class="text-muted-light mb-0 fs-7 urbanist">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor numquam officia impedit labore natus qui doloremque sit itaque illum hic.</p>
+                    <div class="p-4 bg-card-dark h-100 our-achievement-card border-thick rounded-3">
+                        <h5 class="text-secondary-foreground urbanist mb-4">
+                            <?= htmlspecialchars(getContent("achievements", "achieve-title-3")) ?>
+                        </h5>
+                        <p class="text-muted-light mb-0 fs-7 urbanist">
+                            <?= htmlspecialchars(getContent("achievements", "achieve-desc-3")) ?>
+                        </p>
                     </div>
                 </div>
             </div>

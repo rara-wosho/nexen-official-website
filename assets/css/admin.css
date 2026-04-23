@@ -122,7 +122,8 @@ body {
 
 .sidebar-menu-icon {
     margin-right: 0.75rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
 .sidebar-divider {
@@ -227,20 +228,19 @@ body {
 
 /* Card Styles */
 .card {
-    border: none;
     border-radius: 1rem;
-    box-shadow: 0 0.15rem 1.85rem 0 rgba(58, 59, 69, 0.1);
+    /* box-shadow: 0 0.15rem 1.85rem 0 rgba(58, 59, 69, 0.1); */
     margin-bottom: 1.5rem;
     background: var(--v2-bg-card);
+    border: var(--v2-border);
 }
 
 .card-header {
-    background-color: white;
-    /* border-bottom: var(--v2-border); */
     padding: 1rem 1.25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: var(--v2-bg-card);
 }
 
 .card-header-title {
@@ -251,8 +251,30 @@ body {
 }
 
 .card-body {
-    /* padding: 1.25rem; */
-    background-color: var(--v2-bg-card);
+    transition: opacity 0.4s;
+    padding-inline: 20px;
+    padding-top: 0;
+}
+
+.card-body.shrink {
+    margin-top: 0;
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+}
+
+.card-header-btn i {
+    transition: all 0.3s;
+}
+.card-header-btn.open .card-header-button {
+    transition: all 0.3s;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.card-header-btn.open i {
+    transition: all 0.3s;
+    transform: rotate(135deg);
 }
 
 /* Form Styles */
@@ -266,7 +288,7 @@ body {
     border: 1px solid #d1d3e2;
     font-size: 0.85rem;
     padding: 0.375rem 0.75rem;
-    background-color: var(--v2-bg-color);
+    background-color: rgb(248, 248, 248);
     color: var(--v2-text-foreground);
     outline: none;
     border: none;
@@ -335,6 +357,7 @@ body {
     border-radius: 0.35rem;
     box-shadow: 0 0.2rem 1.75rem 0 rgba(58, 59, 69, 0.1);
     margin-bottom: 1rem;
+    border: 1px solid rgb(230, 230, 230);
 }
 .content-item-header {
     padding: 0.75rem 1rem;
@@ -401,8 +424,28 @@ body {
     color: white;
 }
 
+/* UTILS  */
+.d-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
+    /* Dashboard Content */
+    .dashboard-content {
+        padding: 12px;
+    }
+
+    .card-header {
+        padding: 12px;
+    }
+
+    .card-body {
+        padding: 12px;
+    }
+
     .sidebar {
         margin-left: calc(var(--sidebar-width) * -1);
     }

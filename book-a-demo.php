@@ -53,7 +53,7 @@
                 <div class="dropdown">
                     <button>Products</button>
                     <div class="dropdown-content">
-                        <a href="#" style="--i:1">HRMAX</a>
+                        <a href="hrmax" style="--i:1">HRMAX</a>
                         <a href="#" style="--i:2">PROFILE MANAGER</a>
                         <a href="#" style="--i:3">MEDIXPRO</a>
                         <a href="#" style="--i:4">LINEONE</a>
@@ -74,14 +74,11 @@
                         <a href="#" style="--i:3">Partners</a>
                     </div>
                 </div>
+
                 <div class="dropdown">
-                    <button>About</button>
-                    <div class="dropdown-content">
-                        <a href="#" style="--i:1">My Story</a>
-                        <a href="#" style="--i:2">Careers</a>
-                        <a href="#" style="--i:3">myPortal</a>
-                    </div>
+                    <button onclick="window.location.href='about'"><span>About</span></button>
                 </div>
+
                 <div class="talk-to-us ms-auto">
                     <button onclick="window.location.href='contact'">Contact Us</button>
                 </div>
@@ -303,9 +300,9 @@
                     messageDiv.innerHTML = "<div class='text-danger mb-5'>Something went wrong. Try again.</div>";
                     console.error("Fetch error:", error);
                 } finally {
-                    setTimeout(() => {
-                        messageDiv.style.display = "none"
-                    }, 5000);
+                    // setTimeout(() => {
+                    //     messageDiv.style.display = "none"
+                    // }, 5000);
                 }
             });
         })

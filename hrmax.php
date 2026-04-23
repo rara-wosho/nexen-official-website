@@ -1,3 +1,33 @@
+<?php
+require_once 'db_connect.php';
+
+// Function to fetch content from the database
+function getContent($section_name, $content_key)
+{
+    global $connection;
+
+    try {
+        $query = "SELECT content FROM content WHERE section_name = :section_name AND content_key = :content_key";
+        $stmt = $connection->prepare($query);
+        $stmt->bindParam(':section_name', $section_name);
+        $stmt->bindParam(':content_key', $content_key);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result['content'];
+        } else {
+            return "No content";
+        }
+    } catch (PDOException $e) {
+        die("Query failed: " . $e->getMessage());
+    }
+
+    return '';
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,7 +132,7 @@
                 <div class="row row-cols-2">
                     <div class="col d-flex flex-column justify-content-center">
                         <h1 style="font-size: 3.2rem;" class="text-white-gradient inter fw-bold">Automate Your Workforce <br /> Management with Ease</h1>
-                        <p style="max-width: 600px;" class="text-slate fs-6 mb-0 pt-2">HRMAX helps organizations streamline HR processes and improve efficiency with intelligent human resource management tools.</p>
+                        <p style="max-width: 600px;" class="text-slate fs-6 mb-0 pt-2"><?= htmlspecialchars(getContent("hrmax", "title-description")) ?></p>
                     </div>
                     <div class="col d-flex flex-column justify-content-center position-relative">
                         <div class="hrmax-hero-circle-1"></div>
@@ -127,36 +157,48 @@
                 <div class="col">
                     <div class="hrmax-banner-card p-5 d-center flex-column">
                         <div class="mt-auto d-center flex-column pb-5">
-                            <h4 class="urbanist fw-semibold mb-3">Introduction</h4>
-                            <p class="text-center fs-6 text-muted-light">NEXEN is an information andcommunication technology research
-                                and development corporation. It utilizes both open source and proprietary technology to provide cost effective product and maintain top caliber systems security and reliability with operational enterprise grade design that is easier, flexible and scalable.</p>
+                            <h4 class="urbanist fw-semibold mb-3">
+                                <?= htmlspecialchars(getContent("hrmax", "card-title-1")) ?>
+                            </h4>
+                            <p class="text-center fs-6 text-muted-light">
+                                <?= htmlspecialchars(getContent("hrmax", "card-desc-1")) ?>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="hrmax-banner-card p-5 d-center flex-column">
                         <div class="mt-auto d-center flex-column pb-5">
-                            <h4 class="urbanist fw-semibold mb-3">Introduction</h4>
-                            <p class="text-center fs-6 text-muted-light">NEXEN is an information andcommunication technology research
-                                and development corporation. It utilizes both open source and proprietary technology to provide cost effective product and maintain top caliber systems security and reliability with operational enterprise grade design that is easier, flexible and scalable.</p>
+                            <h4 class="urbanist fw-semibold mb-3">
+                                <?= htmlspecialchars(getContent("hrmax", "card-title-2")) ?>
+                            </h4>
+                            <p class="text-center fs-6 text-muted-light">
+                                <?= htmlspecialchars(getContent("hrmax", "card-desc-2")) ?>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="hrmax-banner-card p-5 d-center flex-column">
                         <div class="mt-auto d-center flex-column pb-5">
-                            <h4 class="urbanist fw-semibold mb-3">Introduction</h4>
-                            <p class="text-center fs-6 text-muted-light">NEXEN is an information andcommunication technology research
-                                and development corporation. It utilizes both open source and proprietary technology to provide cost effective product and maintain top caliber systems security and reliability with operational enterprise grade design that is easier, flexible and scalable.</p>
+                            <h4 class="urbanist fw-semibold mb-3">
+                                <?= htmlspecialchars(getContent("hrmax", "card-title-3")) ?>
+                            </h4>
+                            <p class="text-center fs-6 text-muted-light">
+                                <?= htmlspecialchars(getContent("hrmax", "card-desc-3")) ?>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="hrmax-banner-card p-5 d-center flex-column">
                         <div class="mt-auto d-center flex-column pb-5">
-                            <h4 class="urbanist fw-semibold mb-3">Introduction</h4>
-                            <p class="text-center fs-6 text-muted-light">NEXEN is an information andcommunication technology research
-                                and development corporation. It utilizes both open source and proprietary technology to provide cost effective product and maintain top caliber systems security and reliability with operational enterprise grade design that is easier, flexible and scalable.</p>
+                            <h4 class="urbanist fw-semibold mb-3">
+                                <?= htmlspecialchars(getContent("hrmax", "card-title-4")) ?>
+                            </h4>
+                            <p class="text-center fs-6 text-muted-light">
+                                <?= htmlspecialchars(getContent("hrmax", "card-desc-4")) ?>
+                            </p>
                         </div>
                     </div>
                 </div>

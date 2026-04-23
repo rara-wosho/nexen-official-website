@@ -78,18 +78,24 @@ $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($_POST['action'])) {
+
+    // UPDATE 
     if ($_POST['action'] === 'update' && isset($_POST['id']) && isset($_POST['content'])) {
       if (updateContent($_POST['id'], $_POST['content'])) {
         $message = "Content updated successfully!";
       } else {
         $message = "Failed to update content.";
       }
+
+      // ADD 
     } elseif ($_POST['action'] === 'add' && isset($_POST['section_name']) && isset($_POST['content_key']) && isset($_POST['content'])) {
       if (addContent($_POST['section_name'], $_POST['content_key'], $_POST['content'])) {
         $message = "Content added successfully!";
       } else {
         $message = "Failed to add content.";
       }
+
+      // DELETE 
     } elseif ($_POST['action'] === 'delete' && isset($_POST['id'])) {
       if (deleteContent($_POST['id'])) {
         $message = "Content deleted successfully!";
@@ -149,16 +155,23 @@ foreach ($contentItems as $item) {
     </div>
 
     <ul class="sidebar-menu">
-      <li class="sidebar-menu-item">
+      <!-- <li class="sidebar-menu-item">
         <a href="admin_editor.php" class="sidebar-menu-link">
           <i class="bi bi-speedometer2 sidebar-menu-icon"></i>
           <span>Dashboard</span>
         </a>
+      </li> -->
+      <div class="sidebar-heading">Pages</div>
+      <li class="sidebar-menu-item">
+        <a href="teams" class="sidebar-menu-link">
+          <i class="bi bi-people sidebar-menu-icon"></i>
+          <span>Teams</span>
+        </a>
       </li>
-
-      <div class="sidebar-divider"></div>
-      <li class="sidebar-menu-item"><a href="teams" class="sidebar-menu-link"><span>Teams</span></a></li>
-      <li class="sidebar-menu-item"><a href="bookings" class="sidebar-menu-link"><span>Bookings</span></a></li>
+      <li class="sidebar-menu-item"><a href="bookings" class="sidebar-menu-link">
+          <i class="bi bi-journal-text sidebar-menu-icon"></i>
+          <span>Bookings</span>
+        </a></li>
 
       <div class="sidebar-divider"></div>
       <div class="sidebar-heading">Website Sections</div>
@@ -197,26 +210,28 @@ foreach ($contentItems as $item) {
     <!-- Refers to the scraps.txt file  -->
 
 
-    <!-- Add this at the top of the page, after the topbar -->
-    <?php if (isset($_SESSION['error'])): ?>
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <?php
-        echo htmlspecialchars($_SESSION['error']);
-        unset($_SESSION['error']);
-        ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    <?php endif; ?>
+    <div class="px-4 mt-4">
+      <!-- Add this at the top of the page, after the topbar -->
+      <?php if (isset($_SESSION['error'])): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <?php
+          echo htmlspecialchars($_SESSION['error']);
+          unset($_SESSION['error']);
+          ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <?php endif; ?>
 
-    <?php if (isset($_SESSION['success'])): ?>
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <?php
-        echo htmlspecialchars($_SESSION['success']);
-        unset($_SESSION['success']);
-        ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    <?php endif; ?>
+      <?php if (isset($_SESSION['success'])): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <?php
+          echo htmlspecialchars($_SESSION['success']);
+          unset($_SESSION['success']);
+          ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <?php endif; ?>
+    </div>
 
     <!-- Page Content -->
     <div class="dashboard-content">
@@ -229,9 +244,6 @@ foreach ($contentItems as $item) {
 
       <div class="page-heading">
         <h1 class="heading-title">Content Management</h1>
-        <!-- <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addContentModal">
-          <i class="bi bi-plus-circle"></i> Add New Content
-        </button> -->
       </div>
 
       <!-- Section Navigation -->
@@ -250,16 +262,25 @@ foreach ($contentItems as $item) {
       <!-- Section Content -->
       <?php foreach ($sections as $sectionName => $sectionItems): ?>
         <div id="section-<?php echo htmlspecialchars($sectionName); ?>" class="card overflow-hidden">
-          <div class="card-header">
-            <h4 class="card-header-title mb-0">
-              <!-- <i class="bi bi-layout-text-window mr-1"></i> -->
-              <?php echo htmlspecialchars(ucfirst($sectionName)); ?> Section
-            </h4>
+
+          <!-- CARD HEADER  -->
+          <div class="card-header border-0">
+            <button class="card-header-btn outline-0 border-0 btn d-flex align-items-center gap-3">
+              <div style="width: 30px; height:30px;" class="d-center  flex-shrink-0 border rounded-circle card-header-button">
+                <i class="bi bi-plus-lg"></i>
+              </div>
+              <h4 class="card-header-title mb-0">
+                <!-- <i class="bi bi-layout-text-window mr-1"></i> -->
+                <?php echo htmlspecialchars(ucfirst($sectionName)); ?> Section
+              </h4>
+            </button>
             <button class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#addContentModal"
               onclick="prefillSection('<?php echo htmlspecialchars($sectionName); ?>')">
               <i class="bi bi-plus-circle"></i> Add to <?php echo htmlspecialchars(ucfirst($sectionName)); ?>
             </button>
           </div>
+
+          <!-- CARD BODY  -->
           <div class="card-body">
             <div class="row">
               <?php foreach ($sectionItems as $item): ?>
@@ -352,7 +373,7 @@ foreach ($contentItems as $item) {
                           <div class="mb-3">
                             <div class="form-control-wrapper">
                               <textarea class="form-control" name="content"
-                                rows="4"><?php echo htmlspecialchars($item['content']); ?></textarea>
+                                rows="8"><?php echo htmlspecialchars($item['content']); ?></textarea>
                             </div>
                           </div>
                         <?php endif; ?>
@@ -485,6 +506,21 @@ foreach ($contentItems as $item) {
       const sidebar = document.querySelector('.sidebar');
       const mainContent = document.querySelector('.main-content');
       const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+      const cardHeaderBtns = document.getElementsByClassName("card-header-btn");
+      const cardBodies = document.getElementsByClassName("card-body");
+
+      for (let i = 0; i < cardHeaderBtns.length; i++) {
+
+        cardHeaderBtns[i].addEventListener('click', function() {
+          if (cardHeaderBtns[i].classList.contains("open")) {
+            cardHeaderBtns[i].classList.remove("open");
+          } else {
+            cardHeaderBtns[i].classList.add("open");
+          }
+
+          cardBodies[i].classList.toggle("shrink");
+        });
+      }
 
       if (sidebarToggleBtn) {
         sidebarToggleBtn.addEventListener('click', function() {

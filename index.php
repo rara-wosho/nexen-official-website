@@ -13,7 +13,7 @@ function getImages($section_name, $content_key_initial)
     $query = "SELECT content 
               FROM content 
               WHERE section_name = :section_name 
-              AND content_key ILIKE :keyword";
+              AND content_key ILIKE :keyword ORDER BY RANDOM()";
 
     $stmt = $connection->prepare($query);
     $stmt->execute([
@@ -119,7 +119,7 @@ $herroTitleArr = explode(" ", $heroTitle);
         <div class="dropdown">
           <button>Products</button>
           <div class="dropdown-content">
-            <a href="#" style="--i:1">HRMAX</a>
+            <a href="hrmax" style="--i:1">HRMAX</a>
             <a href="#" style="--i:2">PROFILE MANAGER</a>
             <a href="#" style="--i:3">MEDIXPRO</a>
             <a href="#" style="--i:4">LINEONE</a>
@@ -354,7 +354,7 @@ $herroTitleArr = explode(" ", $heroTitle);
             <?php
             $source = $img === "." ? "assets/png/image 98.png" : $img;
             ?>
-            <img src="<?= htmlspecialchars($source) ?>" style="flex-shrink:0; height:90px; object-fit:scale-down; min-width:70px" class="" alt="logo1" />
+            <img src="<?= htmlspecialchars($source) ?>" style="flex-shrink:0; height:90px; object-fit:contain; min-width:70px" class="" alt="logo1" />
           </div>
         <?php } ?>
       </div>
