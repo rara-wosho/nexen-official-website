@@ -58,14 +58,14 @@ function getContent($section_name, $content_key)
 <body>
     <!-- ══ HEADER ══════════════════════════════════════════ -->
     <header id="header" class="">
-        <div class="max-w-wrapper w-100 d-flex align-items-center mx-auto">
-            <a href="/nexen-official-website" class="logo ">
-                <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo"> <!-- DO NOT TOUCH, TAGUON NAKO NI -->
+        <div class="max-w-wrapper  w-100 d-flex align-items-center mx-auto">
+            <a href="#" class="logo ">
+                <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
             </a>
 
             <!-- Desktop Dropdown Nav -->
             <div class="links-container">
-                <div class="dropdown"><button onclick="window.location.href='/nexen-official-website'">Home</button></div>
+                <div class="dropdown"><button><a href="/nexen-official-website">Home</a></button></div>
                 <div class="dropdown">
                     <button>Solutions</button>
                     <div class="dropdown-content">
@@ -78,7 +78,7 @@ function getContent($section_name, $content_key)
                 <div class="dropdown">
                     <button>Products</button>
                     <div class="dropdown-content">
-                        <a href="#" style="--i:1">HRMAX</a>
+                        <a href="hrmax" style="--i:1">HRMAX</a>
                         <a href="#" style="--i:2">PROFILE MANAGER</a>
                         <a href="#" style="--i:3">MEDIXPRO</a>
                         <a href="#" style="--i:4">LINEONE</a>
@@ -100,28 +100,95 @@ function getContent($section_name, $content_key)
                     </div>
                 </div>
                 <div class="dropdown">
-                    <button><a href="about">About</a></button>
+                    <button onclick="window.location.href='about'"><span>About</span></button>
                 </div>
-                <div class="talk-to-us ms-auto">
-                    <button onclick="window.location.href='contact'">Contact Us</button>
+
+                <div class="d-flex align-items-center gap-2 ms-auto">
+                    <div class="talk-to-us">
+                        <button onclick="window.location.href='contact'">Contact Us</button>
+                    </div>
+                    <button onclick="window.location.href='login'" class="btn text-secondary-foreground nav-login-btn fs-7">Admin Login</button>
                 </div>
             </div>
 
-            <!-- Fallback / Mobile Nav -->
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#why-us">Why Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-                <a href="login.php" class="login bi-person-circle"> Login</a>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-            </nav>
+            <!-- Mobile Hamburger Toggle -->
+            <button class="mobile-nav-toggle text-secondary-foreground" id="mobileNavToggle" aria-label="Toggle navigation">
+                <i class="bi bi-list"></i>
+            </button>
 
+            <!-- Mobile Nav Overlay -->
+            <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+            <!-- Mobile Nav Panel -->
+            <nav class="mobile-nav-panel" id="mobileNavPanel">
+                <div class="mobile-nav-header">
+                    <a href="#">
+                        <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
+                    </a>
+                    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation">
+                        <!-- <i class="bi bi-x-lg"></i>  -->
+                    </button>
+                </div>
+
+                <div class="mobile-nav-links">
+                    <a href="/nexen-official-website" class="mobile-nav-link">Home</a>
+
+                    <div class="mobile-nav-accordion">
+                        <button class="mobile-nav-accordion-btn">
+                            Solutions
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="mobile-nav-accordion-content">
+                            <a href="#">Software Subscriptions</a>
+                            <a href="#">Payroll Outsourcing</a>
+                            <a href="#">Firewall/VPN Integration</a>
+                            <a href="#">CCTV Setup</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-nav-accordion">
+                        <button class="mobile-nav-accordion-btn">
+                            Products
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="mobile-nav-accordion-content">
+                            <a href="hrmax">HRMAX</a>
+                            <a href="#">PROFILE MANAGER</a>
+                            <a href="#">MEDIXPRO</a>
+                            <a href="#">LINEONE</a>
+                            <a href="#">CITIZENPULSE</a>
+                            <a href="#">TRAILMASTER</a>
+                            <a href="#">iBOSS</a>
+                            <a href="#">iNXUREPRO</a>
+                            <a href="#">QUICKOPS</a>
+                            <a href="#">SMARTPOINT</a>
+                            <a href="#">SPEEDCOUNT</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-nav-accordion">
+                        <button class="mobile-nav-accordion-btn">
+                            Insights
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="mobile-nav-accordion-content">
+                            <a href="#">Implementation</a>
+                            <a href="#">Activities</a>
+                            <a href="#">Partners</a>
+                        </div>
+                    </div>
+
+                    <a href="about" class="mobile-nav-link">About</a>
+                </div>
+
+                <div class="mobile-nav-footer">
+                    <a href="contact" class="mobile-nav-cta">Contact Us</a>
+                    <a href="login" class="mobile-nav-login">
+                        <i class="bi bi-person-circle"></i>
+                        Admin Login
+                    </a>
+                </div>
+            </nav>
         </div>
     </header>
 
@@ -592,18 +659,19 @@ function getContent($section_name, $content_key)
     </main>
 
     <!-- FOOTER  -->
-    <footer class="bg-background">
+    <footer>
+        <div class="glow-4"></div>
         <div class="upper-footer max-w-wrapper mx-auto">
             <div class="row">
-                <div class="col-12 col-sm-4">
-                    <img src="assets/png/nexen-logo.png" class="w-25 mb-3" alt="">
-                    <p class="fw-semibold">NEXEN INNOVATION TECHNOLOGIES</p>
+                <div class="col-12 mb-3 flex-grow-1 col-sm-4 d-flex flex-column align-items-center align-items-md-start">
+                    <img src="assets/png/nexen-logo.png" style="width: 90px; aspect-ratio:5/5" class="mb-3" alt="">
+                    <p class="fw-semibold text-center text-md-start">NEXEN INNOVATION TECHNOLOGIES</p>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
                     <p class="text-muted-foreground mb-3">Home</p>
                     <p class="text-secondary-foreground">Features</p>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
                     <p class="text-muted-foreground mb-3">About Us</p>
                     <p class="text-secondary-foreground">Our Story</p>
                     <p class="text-secondary-foreground">Our Works</p>
@@ -611,12 +679,12 @@ function getContent($section_name, $content_key)
                     <p class="text-secondary-foreground">Our Team</p>
                     <p class="text-secondary-foreground">Our Clients</p>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
                     <p class="text-muted-foreground mb-3">Services</p>
                     <p class="text-secondary-foreground">Strategic Marketing</p>
                     <p class="text-secondary-foreground">Closing Success</p>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
                     <p class="text-muted-foreground mb-3">Contact Us</p>
                     <p class="text-secondary-foreground">Contact Form</p>
                     <p class="text-secondary-foreground">Our Offices</p>
@@ -626,10 +694,10 @@ function getContent($section_name, $content_key)
 
         <!-- LOWER FOOTER SECTION  -->
         <div class="py-4 lower-footer">
-            <div class="inner-lower-footer max-w-wrapper mx-auto d-flex align-items-center justify-content-between">
+            <div class="inner-lower-footer max-w-wrapper mx-auto d-flex align-items-center justify-content-center justify-content-sm-between" style="flex-wrap: wrap;">
                 <small class="fs-7 text-muted-foreground">Copyright NEXEN All Rights Reserved</small>
 
-                <div class="d-flex align-items-center gap-1">
+                <div class="d-flex align-items-center gap-1 mt-3 mt-sm-0">
                     <div class="footer-icon-wrapper">
                         <i class="bi bi-facebook"></i>
                     </div>
@@ -667,6 +735,54 @@ function getContent($section_name, $content_key)
             // header.style.backdropFilter = "blur(0)";
             // header.style.borderBottom = '1px solid transparent';
         }
+    });
+
+
+
+    // ── Mobile Nav ──
+    const mobileToggle = document.getElementById('mobileNavToggle');
+    const mobilePanel = document.getElementById('mobileNavPanel');
+    const mobileOverlay = document.getElementById('mobileNavOverlay');
+    const mobileClose = document.getElementById('mobileNavClose');
+
+    function openMobileNav() {
+        mobilePanel.classList.add('open');
+        mobileOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileNav() {
+        mobilePanel.classList.remove('open');
+        mobileOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    mobileToggle.addEventListener('click', () => {
+        mobilePanel.classList.contains('open') ? closeMobileNav() : openMobileNav();
+    });
+
+    mobileClose.addEventListener('click', closeMobileNav);
+    mobileOverlay.addEventListener('click', closeMobileNav);
+
+    // Accordion toggles
+    document.querySelectorAll('.mobile-nav-accordion-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const accordion = btn.parentElement;
+            const isOpen = accordion.classList.contains('open');
+
+            // Close all accordions first
+            document.querySelectorAll('.mobile-nav-accordion').forEach(a => a.classList.remove('open'));
+
+            // Toggle current
+            if (!isOpen) accordion.classList.add('open');
+        });
+    });
+
+    // Close mobile nav when a link is clicked
+    document.querySelectorAll('.mobile-nav-panel a').forEach(link => {
+        link.addEventListener('click', () => {
+            closeMobileNav();
+        });
     });
 
     // const lenis = new Lenis({

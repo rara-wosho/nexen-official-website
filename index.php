@@ -101,7 +101,7 @@ $herroTitleArr = explode(" ", $heroTitle);
   <header id="header" class="">
     <div class="max-w-wrapper  w-100 d-flex align-items-center mx-auto">
       <a href="#" class="logo ">
-        <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo"> <!-- DO NOT TOUCH, TAGUON NAKO NI -->
+        <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
       </a>
 
       <!-- Desktop Dropdown Nav -->
@@ -152,21 +152,84 @@ $herroTitleArr = explode(" ", $heroTitle);
         </div>
       </div>
 
-      <!-- Fallback / Mobile Nav -->
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#why-us">Why Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="contact">Contact Us</a></li>
-        </ul>
-        <a href="login.php" class="login bi-person-circle"> Login</a>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-nav-toggle text-secondary-foreground" id="mobileNavToggle" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
 
+      <!-- Mobile Nav Overlay -->
+      <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+      <!-- Mobile Nav Panel -->
+      <nav class="mobile-nav-panel" id="mobileNavPanel">
+        <div class="mobile-nav-header">
+          <a href="#">
+            <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
+          </a>
+          <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation">
+            <!-- <i class="bi bi-x-lg"></i>  -->
+          </button>
+        </div>
+
+        <div class="mobile-nav-links">
+          <a href="#" class="mobile-nav-link text-red">Home</a>
+
+          <div class="mobile-nav-accordion">
+            <button class="mobile-nav-accordion-btn">
+              Solutions
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="mobile-nav-accordion-content">
+              <a href="#">Software Subscriptions</a>
+              <a href="#">Payroll Outsourcing</a>
+              <a href="#">Firewall/VPN Integration</a>
+              <a href="#">CCTV Setup</a>
+            </div>
+          </div>
+
+          <div class="mobile-nav-accordion">
+            <button class="mobile-nav-accordion-btn">
+              Products
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="mobile-nav-accordion-content">
+              <a href="hrmax">HRMAX</a>
+              <a href="#">PROFILE MANAGER</a>
+              <a href="#">MEDIXPRO</a>
+              <a href="#">LINEONE</a>
+              <a href="#">CITIZENPULSE</a>
+              <a href="#">TRAILMASTER</a>
+              <a href="#">iBOSS</a>
+              <a href="#">iNXUREPRO</a>
+              <a href="#">QUICKOPS</a>
+              <a href="#">SMARTPOINT</a>
+              <a href="#">SPEEDCOUNT</a>
+            </div>
+          </div>
+
+          <div class="mobile-nav-accordion">
+            <button class="mobile-nav-accordion-btn">
+              Insights
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="mobile-nav-accordion-content">
+              <a href="#">Implementation</a>
+              <a href="#">Activities</a>
+              <a href="#">Partners</a>
+            </div>
+          </div>
+
+          <a href="about" class="mobile-nav-link">About</a>
+        </div>
+
+        <div class="mobile-nav-footer">
+          <a href="contact" class="mobile-nav-cta">Contact Us</a>
+          <a href="login" class="mobile-nav-login">
+            <i class="bi bi-person-circle"></i>
+            Admin Login
+          </a>
+        </div>
+      </nav>
     </div>
   </header>
 
@@ -190,12 +253,12 @@ $herroTitleArr = explode(" ", $heroTitle);
           <?php echo getContent('hero', 'subtitle'); ?>
         </p>
         <div class="hero-actions">
-          <a href="#about" class="btn-primary-hero">
-            Get Started
-            <i class="bi bi-arrow-right"></i>
+          <a href="about" class="btn-ghost-hero">
+            About Us
           </a>
-          <a href="book-a-demo" class="btn-ghost-hero">
+          <a href="book-a-demo" class="btn-primary-hero">
             Book a Demo
+            <i class="bi bi-arrow-right"></i>
           </a>
         </div>
       </div>
@@ -282,8 +345,8 @@ $herroTitleArr = explode(" ", $heroTitle);
           <h2 class="montserrat fs-1 text-secondary-foreground">With Us You Can <span class="text-primary">Trust</span></h2>
         </div>
 
-        <div class="services-lower-cards-wrapper row">
-          <div data-aos="fade-up" class="col mb-5 mb-sm-0 pt-5 pt-sm-0 services-lower-cardd">
+        <div class="services-lower-cards-wrapper row row-cols-1 row-cols-sm-2 row-cols-lg-4">
+          <div class="mb-5 pe-4 col services-lower-cardd">
             <h1 class="text-secondary-foreground mb-3"><?= getContent("you_can_trust", "yct_value_1") ?></h1>
             <div class="d-flex flex-column">
               <p class="fs-5 text-secondary-foreground fw-light lower-cards-desc"><?= getContent("you_can_trust", "yct_title_1") ?></p>
@@ -295,7 +358,7 @@ $herroTitleArr = explode(" ", $heroTitle);
               <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
             </div>
           </div>
-          <div data-aos-delay="200" data-aos="fade-up" class="col mb-5 mb-sm-0 pt-5 pt-sm-0 services-lower-cardd">
+          <div data-aos-delay="200" class="mb-5 pe-4 col services-lower-cardd">
             <h1 class="text-secondary-foreground mb-3"><?= getContent("you_can_trust", "yct_value_2") ?></h1>
             <div class="d-flex flex-column">
               <p class="fs-5 text-secondary-foreground fw-light lower-cards-desc"><?= getContent("you_can_trust", "yct_title_2") ?></p>
@@ -307,7 +370,8 @@ $herroTitleArr = explode(" ", $heroTitle);
               <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
             </div>
           </div>
-          <div data-aos="fade-up" class="col mb-5 mb-sm-0 pt-5 pt-sm-0 services-lower-cardd">
+
+          <div class="mb-5 pe-4 col services-lower-cardd">
             <h1 class="text-secondary-foreground mb-3"><?= getContent("you_can_trust", "yct_value_3") ?></h1>
             <div class="d-flex flex-column">
               <p class="fs-5 text-secondary-foreground fw-light lower-cards-desc"><?= getContent("you_can_trust", "yct_title_3") ?></p>
@@ -319,7 +383,8 @@ $herroTitleArr = explode(" ", $heroTitle);
               <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
             </div>
           </div>
-          <div data-aos-delay="200" data-aos="fade-up" class="col mb-5 mb-sm-0 pt-5 pt-sm-0 services-lower-cardd">
+
+          <div data-aos-delay="200" class="mb-5 pe-4 col services-lower-cardd">
             <h1 class="text-secondary-foreground mb-3"><?= getContent("you_can_trust", "yct_value_4") ?></h1>
             <div class="d-flex flex-column">
               <p class="fs-5 text-secondary-foreground fw-light lower-cards-desc"><?= getContent("you_can_trust", "yct_title_4") ?></p>
@@ -332,31 +397,30 @@ $herroTitleArr = explode(" ", $heroTitle);
             </div>
           </div>
         </div>
-
-
-
       </div>
     </section>
 
     <!-- PEOPLE WE ARE WORKING WITH  -->
     <section id="working-with" class="py-5">
+      <p class="text-center px-5 fs-5 fw-semibold text-secondary-foreground"><span class="text-primary">Meet</span> the People We are Working With</p>
       <div class="gradient-01"></div>
       <div class="gradient-02"></div>
-      <p class="text-center fs-5 fw-semibold text-secondary-foreground"><span class="text-primary">Meet</span> the People We are Working With</p>
 
-      <div class="d-flex partners-logo-wrapper align-items-center gap-4">
-        <?php
-        $images = getImages("partners_logo", "p_logo_img");
+      <div class="overflow-x-hidden">
+        <div class="d-flex partners-logo-wrapper align-items-center gap-4">
+          <?php
+          $images = getImages("partners_logo", "p_logo_img");
 
-        foreach ($images as $img) {
-        ?>
-          <div class="d-flex align-items-center justify-content-center rounded-circle">
-            <?php
-            $source = $img === "." ? "assets/png/image 98.png" : $img;
-            ?>
-            <img src="<?= htmlspecialchars($source) ?>" style="flex-shrink:0; height:90px; object-fit:contain; min-width:70px" class="" alt="logo1" />
-          </div>
-        <?php } ?>
+          foreach ($images as $img) {
+          ?>
+            <div class="d-flex align-items-center justify-content-center rounded-circle">
+              <?php
+              $source = $img === "." ? "assets/png/image 98.png" : $img;
+              ?>
+              <img src="<?= htmlspecialchars($source) ?>" style="flex-shrink:0; height:90px; object-fit:contain; min-width:70px" class="" alt="logo1" />
+            </div>
+          <?php } ?>
+        </div>
       </div>
     </section>
 
@@ -489,15 +553,55 @@ $herroTitleArr = explode(" ", $heroTitle);
   window.addEventListener('scroll', () => {
     if (window.scrollY > 400) {
       header.classList.add("scrolled")
-      // header.style.background = 'rgba(10, 10, 10, 0.9)';
-      // header.style.backdropFilter = "blur(10px)";
-      // header.style.borderBottom = '1px solid rgba(240,240,240,0.1)';
     } else {
       header.classList.remove("scrolled")
-      // header.style.background = 'transparent';
-      // header.style.backdropFilter = "blur(0)";
-      // header.style.borderBottom = '1px solid transparent';//
     }
+  });
+
+  // ── Mobile Nav ──
+  const mobileToggle = document.getElementById('mobileNavToggle');
+  const mobilePanel = document.getElementById('mobileNavPanel');
+  const mobileOverlay = document.getElementById('mobileNavOverlay');
+  const mobileClose = document.getElementById('mobileNavClose');
+
+  function openMobileNav() {
+    mobilePanel.classList.add('open');
+    mobileOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileNav() {
+    mobilePanel.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  mobileToggle.addEventListener('click', () => {
+    mobilePanel.classList.contains('open') ? closeMobileNav() : openMobileNav();
+  });
+
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileOverlay.addEventListener('click', closeMobileNav);
+
+  // Accordion toggles
+  document.querySelectorAll('.mobile-nav-accordion-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const accordion = btn.parentElement;
+      const isOpen = accordion.classList.contains('open');
+
+      // Close all accordions first
+      document.querySelectorAll('.mobile-nav-accordion').forEach(a => a.classList.remove('open'));
+
+      // Toggle current
+      if (!isOpen) accordion.classList.add('open');
+    });
+  });
+
+  // Close mobile nav when a link is clicked
+  document.querySelectorAll('.mobile-nav-panel a').forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileNav();
+    });
   });
 </script>
 

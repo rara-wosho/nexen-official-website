@@ -120,14 +120,14 @@ $members = getTeamMembers();
 <body>
     <!-- ══ HEADER ══════════════════════════════════════════ -->
     <header id="header" class="">
-        <div class="max-w-wrapper w-100 d-flex align-items-center mx-auto">
-            <a href="/nexen-official-website" class="logo ">
-                <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo"> <!-- DO NOT TOUCH, TAGUON NAKO NI -->
+        <div class="max-w-wrapper  w-100 d-flex align-items-center mx-auto">
+            <a href="#" class="logo ">
+                <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
             </a>
 
             <!-- Desktop Dropdown Nav -->
             <div class="links-container">
-                <div class="dropdown"><button onclick="window.location.href='/nexen-official-website'">Home</button></div>
+                <div class="dropdown"><button><a href="/nexen-official-website">Home</a></button></div>
                 <div class="dropdown">
                     <button>Solutions</button>
                     <div class="dropdown-content">
@@ -162,28 +162,95 @@ $members = getTeamMembers();
                     </div>
                 </div>
                 <div class="dropdown">
-                    <button> <a class="text-red" href="">About</a></button>
+                    <button onclick="window.location.href='about'"><span>About</span></button>
                 </div>
-                <div class="talk-to-us ms-auto">
-                    <button onclick="window.location.href='contact'">Contact Us</button>
+
+                <div class="d-flex align-items-center gap-2 ms-auto">
+                    <div class="talk-to-us">
+                        <button onclick="window.location.href='contact'">Contact Us</button>
+                    </div>
+                    <button onclick="window.location.href='login'" class="btn text-secondary-foreground nav-login-btn fs-7">Admin Login</button>
                 </div>
             </div>
 
-            <!-- Fallback / Mobile Nav -->
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#why-us">Why Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-                <a href="login.php" class="login bi-person-circle"> Login</a>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-            </nav>
+            <!-- Mobile Hamburger Toggle -->
+            <button class="mobile-nav-toggle text-secondary-foreground" id="mobileNavToggle" aria-label="Toggle navigation">
+                <i class="bi bi-list"></i>
+            </button>
 
+            <!-- Mobile Nav Overlay -->
+            <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+            <!-- Mobile Nav Panel -->
+            <nav class="mobile-nav-panel" id="mobileNavPanel">
+                <div class="mobile-nav-header">
+                    <a href="#">
+                        <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
+                    </a>
+                    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation">
+                        <!-- <i class="bi bi-x-lg"></i>  -->
+                    </button>
+                </div>
+
+                <div class="mobile-nav-links">
+                    <a href="/nexen-official-website" class="mobile-nav-link">Home</a>
+
+                    <div class="mobile-nav-accordion">
+                        <button class="mobile-nav-accordion-btn">
+                            Solutions
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="mobile-nav-accordion-content">
+                            <a href="#">Software Subscriptions</a>
+                            <a href="#">Payroll Outsourcing</a>
+                            <a href="#">Firewall/VPN Integration</a>
+                            <a href="#">CCTV Setup</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-nav-accordion">
+                        <button class="mobile-nav-accordion-btn">
+                            Products
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="mobile-nav-accordion-content">
+                            <a href="hrmax">HRMAX</a>
+                            <a href="#">PROFILE MANAGER</a>
+                            <a href="#">MEDIXPRO</a>
+                            <a href="#">LINEONE</a>
+                            <a href="#">CITIZENPULSE</a>
+                            <a href="#">TRAILMASTER</a>
+                            <a href="#">iBOSS</a>
+                            <a href="#">iNXUREPRO</a>
+                            <a href="#">QUICKOPS</a>
+                            <a href="#">SMARTPOINT</a>
+                            <a href="#">SPEEDCOUNT</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-nav-accordion">
+                        <button class="mobile-nav-accordion-btn">
+                            Insights
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="mobile-nav-accordion-content">
+                            <a href="#">Implementation</a>
+                            <a href="#">Activities</a>
+                            <a href="#">Partners</a>
+                        </div>
+                    </div>
+
+                    <a href="about" class="mobile-nav-link text-red">About</a>
+                </div>
+
+                <div class="mobile-nav-footer">
+                    <a href="contact" class="mobile-nav-cta">Contact Us</a>
+                    <a href="login" class="mobile-nav-login">
+                        <i class="bi bi-person-circle"></i>
+                        Admin Login
+                    </a>
+                </div>
+            </nav>
         </div>
     </header>
 
@@ -641,17 +708,52 @@ $members = getTeamMembers();
         stopInertiaOnNavigate: true
     });
 
-    // function updateVisibleClass() {
-    //   document.querySelectorAll('.animation-div, .watch-on-screen').forEach((box) => {
-    //     const rect = box.getBoundingClientRect();
-    //     const visible = rect.top < window.innerHeight - 150 && rect.bottom > 0;
-    //     box.classList.toggle('active', visible);
-    //   });
-    // }
 
-    // lenis.on('scroll', updateVisibleClass);
-    // window.addEventListener('load', updateVisibleClass);
-    // window.addEventListener('resize', updateVisibleClass);
+    // ── Mobile Nav ──
+    const mobileToggle = document.getElementById('mobileNavToggle');
+    const mobilePanel = document.getElementById('mobileNavPanel');
+    const mobileOverlay = document.getElementById('mobileNavOverlay');
+    const mobileClose = document.getElementById('mobileNavClose');
+
+    function openMobileNav() {
+        mobilePanel.classList.add('open');
+        mobileOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileNav() {
+        mobilePanel.classList.remove('open');
+        mobileOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    mobileToggle.addEventListener('click', () => {
+        mobilePanel.classList.contains('open') ? closeMobileNav() : openMobileNav();
+    });
+
+    mobileClose.addEventListener('click', closeMobileNav);
+    mobileOverlay.addEventListener('click', closeMobileNav);
+
+    // Accordion toggles
+    document.querySelectorAll('.mobile-nav-accordion-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const accordion = btn.parentElement;
+            const isOpen = accordion.classList.contains('open');
+
+            // Close all accordions first
+            document.querySelectorAll('.mobile-nav-accordion').forEach(a => a.classList.remove('open'));
+
+            // Toggle current
+            if (!isOpen) accordion.classList.add('open');
+        });
+    });
+
+    // Close mobile nav when a link is clicked
+    document.querySelectorAll('.mobile-nav-panel a').forEach(link => {
+        link.addEventListener('click', () => {
+            closeMobileNav();
+        });
+    });
 </script>
 
 </html>
