@@ -353,9 +353,15 @@ $herroTitleArr = explode(" ", $heroTitle);
               <small class="text-muted-light lower-cards-small"><?= getContent("you_can_trust", "yct_desc_1") ?></small>
             </div>
             <div class="mt-5 d-flex align-items-end lower-cards-images">
-              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
-              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
-              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
+              <div style="z-index:20;" class="bg-white p-1 rounded-circle">
+                <img src="assets/img/others/viber_image_2026-04-28_14-25-42-825.jpg" alt="" class="service-circle-img">
+              </div>
+              <div style="z-index:20; transform:translateX(-30%);" class="bg-white p-1 rounded-circle">
+                <img src="assets/img/others/475453264_1442850116605837_6348550667114118015_n.jpg" alt="" class="service-circle-img">
+              </div>
+              <div style="z-index:20; transform:translateX(-60%);" class="bg-white p-1 rounded-circle">
+                <img src="assets/img/others/68087205ad60a.jpg" alt="" class="service-circle-img">
+              </div>
             </div>
           </div>
           <div data-aos-delay="200" class="mb-5 pe-4 col services-lower-cardd">
@@ -365,9 +371,12 @@ $herroTitleArr = explode(" ", $heroTitle);
               <small class="text-muted-light lower-cards-small"><?= getContent("you_can_trust", "yct_desc_2") ?></small>
             </div>
             <div class="mt-5 d-flex align-items-end  lower-cards-images">
-              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
-              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
-              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
+              <div style="z-index:20;" class="bg-white p-1 rounded-circle">
+                <img src="assets/img/others/viber_image_2026-04-28_14-25-24-578.jpg" alt="" class="service-circle-img">
+              </div>
+              <div style="z-index:20; transform:translateX(-30%);" class="bg-white p-1 rounded-circle">
+                <img src="assets/img/others/viber_image_2026-04-28_13-53-50-851.png" alt="" class="service-circle-img">
+              </div>
             </div>
           </div>
 
@@ -378,9 +387,15 @@ $herroTitleArr = explode(" ", $heroTitle);
               <small class="text-muted-light lower-cards-small"><?= getContent("you_can_trust", "yct_desc_3") ?></small>
             </div>
             <div class="mt-5 d-flex align-items-end lower-cards-images">
-              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
-              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
-              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
+              <div style="z-index:20;" class="bg-white p-1 rounded-circle">
+                <img src="assets/img/v2/69f049bf79463.png" alt="" class="service-circle-img">
+              </div>
+              <div style="z-index:20; transform:translateX(-30%);" class="bg-white p-1 rounded-circle">
+                <img src="assets/img/69e8381ec920a.png" alt="" class="service-circle-img">
+              </div>
+              <div style="z-index:20; transform:translateX(-60%);" class="bg-white p-1 rounded-circle">
+                <img src="assets/img/v2/69e8389950ed7.png" alt="" class="service-circle-img">
+              </div>
             </div>
           </div>
 
@@ -391,9 +406,12 @@ $herroTitleArr = explode(" ", $heroTitle);
               <small class="text-muted-light lower-cards-small"><?= getContent("you_can_trust", "yct_desc_4") ?></small>
             </div>
             <div class="mt-5 d-flex align-items-end lower-cards-images">
-              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
-              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
-              <div style="z-index:20;" class="bg-white p-4 rounded-circle"></div>
+              <div style="z-index:20;" class="bg-white p-1 rounded-circle">
+                <img src="assets/img/others/viber_image_2026-04-28_14-25-24-578.jpg" alt="" class="service-circle-img">
+              </div>
+              <div style="z-index:20; transform:translateX(-30%);" class="bg-white p-1 rounded-circle">
+                <img src="assets/img/others/viber_image_2026-04-28_13-53-50-851.png" alt="" class="service-circle-img">
+              </div>
             </div>
           </div>
         </div>
@@ -415,7 +433,7 @@ $herroTitleArr = explode(" ", $heroTitle);
           ?>
             <div class="d-flex align-items-center justify-content-center rounded-circle">
               <?php
-              $source = $img === "." ? "assets/png/image 98.png" : $img;
+              $source = $img === "." ? "assets/png/prism.png" : $img;
               ?>
               <img src="<?= htmlspecialchars($source) ?>" style="flex-shrink:0; height:90px; object-fit:contain; min-width:70px" class="" alt="logo1" />
             </div>

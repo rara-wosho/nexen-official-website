@@ -1,3 +1,5 @@
+/* Previous and v2 code are merged and never cleaned. Some classes here have no equivalent in the main file.  */
+
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist:wght@100..900&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 /* ═══════════════════════════════════════════════
        TOKENS
@@ -1303,80 +1305,6 @@ a {
 }
 
 /* ═══════════════════════════════════════════════
-       WHY US
-    ═══════════════════════════════════════════════ */
-.why-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition:
-        transform var(--transition),
-        box-shadow var(--transition),
-        border-color var(--transition);
-    height: 100%;
-}
-
-.why-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(11, 15, 26, 0.1);
-    border-color: var(--blue);
-}
-
-.why-card-img {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
-}
-
-.why-card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.why-card:hover .why-card-img img {
-    transform: scale(1.04);
-}
-
-.why-card-icon {
-    position: absolute;
-    bottom: -20px;
-    left: 24px;
-    width: 44px;
-    height: 44px;
-    background: var(--blue);
-    color: var(--white);
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    box-shadow: 0 6px 18px rgba(26, 75, 219, 0.3);
-}
-
-.why-card-body {
-    padding: 36px 26px 28px;
-}
-
-.why-card-body h3 {
-    font-size: 20px;
-    color: var(--ink);
-    margin-bottom: 10px;
-}
-
-.why-card-body h3 a {
-    color: inherit;
-}
-
-.why-card-body p {
-    font-size: 14px;
-    color: var(--ink-muted);
-    line-height: 1.7;
-}
-
-/* ═══════════════════════════════════════════════
        SERVICES
     ═══════════════════════════════════════════════ */
 
@@ -1504,7 +1432,7 @@ a {
     width: 80%;
     height: 1px;
     right: 4%;
-    bottom: 0;
+    bottom: 6px;
     background-color: rgba(240, 240, 240, 0.5);
 }
 
@@ -1536,6 +1464,14 @@ a {
 
 .service-card.card-even {
     background: rgba(39, 40, 41, 0.7);
+}
+
+.service-circle-img {
+    object-fit: cover;
+    border-radius: 100%;
+    width: 55px;
+    height: 55px;
+    aspect-ratio: 1/1;
 }
 
 /* HRMAX  */
@@ -1717,18 +1653,6 @@ a {
     letter-spacing: 0.2px;
     transition: background-color 0.2s ease;
 }
-
-/* .animation-div.active {
-    background-color: black;
-}
-
-.watch-on-screen {
-    transition: all;
-    transition-duration: 2s;
-}
-.watch-on-screen.active {
-    background-color: orange;
-} */
 
 .cta-banner .btn:hover {
     background-color: #a8211a;

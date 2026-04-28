@@ -15,7 +15,7 @@ function getAllContent()
   global $connection;
 
   try {
-    $query = "SELECT id, section_name, content_key, content FROM content";
+    $query = "SELECT id, section_name, content_key, content FROM content order by id asc";
     $stmt = $connection->prepare($query);
     $stmt->execute();
 
@@ -209,7 +209,6 @@ foreach ($contentItems as $item) {
     <!-- Topbar -->
     <!-- Refers to the scraps.txt file  -->
 
-
     <div class="px-4 mt-4">
       <!-- Add this at the top of the page, after the topbar -->
       <?php if (isset($_SESSION['error'])): ?>
@@ -314,14 +313,15 @@ foreach ($contentItems as $item) {
                         $helpText = '';
 
                         // Configure file upload settings based on section and content key
-
                         $renderImageInput = false;
 
+                        // put the section name of section that has image contents 
                         $chosenSections = ["partners_logo", "about", "official-logo"];
 
                         if (
                           in_array($sectionName, $chosenSections) &&
                           (
+                            // put the content key of content that has image content to render input:file 
                             str_starts_with($item['content_key'], 'p_logo_img') ||
                             str_starts_with($item['content_key'], 'nexen-logo') ||
                             str_starts_with($item['content_key'], 'about_img')
@@ -434,16 +434,17 @@ foreach ($contentItems as $item) {
           <div class="modal-body">
             <input type="hidden" name="action" value="add">
             <div class="mb-3">
-              <label for="section_name" class="form-label">Section Name:</label>
-              <input type="text" class="form-control" id="section_name" name="section_name" required>
+              <label for="section_name" class="form-label d-block mb-0">Section Name:</label>
+              <small style="color:rgb(100, 100, 100); font-size:12px">Copy the exact name of section where you want to put the content.</small>
+              <input placeholder="Enter the section name" type="text" class="form-control mt-2" id="section_name" name="section_name" required>
             </div>
             <div class="mb-3">
               <label for="content_key" class="form-label">Content Key:</label>
-              <input type="text" class="form-control" id="content_key" name="content_key" required>
+              <input placeholder="Enter content key" type="text" class="form-control" id="content_key" name="content_key" required>
             </div>
             <div class="mb-3">
               <label for="content" class="form-label">Content:</label>
-              <textarea class="form-control" id="content" name="content" rows="6"></textarea>
+              <textarea placeholder="Enter content here" class="form-control" id="content" name="content" rows="6"></textarea>
             </div>
           </div>
           <div class="modal-footer">

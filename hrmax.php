@@ -498,6 +498,13 @@ function getContent($section_name, $content_key)
         ];
         ?>
 
+        <div class="mx-auto max-w-wrapper mt-5">
+            <div class="d-center flex-column">
+                <h1 class="urbanist fw-semibold text-center mb-3">Choose the Plan That’s Right for You</h1>
+
+                <p class="text-center text-muted-foreground mb-0 mx-auto mb-5" style="max-width:600px;">Access powerful features designed to streamline your operations. With Nexen, experience smarter systems, improved workflows, and scalable solutions.</p>
+            </div>
+        </div>
         <div style="max-width: 900px;" class="mx-auto py-5 row row-cols-1 row-cols-md-2 no-gutter px-2">
 
             <?php foreach ($plans as $plan): ?>

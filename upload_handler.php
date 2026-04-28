@@ -10,6 +10,7 @@ if (!isset($_SESSION['username'])) {
 
 function getFileConfig($section_name)
 {
+    // put the section name of the sections that has image contents
     $configs = [
         'hero' => [
             'dir' => 'video',
