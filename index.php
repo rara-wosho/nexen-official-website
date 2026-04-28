@@ -1,6 +1,6 @@
 <?php
 require_once 'db_connect.php';
-
+require_once 'config.php';
 
 // Get bulk images
 function getImages($section_name, $content_key_initial)
@@ -101,7 +101,7 @@ $herroTitleArr = explode(" ", $heroTitle);
   <header id="header" class="">
     <div class="max-w-wrapper  w-100 d-flex align-items-center mx-auto">
       <a href="#" class="logo ">
-        <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
+        <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" class="nav-logo" alt="nexen-logo">
       </a>
 
       <!-- Desktop Dropdown Nav -->
@@ -119,7 +119,7 @@ $herroTitleArr = explode(" ", $heroTitle);
         <div class="dropdown">
           <button>Products</button>
           <div class="dropdown-content">
-            <a href="hrmax" style="--i:1">HRMAX</a>
+            <a href="<?= url("hrmax") ?>" style="--i:1">HRMAX</a>
             <a href="#" style="--i:2">PROFILE MANAGER</a>
             <a href="#" style="--i:3">MEDIXPRO</a>
             <a href="#" style="--i:4">LINEONE</a>
@@ -164,7 +164,7 @@ $herroTitleArr = explode(" ", $heroTitle);
       <nav class="mobile-nav-panel" id="mobileNavPanel">
         <div class="mobile-nav-header">
           <a href="#">
-            <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
+            <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" class="nav-logo" alt="nexen-logo">
           </a>
           <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation">
             <!-- <i class="bi bi-x-lg"></i>  -->
@@ -193,7 +193,7 @@ $herroTitleArr = explode(" ", $heroTitle);
               <i class="bi bi-chevron-down"></i>
             </button>
             <div class="mobile-nav-accordion-content">
-              <a href="hrmax">HRMAX</a>
+              <a href="<?= url("hrmax") ?>">HRMAX</a>
               <a href="#">PROFILE MANAGER</a>
               <a href="#">MEDIXPRO</a>
               <a href="#">LINEONE</a>
@@ -219,12 +219,12 @@ $herroTitleArr = explode(" ", $heroTitle);
             </div>
           </div>
 
-          <a href="about" class="mobile-nav-link">About</a>
+          <a href="<?= url("about") ?>" class="mobile-nav-link">About</a>
         </div>
 
         <div class="mobile-nav-footer">
-          <a href="contact" class="mobile-nav-cta">Contact Us</a>
-          <a href="login" class="mobile-nav-login">
+          <a href="<?= url("contact") ?>" class="mobile-nav-cta">Contact Us</a>
+          <a href="<?= url("login") ?>" class="mobile-nav-login">
             <i class="bi bi-person-circle"></i>
             Admin Login
           </a>
@@ -316,7 +316,7 @@ $herroTitleArr = explode(" ", $heroTitle);
           <p class="inter text-muted-foreground services-description"><?= getContent("services", "subtitle") ?></p>
         </div>
 
-        <div class="row gy-4 service-card-wrapper">
+        <div class="row gy-3 gy-md-4 service-card-wrapper">
           <?php
           $services = [
             ['icon' => 'bi-server',              'key' => '1'],
@@ -401,7 +401,7 @@ $herroTitleArr = explode(" ", $heroTitle);
     </section>
 
     <!-- PEOPLE WE ARE WORKING WITH  -->
-    <section id="working-with" class="py-5">
+    <section id="working-with" class="py-3 py-md-5">
       <p class="text-center px-5 fs-5 fw-semibold text-secondary-foreground"><span class="text-primary">Meet</span> the People We are Working With</p>
       <div class="gradient-01"></div>
       <div class="gradient-02"></div>
@@ -447,7 +447,7 @@ $herroTitleArr = explode(" ", $heroTitle);
       <div class="upper-footer max-w-wrapper mx-auto">
         <div class="row">
           <div class="col-12 mb-3 flex-grow-1 col-sm-4 d-flex flex-column align-items-center align-items-md-start">
-            <img src="assets/png/nexen-logo.png" style="width: 90px; aspect-ratio:5/5" class="mb-3" alt="">
+            <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" style="width: 90px; aspect-ratio:5/5" class="mb-3" alt="">
             <p class="fw-semibold text-center text-md-start">NEXEN INNOVATION TECHNOLOGIES</p>
           </div>
           <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
@@ -481,22 +481,21 @@ $herroTitleArr = explode(" ", $heroTitle);
           <small class="fs-7 text-muted-foreground">Copyright NEXEN All Rights Reserved</small>
 
           <div class="d-flex align-items-center gap-1 mt-3 mt-sm-0">
-            <div class="footer-icon-wrapper">
+            <a href="<?= htmlspecialchars(getContent("contact", "link-facebook")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
               <i class="bi bi-facebook"></i>
-            </div>
-            <div class="footer-icon-wrapper">
+            </a>
+            <a href="<?= htmlspecialchars(getContent("contact", "link-linkedin")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
               <i class="bi bi-linkedin"></i>
-            </div>
-
-            <div class="footer-icon-wrapper">
+            </a>
+            <a href="<?= htmlspecialchars(getContent("contact", "link-instagram")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
               <i class="bi bi-instagram"></i>
-            </div>
-            <div class="footer-icon-wrapper">
+            </a>
+            <a href="mailto:<?= htmlspecialchars(getContent("contact", "c-email")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
               <i class="bi bi-envelope-fill"></i>
-            </div>
-            <div class="footer-icon-wrapper">
+            </a>
+            <a href="<?= htmlspecialchars(getContent("contact", "link-youtube")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
               <i class="bi bi-youtube"></i>
-            </div>
+            </a>
           </div>
         </div>
       </div>

@@ -101,6 +101,7 @@ try {
                         <th class="py-3">Email</th>
                         <th class="py-3">Address</th>
                         <th class="py-3">Priority Code</th>
+                        <th class="py-3">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -117,14 +118,14 @@ try {
                                         <?php
                                         $firstLetter = strtoupper(substr(trim($booking['organization']), 0, 1));
                                         ?>
-                                        <span class="org-avatar rounded-circle d-center border">
+                                        <span class="org-avatar rounded-circle d-center border" style="<?= $booking['is_read'] ? '' : 'border:2px solid rgb(31, 105, 232) !important' ?>">
                                             <span class="avatar-circle fw-bold"><?= htmlspecialchars($firstLetter) ?></span>
                                         </span>
                                         <div class="d-flex flex-column">
-                                            <span class="fw-bold">
+                                            <span class="<?= $booking['is_read'] ? 'text-muted' : 'fw-bold' ?>">
                                                 <?= htmlspecialchars($booking['organization']) ?>
                                             </span>
-                                            <span class="fs-7">Sent at: <?= date("M d, Y", strtotime($booking['created_at'])) ?></span>
+                                            <span class="fs-7 <?= $booking['is_read'] ? 'text-muted' : 'fw-bold' ?>">Sent at: <?= date("M d, Y", strtotime($booking['created_at'])) ?></span>
                                         </div>
                                     </div>
                                 </td>
@@ -136,6 +137,18 @@ try {
                                 <td><?= htmlspecialchars($booking['email']) ?></td>
                                 <td><?= htmlspecialchars($booking['address']) ?></td>
                                 <td><?= htmlspecialchars($booking['priority_reference_code']) ?></td>
+                                <td>
+                                    <form method="POST" action="mark-as-read.php" class="position-relative">
+                                        <input type="hidden" name="id" value="<?= $booking['id'] ?>">
+                                        <button type="button" class="btn btn-sm mark-read-btn">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+
+                                        <div class="mark-read-pop bg-white p-3 rounded-3">
+                                            <button class="btn btn-sm btn-success">Mark as Read</button>
+                                        </div>
+                                    </form>
+                                </td>
 
                             </tr>
                         <?php endforeach; ?>

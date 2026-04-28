@@ -990,7 +990,7 @@ a {
 }
 
 .text-slate {
-    color: rgba(175, 188, 213, 1);
+    color: rgb(196, 206, 223);
 }
 .text-white-gradient {
     display: inline-block;
@@ -1618,6 +1618,11 @@ a {
     opacity: 0.9;
 }
 
+.small-box {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+}
 /* PEOPLE WE  ARE WORKING WITHz
  */
 
@@ -1747,6 +1752,7 @@ a {
     width: 700px;
     aspect-ratio: 5/5;
     bottom: -300px;
+    z-index: -1;
     left: -200px;
     background: radial-gradient(
         circle,
@@ -1901,6 +1907,7 @@ footer {
     border-radius: 100%;
     width: 40px;
     height: 40px;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -8,6 +8,7 @@
 
 session_start();
 require_once "db_connect.php";
+require_once 'config.php';
 
 $message = "";
 
@@ -40,6 +41,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $message = "User not found.";
         }
     }
+}
+
+// Function to fetch content from the database
+function getContent($section_name, $content_key)
+{
+    global $connection;
+
+    try {
+        $query = "SELECT content FROM content WHERE section_name = :section_name AND content_key = :content_key";
+        $stmt = $connection->prepare($query);
+        $stmt->bindParam(':section_name', $section_name);
+        $stmt->bindParam(':content_key', $content_key);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result['content'];
+        } else {
+            return "No content";
+        }
+    } catch (PDOException $e) {
+        die("Query failed: " . $e->getMessage());
+    }
+
+    return '';
 }
 ?>
 <!DOCTYPE html>
@@ -436,7 +462,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <polyline points="16 18 22 12 16 6"></polyline>
                         <polyline points="8 6 2 12 8 18"></polyline>
                     </svg> -->
-                    <img src="assets/png/nexen-logo.png" alt="">
+                    <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" alt="">
                 </div>
                 <span class="nx-brand-name">NEXEN INNOVATION TECHNOLOGIES</span>
             </div>
@@ -451,10 +477,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <span class="nx-metric-val">99.99%</span>
                     <span class="nx-metric-label">Uptime</span>
                 </div>
-                <div class="nx-metric">
+                <!-- <div class="nx-metric">
                     <span class="nx-metric-val">AES-256</span>
                     <span class="nx-metric-label">Security</span>
-                </div>
+                </div> -->
                 <div class="nx-metric">
                     <span class="nx-metric-val">24/7</span>
                     <span class="nx-metric-label">Support</span>
@@ -464,7 +490,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <!-- Form Section -->
         <main class="nx-form-panel position-relative">
-            <a href="/nexen-official-website" class="back-button">
+            <a href="<?= url("/") ?>" class="back-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
                 </svg>
@@ -500,7 +526,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 id="username"
                                 name="username"
                                 class="nx-input w-100 <?php echo !empty($message) ? 'is-invalid' : ''; ?>"
-                                placeholder="name@company.com"
+                                placeholder="sample@username"
                                 value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>"
                                 required>
                         </div>

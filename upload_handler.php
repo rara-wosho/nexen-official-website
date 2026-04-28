@@ -35,6 +35,12 @@ function getFileConfig($section_name)
             'max_size' => 5000000, // 5MB
             'message' => 'JPG, JPEG, PNG & GIF files'
         ],
+        'official-logo' => [
+            'dir' => 'img/logo',
+            'types' => ['jpg', 'jpeg', 'png'],
+            'max_size' => 5000000, // 5MB
+            'message' => 'JPG, JPEG, and PNG files'
+        ],
         'partners_logo' => [
             'dir' => 'img/v2',
             'types' => ['jpg', 'jpeg', 'png', 'gif'],

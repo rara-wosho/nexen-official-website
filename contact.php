@@ -1,5 +1,6 @@
 <?php
 require_once 'db_connect.php';
+require_once 'config.php';
 
 // Function to fetch content from the database
 function getContent($section_name, $content_key)
@@ -66,12 +67,12 @@ function getContent($section_name, $content_key)
     <header id="header" class="">
         <div class="max-w-wrapper  w-100 d-flex align-items-center mx-auto">
             <a href="#" class="logo ">
-                <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
+                <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" class="nav-logo" alt="nexen-logo">
             </a>
 
             <!-- Desktop Dropdown Nav -->
             <div class="links-container">
-                <div class="dropdown"><button><a href="/nexen-official-website">Home</a></button></div>
+                <div class="dropdown"><button><a href="<?= url("/") ?>">Home</a></button></div>
                 <div class="dropdown">
                     <button>Solutions</button>
                     <div class="dropdown-content">
@@ -129,7 +130,7 @@ function getContent($section_name, $content_key)
             <nav class="mobile-nav-panel" id="mobileNavPanel">
                 <div class="mobile-nav-header">
                     <a href="#">
-                        <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
+                        <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" class="nav-logo" alt="nexen-logo">
                     </a>
                     <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation">
                         <!-- <i class="bi bi-x-lg"></i>  -->
@@ -137,7 +138,7 @@ function getContent($section_name, $content_key)
                 </div>
 
                 <div class="mobile-nav-links">
-                    <a href="/nexen-official-website" class="mobile-nav-link">Home</a>
+                    <a href="<?= url("/") ?>" class="mobile-nav-link">Home</a>
 
                     <div class="mobile-nav-accordion">
                         <button class="mobile-nav-accordion-btn">
@@ -216,7 +217,7 @@ function getContent($section_name, $content_key)
                                 <i class="bi bi-envelope-fill"></i>
                                 <p class="text-secondary-foreground mb-0">Email</p>
                             </div>
-                            <p class="mt-2 mb-0 text-muted-foreground fw-light"><?= htmlspecialchars(getContent("contact", "c-email")) ?></p>
+                            <a href="mailto:<?= htmlspecialchars(getContent("contact", "c-email"))  ?>" class="mt-2 mb-0 text-muted-foreground fw-light"><?= htmlspecialchars(getContent("contact", "c-email")) ?></a>
                         </div>
                     </div>
                     <div class="col px-2 h-100 mb-3">
@@ -231,7 +232,7 @@ function getContent($section_name, $content_key)
                         </div>
                     </div>
                     <div class="col px-2 h-100 mb-3">
-                        <a href="#" class="get-in-touch-card p-3 bg-card-down rounded-3 position-relative">
+                        <a target="_blank" href="<?= htmlspecialchars(getContent("contact", "link-linkedin")) ?>" class="get-in-touch-card p-3 bg-card-down rounded-3 position-relative">
                             <div class="d-flex align-items-center gap-3">
                                 <i class="bi bi-linkedin"></i>
                                 <p class="text-secondary-foreground mb-0">Linkedin</p>
@@ -242,7 +243,7 @@ function getContent($section_name, $content_key)
                         </a>
                     </div>
                     <div class="col px-2 h-100 mb-3">
-                        <a target="_blank" href="https://www.facebook.com/Nexen.ph" class="get-in-touch-card p-3 bg-card-down rounded-3 position-relative">
+                        <a target="_blank" href="<?= htmlspecialchars(getContent("contact", "link-facebook")) ?>" class="get-in-touch-card p-3 bg-card-down rounded-3 position-relative">
                             <div class="d-flex mb-2 align-items-center gap-3">
                                 <i class="bi bi-facebook"></i>
                                 <p class="text-secondary-foreground mb-0">Facebook</p>
@@ -302,7 +303,7 @@ function getContent($section_name, $content_key)
         <div class="upper-footer max-w-wrapper mx-auto">
             <div class="row">
                 <div class="col-12 mb-3 flex-grow-1 col-sm-4 d-flex flex-column align-items-center align-items-md-start">
-                    <img src="assets/png/nexen-logo.png" style="width: 90px; aspect-ratio:5/5" class="mb-3" alt="">
+                    <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" style="width: 90px; aspect-ratio:5/5" class="mb-3" alt="">
                     <p class="fw-semibold text-center text-md-start">NEXEN INNOVATION TECHNOLOGIES</p>
                 </div>
                 <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
@@ -336,22 +337,21 @@ function getContent($section_name, $content_key)
                 <small class="fs-7 text-muted-foreground">Copyright NEXEN All Rights Reserved</small>
 
                 <div class="d-flex align-items-center gap-1 mt-3 mt-sm-0">
-                    <div class="footer-icon-wrapper">
+                    <a href="<?= htmlspecialchars(getContent("contact", "link-facebook")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-facebook"></i>
-                    </div>
-                    <div class="footer-icon-wrapper">
+                    </a>
+                    <a href="<?= htmlspecialchars(getContent("contact", "link-linkedin")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-linkedin"></i>
-                    </div>
-
-                    <div class="footer-icon-wrapper">
+                    </a>
+                    <a href="<?= htmlspecialchars(getContent("contact", "link-instagram")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-instagram"></i>
-                    </div>
-                    <div class="footer-icon-wrapper">
+                    </a>
+                    <a href="mailto:<?= htmlspecialchars(getContent("contact", "c-email")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-envelope-fill"></i>
-                    </div>
-                    <div class="footer-icon-wrapper">
+                    </a>
+                    <a href="<?= htmlspecialchars(getContent("contact", "link-youtube")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-youtube"></i>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

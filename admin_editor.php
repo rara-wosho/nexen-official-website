@@ -317,12 +317,13 @@ foreach ($contentItems as $item) {
 
                         $renderImageInput = false;
 
-                        $chosenSections = ["partners_logo", "about"];
+                        $chosenSections = ["partners_logo", "about", "official-logo"];
 
                         if (
                           in_array($sectionName, $chosenSections) &&
                           (
                             str_starts_with($item['content_key'], 'p_logo_img') ||
+                            str_starts_with($item['content_key'], 'nexen-logo') ||
                             str_starts_with($item['content_key'], 'about_img')
                           )
                         ) {

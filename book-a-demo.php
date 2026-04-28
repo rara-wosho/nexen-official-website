@@ -1,3 +1,33 @@
+<?php
+require_once 'db_connect.php';
+require_once 'config.php';
+
+// Function to fetch content from the database
+function getContent($section_name, $content_key)
+{
+    global $connection;
+
+    try {
+        $query = "SELECT content FROM content WHERE section_name = :section_name AND content_key = :content_key";
+        $stmt = $connection->prepare($query);
+        $stmt->bindParam(':section_name', $section_name);
+        $stmt->bindParam(':content_key', $content_key);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result['content'];
+        } else {
+            return "No content";
+        }
+    } catch (PDOException $e) {
+        die("Query failed: " . $e->getMessage());
+    }
+
+    return '';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,15 +63,15 @@
 <body>
 
     <!-- ══ HEADER ══════════════════════════════════════════ -->
-    <header id="header" class="">
+    <header id="header" class="scrolled">
         <div class="max-w-wrapper  w-100 d-flex align-items-center mx-auto">
             <a href="#" class="logo ">
-                <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
+                <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" class="nav-logo" alt="nexen-logo">
             </a>
 
             <!-- Desktop Dropdown Nav -->
             <div class="links-container">
-                <div class="dropdown"><button><a href="/nexen-official-website">Home</a></button></div>
+                <div class="dropdown"><button><a href="<?= url("/") ?>">Home</a></button></div>
                 <div class="dropdown">
                     <button>Solutions</button>
                     <div class="dropdown-content">
@@ -99,7 +129,7 @@
             <nav class="mobile-nav-panel" id="mobileNavPanel">
                 <div class="mobile-nav-header">
                     <a href="#">
-                        <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
+                        <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" class="nav-logo" alt="nexen-logo">
                     </a>
                     <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation">
                         <!-- <i class="bi bi-x-lg"></i>  -->
@@ -107,7 +137,7 @@
                 </div>
 
                 <div class="mobile-nav-links">
-                    <a href="/nexen-official-website" class="mobile-nav-link">Home</a>
+                    <a href="<?= url("/") ?>" class="mobile-nav-link">Home</a>
 
                     <div class="mobile-nav-accordion">
                         <button class="mobile-nav-accordion-btn">
@@ -169,8 +199,8 @@
     </header>
 
     <!-- BOOK A DEMO SECTION  -->
-    <section id="book-a-demo" class="book-a-demo position-relative w-100 overflow-hidden">
-        <img src="assets/png/flare.png" class="flare-image position-absolute" style="z-index:-1;width:700px; aspect-ratio:8/10;bottom:-17rem; left:-6rem; transform:rotate(50deg); opacity:0.2;" alt="">
+    <section id="book-a-demo" class="book-a-demo position-relative w-100 overflow-hidden" style="isolation: isolate;">
+        <img src="assets/png/flare.png" class="flare-image position-absolute" style="z-index:-100;width:700px; aspect-ratio:8/10;bottom:-17rem; left:-6rem; transform:rotate(50deg); opacity:0.2;" alt="">
         <div class="row px-1 max-w-wrapper mx-auto">
             <div class="col-12 px-3 col-md-5 pt-3">
                 <!-- <p class="text-muted-foreground">Get in Touch</p> -->
@@ -257,7 +287,7 @@
                         </div>
                     </div>
 
-                    <button class="bg-gradient-red rounded-3 outline-0 border-0 px-5 text-secondary-foreground urbanist py-2">
+                    <button id="submit-btn" class="bg-gradient-red rounded-3 outline-0 border-0 px-5 text-secondary-foreground urbanist py-2">
                         Book Demo
                     </button>
                 </form>
@@ -271,7 +301,7 @@
         <div class="upper-footer max-w-wrapper mx-auto">
             <div class="row">
                 <div class="col-12 mb-3 flex-grow-1 col-sm-4 d-flex flex-column align-items-center align-items-md-start">
-                    <img src="assets/png/nexen-logo.png" style="width: 90px; aspect-ratio:5/5" class="mb-3" alt="">
+                    <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" style="width: 90px; aspect-ratio:5/5" class="mb-3" alt="">
                     <p class="fw-semibold text-center text-md-start">NEXEN INNOVATION TECHNOLOGIES</p>
                 </div>
                 <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
@@ -305,22 +335,21 @@
                 <small class="fs-7 text-muted-foreground">Copyright NEXEN All Rights Reserved</small>
 
                 <div class="d-flex align-items-center gap-1 mt-3 mt-sm-0">
-                    <div class="footer-icon-wrapper">
+                    <a href="<?= htmlspecialchars(getContent("contact", "link-facebook")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-facebook"></i>
-                    </div>
-                    <div class="footer-icon-wrapper">
+                    </a>
+                    <a href="<?= htmlspecialchars(getContent("contact", "link-linkedin")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-linkedin"></i>
-                    </div>
-
-                    <div class="footer-icon-wrapper">
+                    </a>
+                    <a href="<?= htmlspecialchars(getContent("contact", "link-instagram")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-instagram"></i>
-                    </div>
-                    <div class="footer-icon-wrapper">
+                    </a>
+                    <a href="mailto:<?= htmlspecialchars(getContent("contact", "c-email")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-envelope-fill"></i>
-                    </div>
-                    <div class="footer-icon-wrapper">
+                    </a>
+                    <a href="<?= htmlspecialchars(getContent("contact", "link-youtube")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-youtube"></i>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -335,9 +364,11 @@
                 const form = e.target;
                 const formData = new FormData(form);
                 const messageDiv = document.getElementById("form-message");
+                const submitBtn = document.getElementById("submit-btn");
 
                 // Optional: loading state
                 messageDiv.innerHTML = "<div class='text-warning mb-5'>Submitting...</div>";
+                submitBtn.innerHTML = "<span class='text-warning mb-5'>Submitting...</span>";
 
                 try {
                     // 1. Send the request
@@ -366,6 +397,7 @@
                     messageDiv.innerHTML = "<div class='text-danger mb-5'>Something went wrong. Try again.</div>";
                     console.error("Fetch error:", error);
                 } finally {
+                    submitBtn.textContent = "Book a Demo";
                     // setTimeout(() => {
                     //     messageDiv.style.display = "none"
                     // }, 5000);

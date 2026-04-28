@@ -1,5 +1,6 @@
 <?php
 require_once 'db_connect.php';
+require_once 'config.php';
 
 // Function to fetch content from the database
 function getContent($section_name, $content_key)
@@ -60,12 +61,12 @@ function getContent($section_name, $content_key)
     <header id="header" class="">
         <div class="max-w-wrapper  w-100 d-flex align-items-center mx-auto">
             <a href="#" class="logo ">
-                <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
+                <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" class="nav-logo" alt="nexen-logo">
             </a>
 
             <!-- Desktop Dropdown Nav -->
             <div class="links-container">
-                <div class="dropdown"><button><a href="/nexen-official-website">Home</a></button></div>
+                <div class="dropdown"><button><a href="<?= url("/") ?>">Home</a></button></div>
                 <div class="dropdown">
                     <button>Solutions</button>
                     <div class="dropdown-content">
@@ -123,7 +124,7 @@ function getContent($section_name, $content_key)
             <nav class="mobile-nav-panel" id="mobileNavPanel">
                 <div class="mobile-nav-header">
                     <a href="#">
-                        <img src="assets/png/nexen-logo.png" class="nav-logo" alt="nexen-logo">
+                        <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" class="nav-logo" alt="nexen-logo">
                     </a>
                     <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation">
                         <!-- <i class="bi bi-x-lg"></i>  -->
@@ -131,7 +132,7 @@ function getContent($section_name, $content_key)
                 </div>
 
                 <div class="mobile-nav-links">
-                    <a href="/nexen-official-website" class="mobile-nav-link">Home</a>
+                    <a href="<?= url("/") ?>" class="mobile-nav-link">Home</a>
 
                     <div class="mobile-nav-accordion">
                         <button class="mobile-nav-accordion-btn">
@@ -197,7 +198,7 @@ function getContent($section_name, $content_key)
         <section id="hrmax-hero-section" class="py-5 d-flex align-items-center" style="min-height: 100vh;">
             <div class="max-w-wrapper mx-auto w-100">
                 <div class="row row-cols-1 row-cols-md-2">
-                    <div class="col d-flex flex-column justify-content-center">
+                    <div class="col pt-5 pt-sm-0 d-flex flex-column justify-content-center">
                         <h1 style="font-size: 3.2rem;" class="text-white-gradient inter fw-bold">Automate Your Workforce <br /> Management with Ease</h1>
                         <p style="max-width: 600px;" class="text-slate fs-6 mb-0 pt-2"><?= htmlspecialchars(getContent("hrmax", "title-description")) ?></p>
                     </div>
@@ -212,7 +213,8 @@ function getContent($section_name, $content_key)
 
         <!-- HRMAX CARDS  -->
         <section id="hrmax-cards" class="py-5">
-            <div class="d-center flex-column mb-5">
+            <div class="d-center flex-column mb-5 position-relative">
+                <img src="assets/png/png-3.png" style="top: -5rem;z-index:-10; left:50%; transform:translateX(-50%); max-width:700px" class="position-absolute w-100" alt="">
                 <h1 class="urbanist fw-semibold text-center mb-3">Transforming HR <span class="text-red-dark">Management</span></h1>
 
                 <p class="text-center text-muted-light mb-0 mx-auto mb-5" style="max-width:500px;">Innovative solutions to manage your workforce
@@ -298,7 +300,7 @@ function getContent($section_name, $content_key)
         <!-- HRMAX KEY FEATURES  -->
         <section id="key-features py-5">
             <div class="mx-auto max-w-wrapper mb-5">
-                <div class="border-color-border-light border p-5">
+                <div class="border-color-border-light border p-4 p-md-5">
                     <h1 class="urbanist fw-semibold mb-3 pt-5">HRMAX Key Features</h1>
                     <p class="text-muted-foreground mb-0">
                         Everything you need to manage your workforce efficiently in one seamless platform.
@@ -333,172 +335,6 @@ function getContent($section_name, $content_key)
             </div>
         </section>
 
-        <!-- HRMAX KEY FEATURES  -->
-        <!-- <section id="key-features py-5">
-            <div class="mx-auto max-w-wrapper mb-5">
-                <div class="border-border p-5">
-                    <h1 class="urbanist fw-semibold mb-3 pt-5">HRMAX Key Features</h1>
-
-                    <p class="text-muted-foreground mb-0">Everything you need to manage your workforce efficiently in one seamless platform.</p>
-                </div>
-
-                <div style="border-inline: 1px solid red;" class="border-color-border py-3"></div>
-
-                <div style="padding-inline: 12px;" class="row row-cols-2 row-cols-md-4">
-                    <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
-                            <div class="hrmax-feature-icon-wrapper border-border d-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase-business-icon lucide-briefcase-business">
-                                    <path d="M12 12h.01" />
-                                    <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-                                    <path d="M22 13a18.15 18.15 0 0 1-20 0" />
-                                    <rect width="20" height="14" x="2" y="6" rx="2" />
-                                </svg>
-                            </div>
-                            <h6 class="urbanist text-muted-foreground mb-0">Hiring Management System</h6>
-                        </div>
-                    </div>
-                    <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
-                            <div class="hrmax-feature-icon-wrapper border-border d-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round-icon lucide-users-round">
-                                    <path d="M18 21a8 8 0 0 0-16 0" />
-                                    <circle cx="10" cy="8" r="5" />
-                                    <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
-                                </svg>
-                            </div>
-                            <h6 class="urbanist text-muted-foreground mb-0">Employee Information System</h6>
-                        </div>
-                    </div>
-                    <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
-                            <div class="hrmax-feature-icon-wrapper border-border d-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock-icon lucide-clock">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M12 6v6l4 2" />
-                                </svg>
-                            </div>
-                            <h6 class="urbanist text-muted-foreground mb-0">Timekeeping System</h6>
-                        </div>
-                    </div>
-                    <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom  border-end p-4 p-md-5">
-                            <div class="hrmax-feature-icon-wrapper border-border d-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge-icon lucide-gauge">
-                                    <path d="m12 14 4-4" />
-                                    <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-                                </svg>
-                            </div>
-                            <h6 class="urbanist text-muted-foreground mb-0">Performance Appraisal System</h6>
-                        </div>
-                    </div>
-                </div>
-                <div style="border-inline: 1px solid red;" class="border-color-border py-3"></div>
-
-                <div style="padding-inline: 12px;" class="row row-cols-2 row-cols-md-4">
-                    <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
-                            <div class="hrmax-feature-icon-wrapper border-border d-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase-business-icon lucide-briefcase-business">
-                                    <path d="M12 12h.01" />
-                                    <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-                                    <path d="M22 13a18.15 18.15 0 0 1-20 0" />
-                                    <rect width="20" height="14" x="2" y="6" rx="2" />
-                                </svg>
-                            </div>
-                            <h6 class="urbanist text-muted-foreground mb-0">Hiring Management System</h6>
-                        </div>
-                    </div>
-                    <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
-                            <div class="hrmax-feature-icon-wrapper border-border d-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round-icon lucide-users-round">
-                                    <path d="M18 21a8 8 0 0 0-16 0" />
-                                    <circle cx="10" cy="8" r="5" />
-                                    <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
-                                </svg>
-                            </div>
-                            <h6 class="urbanist text-muted-foreground mb-0">Employee Information System</h6>
-                        </div>
-                    </div>
-                    <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
-                            <div class="hrmax-feature-icon-wrapper border-border d-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock-icon lucide-clock">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M12 6v6l4 2" />
-                                </svg>
-                            </div>
-                            <h6 class="urbanist text-muted-foreground mb-0">Timekeeping System</h6>
-                        </div>
-                    </div>
-                    <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom  border-end p-4 p-md-5">
-                            <div class="hrmax-feature-icon-wrapper border-border d-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge-icon lucide-gauge">
-                                    <path d="m12 14 4-4" />
-                                    <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-                                </svg>
-                            </div>
-                            <h6 class="urbanist text-muted-foreground mb-0">Performance Appraisal System</h6>
-                        </div>
-                    </div>
-                </div>
-                <div style="border-inline: 1px solid red;" class="border-color-border py-3"></div>
-
-                <div style="padding-inline: 12px;" class="row row-cols-2 row-cols-md-4">
-                    <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
-                            <div class="hrmax-feature-icon-wrapper border-border d-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase-business-icon lucide-briefcase-business">
-                                    <path d="M12 12h.01" />
-                                    <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-                                    <path d="M22 13a18.15 18.15 0 0 1-20 0" />
-                                    <rect width="20" height="14" x="2" y="6" rx="2" />
-                                </svg>
-                            </div>
-                            <h6 class="urbanist text-muted-foreground mb-0">Hiring Management System</h6>
-                        </div>
-                    </div>
-                    <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
-                            <div class="hrmax-feature-icon-wrapper border-border d-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-round-icon lucide-users-round">
-                                    <path d="M18 21a8 8 0 0 0-16 0" />
-                                    <circle cx="10" cy="8" r="5" />
-                                    <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
-                                </svg>
-                            </div>
-                            <h6 class="urbanist text-muted-foreground mb-0">Employee Information System</h6>
-                        </div>
-                    </div>
-                    <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom p-4 p-md-5">
-                            <div class="hrmax-feature-icon-wrapper border-border d-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock-icon lucide-clock">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M12 6v6l4 2" />
-                                </svg>
-                            </div>
-                            <h6 class="urbanist text-muted-foreground mb-0">Timekeeping System</h6>
-                        </div>
-                    </div>
-                    <div class="col px-0">
-                        <div class="border-color-border h-100 border-start border-top border-bottom  border-end p-4 p-md-5">
-                            <div class="hrmax-feature-icon-wrapper border-border d-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge-icon lucide-gauge">
-                                    <path d="m12 14 4-4" />
-                                    <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-                                </svg>
-                            </div>
-                            <h6 class="urbanist text-muted-foreground mb-0">Performance Appraisal System</h6>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section> -->
-
         <!-- HRMAX BENEFITS  -->
         <section id="hrmax-benefits" class="py-5">
             <div class="d-center flex-column">
@@ -506,47 +342,91 @@ function getContent($section_name, $content_key)
 
                 <p class="text-center text-muted-foreground mb-0 mx-auto mb-5" style="max-width:600px;">See how HRMAX makes a difference for you.</p>
             </div>
-            <div class="row mx-auto px-1 position-relative" style="max-width: 900px; isolation:isolate">
+            <div class="row mx-auto px-2 position-relative" style="max-width: 900px; isolation:isolate">
 
                 <div class="position-absolute hrmax-benefits-glow"></div>
-                <div class="col col-12 col-sm-6 px-2 mb-3">
-                    <div class="bg-glass border-border p-4 rounded-4">
-                        <h5 class="urbanist mb-3">HR Process Standardization</h5>
-                        <p class="text-muted-light mb-0">✓ Comprehensive standardization tool for Human Resource Department operational processes.</p>
+                <div class="col col-12 col-sm-6 px-2 mb-2 mb-sm-3">
+                    <div class="bg-glass h-100 border-border p-4 rounded-4">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div style="background-color: red;" class="small-box"></div>
+                            <h5 class="urbanist mb-0">
+                                HR Process Standardization
+                            </h5>
+                        </div>
+                        <p class="text-muted-light mb-0">Comprehensive standardization tool for Human Resource Department operational processes.</p>
                     </div>
                 </div>
-                <div class="col col-12 col-sm-6 px-2 mb-3">
-                    <div class="bg-glass border-border p-4 rounded-4">
-                        <h5 class="urbanist mb-3">Hybrid System Design</h5>
-                        <p class="text-muted-light mb-0">✓ Comprehensive standardization tool for Human Resource Department operational processes.</p>
+                <div class="col col-12 col-sm-6 px-2 mb-2 mb-sm-3">
+                    <div class="bg-glass h-100 border-border p-4 rounded-4">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div style="background-color: red;" class="small-box"></div>
+                            <h5 class="urbanist mb-0">
+                                Hybrid System Design
+                            </h5>
+                        </div>
+                        <p class="text-muted-light mb-0">Combination of desktop design and browser-based design.</p>
                     </div>
                 </div>
-                <div class="col col-12 col-sm-6 px-2 mb-3">
-                    <div class="bg-glass border-border p-4 rounded-4">
-                        <h5 class="urbanist mb-3">HR Process Standardization</h5>
-                        <p class="text-muted-light mb-0">✓ Comprehensive standardization tool for Human Resource Department operational processes.</p>
+                <div class="col col-12 col-sm-6 px-2 mb-2 mb-sm-3">
+                    <div class="bg-glass h-100 border-border p-4 rounded-4">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div style="background-color: white;" class="small-box"></div>
+                            <h5 class="urbanist mb-0">
+                                Cost-Effective & Reliable System
+                            </h5>
+                        </div>
+                        <p class="text-muted-light mb-0">
+                            ✓ Cost effective and dependable: <br>
+                            It’s OPEX not CAPEX <br>
+                            Zero cost for secure and reliable server open-source technology (PostgreSQL & CentOS Linux).
+                        </p>
                     </div>
                 </div>
-                <div class="col col-12 col-sm-6 px-2 mb-3">
-                    <div class="bg-glass border-border p-4 rounded-4">
-                        <h5 class="urbanist mb-3">HR Process Standardization</h5>
-                        <p class="text-muted-light mb-0">✓ Comprehensive standardization tool for Human Resource Department operational processes.</p>
+                <div class="col col-12 col-sm-6 px-2 mb-2 mb-sm-3">
+                    <div class="bg-glass h-100 border-border p-4 rounded-4">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div style="background-color: white;" class="small-box"></div>
+                            <h5 class="urbanist mb-0">
+                                Flexible Deployment
+                            </h5>
+                        </div>
+                        <p class="text-muted-light mb-0">Unlimited Workstation installation</p>
                     </div>
                 </div>
-                <div class="col col-12 col-sm-6 px-2 mb-3">
-                    <div class="bg-glass border-border p-4 rounded-4">
-                        <h5 class="urbanist mb-3">HR Process Standardization</h5>
-                        <p class="text-muted-light mb-0">✓ Comprehensive standardization tool for Human Resource Department operational processes.</p>
+                <div class="col col-12 col-sm-6 px-2 mb-2 mb-sm-3">
+                    <div class="bg-glass h-100 border-border p-4 rounded-4">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div style="background-color: blue;" class="small-box"></div>
+                            <h5 class="urbanist mb-0">
+                                HR Operations Management
+                            </h5>
+                        </div>
+                        <p class="text-muted-light mb-0">Resource Department operational processes.</p>
                     </div>
                 </div>
-                <div class="col col-12 col-sm-6 px-2 mb-3">
+                <div class="col col-12 col-sm-6 px-2 mb-2 mb-sm-3">
                     <div class="bg-glass border-border p-4 rounded-4">
-                        <h5 class="urbanist mb-3">HR Process Standardization</h5>
-                        <p class="text-muted-light mb-0">✓ Comprehensive standardization tool for Human Resource Department operational processes.</p>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div style="background-color: blue;" class="small-box"></div>
+                            <h5 class="urbanist mb-0">
+                                Full Support Services
+                            </h5>
+                        </div>
+                        <p class="text-muted-light mb-0">Unlimited off-site support in every phase.</p>
                     </div>
                 </div>
-                <div class="col col-12 px-2 mb-3">
-                    <div class="bg-glass border-border p-4 rounded-4"></div>
+                <div class="col col-12 px-2 mb-2 mb-sm-3">
+                    <div class="d-flex justify-content-center">
+                        <div style="max-width: 400px;" class="w-100 bg-glass border-border p-4 rounded-4">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <div style="background-color: gray;" class="small-box"></div>
+                                <h5 class="urbanist mb-0">
+                                    Scalable User Access
+                                </h5>
+                            </div>
+                            <p class="text-muted-light mb-0">Unlimited users.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -618,10 +498,10 @@ function getContent($section_name, $content_key)
         ];
         ?>
 
-        <div style="max-width: 900px;" class="mx-auto py-5 row row-cols-1 row-cols-md-2 no-gutter">
+        <div style="max-width: 900px;" class="mx-auto py-5 row row-cols-1 row-cols-md-2 no-gutter px-2">
 
             <?php foreach ($plans as $plan): ?>
-                <div class="col mb-3">
+                <div class="col px-2 mb-3">
                     <div class="bg-glass h-100 p-3 p-md-5 d-flex flex-column border-thin rounded-4">
 
                         <h5 class="mb-3 urbanist"><?= htmlspecialchars($plan['title']) ?></h5>
@@ -659,12 +539,12 @@ function getContent($section_name, $content_key)
     </main>
 
     <!-- FOOTER  -->
-    <footer>
+    <footer class="bg-background">
         <div class="glow-4"></div>
         <div class="upper-footer max-w-wrapper mx-auto">
             <div class="row">
                 <div class="col-12 mb-3 flex-grow-1 col-sm-4 d-flex flex-column align-items-center align-items-md-start">
-                    <img src="assets/png/nexen-logo.png" style="width: 90px; aspect-ratio:5/5" class="mb-3" alt="">
+                    <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" style="width: 90px; aspect-ratio:5/5" class="mb-3" alt="">
                     <p class="fw-semibold text-center text-md-start">NEXEN INNOVATION TECHNOLOGIES</p>
                 </div>
                 <div class="col-12 mb-3 flex-grow-1 col-md-2 d-flex flex-column align-items-center align-items-md-start">
@@ -698,22 +578,21 @@ function getContent($section_name, $content_key)
                 <small class="fs-7 text-muted-foreground">Copyright NEXEN All Rights Reserved</small>
 
                 <div class="d-flex align-items-center gap-1 mt-3 mt-sm-0">
-                    <div class="footer-icon-wrapper">
+                    <a href="<?= htmlspecialchars(getContent("contact", "link-facebook")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-facebook"></i>
-                    </div>
-                    <div class="footer-icon-wrapper">
+                    </a>
+                    <a href="<?= htmlspecialchars(getContent("contact", "link-linkedin")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-linkedin"></i>
-                    </div>
-
-                    <div class="footer-icon-wrapper">
+                    </a>
+                    <a href="<?= htmlspecialchars(getContent("contact", "link-instagram")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-instagram"></i>
-                    </div>
-                    <div class="footer-icon-wrapper">
+                    </a>
+                    <a href="mailto:<?= htmlspecialchars(getContent("contact", "c-email")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-envelope-fill"></i>
-                    </div>
-                    <div class="footer-icon-wrapper">
+                    </a>
+                    <a href="<?= htmlspecialchars(getContent("contact", "link-youtube")) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-wrapper">
                         <i class="bi bi-youtube"></i>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
