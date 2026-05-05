@@ -144,11 +144,19 @@ $herroTitleArr = explode(" ", $heroTitle);
           <button onclick="window.location.href='about'"><span>About</span></button>
         </div>
 
+        <!-- right side navbar  -->
         <div class="d-flex align-items-center gap-2 ms-auto">
           <div class="talk-to-us">
             <button onclick="window.location.href='contact'">Contact Us</button>
           </div>
-          <button onclick="window.location.href='login'" class="btn text-secondary-foreground nav-login-btn fs-7">Admin Login</button>
+          <div class="dropdown">
+            <button>Gateway</button>
+            <div class="dropdown-content">
+              <a href="#" style="--i:1">Get Support</a>
+              <a href="#" style="--i:2">Employee Portal</a>
+              <a href="login" style="--i:3">Admin Portal</a>
+            </div>
+          </div>
         </div>
       </div>
 

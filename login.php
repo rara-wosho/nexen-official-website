@@ -462,7 +462,9 @@ function getContent($section_name, $content_key)
                         <polyline points="16 18 22 12 16 6"></polyline>
                         <polyline points="8 6 2 12 8 18"></polyline>
                     </svg> -->
-                    <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" alt="">
+                    <a href="<?= url("/") ?>">
+                        <img src="<?= htmlspecialchars(getContent("official-logo", "nexen-logo")) ?>" alt="">
+                    </a>
                 </div>
                 <span class="nx-brand-name">NEXEN INNOVATION TECHNOLOGIES</span>
             </div>

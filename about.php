@@ -170,7 +170,14 @@ $members = getTeamMembers();
                     <div class="talk-to-us">
                         <button onclick="window.location.href='contact'">Contact Us</button>
                     </div>
-                    <button onclick="window.location.href='login'" class="btn text-secondary-foreground nav-login-btn fs-7">Admin Login</button>
+                    <div class="dropdown">
+                        <button>Gateway</button>
+                        <div class="dropdown-content">
+                            <a href="#" style="--i:1">Get Support</a>
+                            <a href="#" style="--i:2">Employee Portal</a>
+                            <a href="login" style="--i:3">Admin Portal</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -355,7 +362,7 @@ $members = getTeamMembers();
                                             <rect x="2" y="15" width="20" height="4" rx="1" />
                                         </svg>
                                     </div>
-                                    <p class="fw-bold mb-0 ms-2 urbanist">Engineering that Performs</p>
+                                    <p class="fw-bold mb-0 ms-2 urbanist"><?= getContent("core-values", "value-label-1") ?></p>
                                 </div>
                                 <p class="text-muted-light fs-7 urbanist"><?= getContent("core-values", "value-1") ?></p>
                             </div>
@@ -368,7 +375,7 @@ $members = getTeamMembers();
                                             <path d="M10 22h4" />
                                         </svg>
                                     </div>
-                                    <p class="fw-medium mb-0 ms-2">eXecution that Delivers</p>
+                                    <p class="fw-medium mb-0 ms-2"><?= getContent("core-values", "value-label-2") ?></p>
                                 </div>
                                 <p class="text-muted-light fs-7 urbanist">
                                     <?= getContent("core-values", "value-2") ?>
@@ -386,7 +393,7 @@ $members = getTeamMembers();
                                             <circle cx="10" cy="8" r="5" />
                                             <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
                                         </svg></div>
-                                    <p class="fw-medium mb-0 ms-2">Client-Centric</p>
+                                    <p class="fw-medium mb-0 ms-2"><?= getContent("core-values", "value-label-3") ?></p>
                                 </div>
                                 <p class="text-muted-light fs-7 urbanist"><?= getContent("core-values", "value-3") ?></p>
                             </div>
