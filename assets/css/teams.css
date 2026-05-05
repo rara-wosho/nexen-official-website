@@ -39,14 +39,17 @@ body {
 .fs-7 {
     font-size: 12px;
 }
+
 .d-center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .outliner {
     border: 1px solid red;
 }
+
 .max-w-wrapper {
     max-width: 1320px;
     padding-inline: 18px;
@@ -68,10 +71,12 @@ td {
     font-size: 14px;
     color: rgb(60, 60, 60) !important;
 }
+
 .table-wrapper {
     min-width: 100%;
     overflow-x: auto;
 }
+
 th {
     white-space: nowrap;
 }
@@ -81,6 +86,11 @@ th {
     padding-block: 8px;
     padding-inline-start: 38px;
     padding-inline-end: 12px;
+}
+
+.btn-white {
+    background-color: white;
+    border: 1px solid gray !important;
 }
 
 .btn-primary {
