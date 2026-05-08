@@ -60,6 +60,24 @@ function getContent($section_name, $content_key)
     return '';
 }
 
+function getDepartments()
+{
+    global $connection;
+
+    try {
+        $query = "SELECT * FROM departments ORDER BY id ASC";
+
+        $stmt = $connection->prepare($query);
+        $stmt->execute();
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results ?: [];
+    } catch (PDOException $e) {
+        die("Query failed: " . $e->getMessage());
+    }
+}
+
 function getTeamMembers()
 {
     global $connection;
@@ -84,6 +102,7 @@ function getTeamMembers()
 
 // Store the result in the $members variable
 $members = getTeamMembers();
+$departments = getDepartments();    
 ?>
 
 <!DOCTYPE html>
@@ -462,30 +481,32 @@ $members = getTeamMembers();
                 <p class="text-muted-foreground fs-7">Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary.</p>
             </div>
 
-            <div class="row row-cols-1 px-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-                <?php if (!empty($members)): ?>
-                    <?php foreach ($members as $member): ?>
+            <div class="row row-cols-1 px-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5">
+                <?php if (!empty($departments)): ?>
+                    <?php foreach ($departments as $department): ?>
                         <div class="col mb-3 px-2">
-                            <div class="border-border bg-glass p-4 rounded-3 h-100">
+                            <a href="department?id=<?= $department['id'] ?>" class="text-decoration-none">
+                            <div class="border-border p-3 rounded-3 h-100 department-card-hover">
                                 <?php
                                 // Use the image from the database, fallback to default if empty or invalid
-                                $src = !empty($member['avatar']) ? $member['avatar'] : 'https://placehold.co/600x400';
+                                $src = !empty($department['department_image']) ? $department['department_image'] : 'https://placehold.co/600x400';
 
                                 ?>
 
-                                <img src="uploads/avatars/<?= htmlspecialchars($src) ?>"
+                                <img src="uploads/departments/<?= htmlspecialchars($src) ?>"
                                     class="w-100 rounded-1"
-                                    style="aspect-ratio: 5/6; object-fit:cover;"
-                                    alt="<?= htmlspecialchars($member['full_name'] ?? 'Team Member') ?>">
+                                    style="aspect-ratio: 1/1; object-fit:full;"
+                                    alt="<?= htmlspecialchars($department['department_name'] ?? 'Department') ?>">
 
                                 <h5 class="text-secondary-foreground text-center mt-4 urbanist">
-                                    <?= htmlspecialchars($member['full_name'] ?? 'Unknown Member') ?>
+                                    <?= htmlspecialchars($department['department_name'] ?? 'Unknown Department') ?>
                                 </h5>
 
                                 <p class="text-muted-light fs-7 text-center mb-0 urbanist">
-                                    <?= htmlspecialchars($member['position'] ?? 'Team Member') ?>
+                                    <?= htmlspecialchars($department['department_description'] ?? 'Department') ?>
                                 </p>
                             </div>
+                            </a>
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
